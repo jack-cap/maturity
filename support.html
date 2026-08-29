@@ -45,20 +45,54 @@
 
     <h2>Getting started</h2>
     <ol>
-      <li><strong>Set your opening balance.</strong> Record the cash you currently have available to place. This is the first entry in your ledger.</li>
-      <li><strong>Add your existing deposits.</strong> Enter each one with its real start date, even if that's in the past. Free cash may go negative while you do this, which is expected.</li>
-      <li><strong>Reconcile once.</strong> Enter what your bank actually shows and the app records the difference, squaring everything up in one step.</li>
+      <li><strong>Set your opening balance.</strong> Enter the cash you can actually deploy right now — the balance showing in the account you place deposits from. Don't add the principal of deposits you already hold.</li>
+      <li><strong>Add the deposits you already hold.</strong> Enter each with its real start date, even if that's months ago. On each one set <em>Funding</em> to <strong>&ldquo;already open before I started tracking&rdquo;</strong>, and no cash movement is recorded for the principal — your bank took that money out before this ledger existed.</li>
+      <li><strong>Check the figure.</strong> Free cash should already match your bank. If it doesn't, use <em>Reconcile cash</em> to record the difference.</li>
     </ol>
+
+    <div class="callout">
+      <p>
+        <strong>The one thing worth getting right.</strong> Free cash is the sum of your
+        transaction history. If you enter today's bank balance as your opening figure and
+        then let a deposit you opened last week subtract its principal, that money comes
+        out twice — once by your bank, once by the app — and you'll be short by the
+        principal. The <em>Funding</em> setting on each deposit is there to prevent
+        exactly that.
+      </p>
+    </div>
 
     <h2>Frequently asked</h2>
 
     <details>
-      <summary>Why is my free cash negative?</summary>
+      <summary>How do I add deposits I already hold?</summary>
       <p>
-        Because you've recorded deposits that were funded before you started tracking, so the
-        money leaving was logged but the money that funded it never was. Use <em>Reconcile
-        cash</em>, enter your real bank balance, and the app inserts the adjustment needed to
-        make them agree.
+        Enter each one normally, with its real start date, and set <em>Funding</em> to
+        &ldquo;already open before I started tracking&rdquo;. That records the deposit
+        without a cash movement, because the principal left your account before your
+        ledger existed. The deposit still appears in Positions, still drives the ladder,
+        and still credits your cash when it matures.
+      </p>
+      <p>
+        There's a second approach that also works, if you prefer it: set your opening
+        balance to your cash <em>plus</em> the principal of every deposit you hold, then
+        leave each deposit funded from free cash as normal. The arithmetic lands in the
+        same place. It just means remembering the rule for every deposit, and one slip
+        leaves you short.
+      </p>
+    </details>
+
+    <details>
+      <summary>Why is my free cash lower than my bank shows?</summary>
+      <p>
+        Almost always because a deposit you opened before you started tracking is set to
+        be funded from free cash. The app subtracts the principal, but your bank already
+        subtracted it, so the same money is gone twice.
+      </p>
+      <p>
+        Open the deposit, change <em>Funding</em> to &ldquo;already open before I started
+        tracking&rdquo;, and save. The cash movement is removed and your free cash goes
+        back up by the principal. If the figures still disagree after that, use
+        <em>Reconcile cash</em> to record the remaining difference.
       </p>
     </details>
 
