@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support — Maturity</title>
+<meta name="description" content="Help, FAQ and contact details for Maturity, the term deposit tracker for iPhone, iPad and Mac.">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="./">
+      <span class="glyph" aria-hidden="true">M</span>
+      Maturity
+    </a>
+    <nav class="site" aria-label="Site">
+      <a href="./">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="support.html">Support</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section>
+  <div class="wrap prose">
+
+    <h1 style="font-size:clamp(1.7rem,4vw,2.3rem); letter-spacing:-0.025em; margin:0 0 8px;">
+      Support
+    </h1>
+    <p class="updated">Maturity for iPhone, iPad and Mac.</p>
+
+    <div class="callout">
+      <p>
+        <strong>Get in touch:</strong> open an issue at
+        <a href="https://github.com/jack-cap/maturity/issues">github.com/jack-cap/maturity/issues</a>.
+        Bug reports, calculation queries and feature requests all welcome. Please say which
+        device and OS version you're on, and for a calculation question include the deposit
+        terms so the figures can be reproduced.
+      </p>
+    </div>
+
+    <h2>Getting started</h2>
+    <ol>
+      <li><strong>Set your opening balance.</strong> Record the cash you currently have available to place. This is the first entry in your ledger.</li>
+      <li><strong>Add your existing deposits.</strong> Enter each one with its real start date, even if that's in the past. Free cash may go negative while you do this, which is expected.</li>
+      <li><strong>Reconcile once.</strong> Enter what your bank actually shows and the app records the difference, squaring everything up in one step.</li>
+    </ol>
+
+    <h2>Frequently asked</h2>
+
+    <details>
+      <summary>Why is my free cash negative?</summary>
+      <p>
+        Because you've recorded deposits that were funded before you started tracking, so the
+        money leaving was logged but the money that funded it never was. Use <em>Reconcile
+        cash</em>, enter your real bank balance, and the app inserts the adjustment needed to
+        make them agree.
+      </p>
+    </details>
+
+    <details>
+      <summary>How is interest calculated?</summary>
+      <p>
+        Simple interest accrued daily: principal &times; rate &times; days &divide; 365. That
+        actual/365 basis is what Australian retail term deposits use. Actual/360 and 30/360
+        are also selectable per deposit for products that quote on a different convention.
+        Interest is rounded to the nearest cent at the end of each accrual period, which is
+        what banks do, so a periodic-paying deposit can total a cent or two away from a
+        single whole-term calculation.
+      </p>
+    </details>
+
+    <details>
+      <summary>The app's figure doesn't match my bank's. Which is right?</summary>
+      <p>
+        Your bank's. Every calculated figure in Maturity is editable for exactly this reason —
+        look for the option to use your bank's quoted amount. Common causes of a small
+        difference are a different day-count basis, interest starting the day after deposit
+        rather than the same day, or the bank rounding at different points. Enter the real
+        number and the app records that.
+      </p>
+    </details>
+
+    <details>
+      <summary>How does breaking a deposit early work?</summary>
+      <p>
+        Australian institutions generally don't touch your principal on an early break. They
+        recalculate the interest at a reduced rate, cut more heavily the earlier you break,
+        and most require around 31 days' notice before releasing funds. Maturity records the
+        notice and the settlement as two separate stages so your cash forecast stays accurate
+        across the gap. It estimates the reduced interest using a typical banded schedule,
+        but the reduction isn't standardised, so ask your bank for the exact figure and type
+        it in.
+      </p>
+    </details>
+
+    <details>
+      <summary>What happens when a deposit rolls over?</summary>
+      <p>
+        Use <em>Roll over</em> rather than collecting and re-placing. It closes the old
+        deposit, opens the new one, and records both legs, so your history shows the money
+        never passed through your everyday account. You can roll part of the proceeds and
+        keep the rest as cash, which is common when you want to take the interest as income
+        and reinvest only the principal. The new rate is left blank on purpose: banks apply
+        whatever rate is current on the roll date, not your old one.
+      </p>
+    </details>
+
+    <details>
+      <summary>Why does the app ask me to confirm interest payments?</summary>
+      <p>
+        For deposits that pay monthly or quarterly, the app knows when a payment is due but
+        won't write it to your ledger on its own. Putting unconfirmed figures in your history
+        would work against reconciliation and leave you with numbers you never checked.
+        Instead it prompts you on the Summary screen and you accept with one tap, or amend
+        the amount first.
+      </p>
+    </details>
+
+    <details>
+      <summary>My devices aren't syncing.</summary>
+      <p>
+        Check that both devices are signed in to the same Apple Account and have iCloud Drive
+        turned on, and that Maturity is enabled in your iCloud settings. Sync needs a network
+        connection and can take a moment to settle. Bringing the app to the foreground on
+        both devices usually prompts an exchange. If a device has no iCloud account at all
+        the app still works and keeps data locally.
+      </p>
+    </details>
+
+    <details>
+      <summary>Is my data backed up?</summary>
+      <p>
+        If iCloud sync is on, your records exist in your private iCloud container as well as
+        on each device, so losing one device doesn't lose the data. That is not a substitute
+        for a considered backup strategy. The developer holds no copy and cannot recover
+        anything on your behalf.
+      </p>
+    </details>
+
+    <details>
+      <summary>Can it connect to my bank automatically?</summary>
+      <p>
+        No, by design. Maturity never asks for banking credentials and never contacts a
+        financial institution. Everything is entered by hand, which means there's no
+        credential to leak and no third party sitting between you and your bank.
+      </p>
+    </details>
+
+    <details>
+      <summary>Does deleting a deposit change my cash balance?</summary>
+      <p>
+        Not by default. Deleting a deposit keeps its cash movements in the ledger, so free
+        cash is unaffected — removing a record shouldn't quietly rewrite your cash history.
+        If you're cleaning up something entered by mistake, choose the option to delete the
+        deposit together with its history.
+      </p>
+    </details>
+
+    <h2>Reporting a calculation problem</h2>
+    <p>
+      Interest maths is the part worth getting right, so these reports are especially
+      welcome. Include:
+    </p>
+    <ul>
+      <li>Principal, rate, start date and maturity date</li>
+      <li>Interest payment frequency and the day-count basis you selected</li>
+      <li>The figure the app showed, and the figure your bank gave you</li>
+    </ul>
+
+    <h2>Not financial advice</h2>
+    <p>
+      Maturity is a record-keeping and calculation tool. It does not provide financial,
+      investment or taxation advice and does not recommend products or institutions. Confirm
+      anything material with your institution or a licensed adviser.
+    </p>
+
+  </div>
+</section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>&copy; 2026 Maturity</span>
+    <span class="spacer"></span>
+    <a href="./">Home</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="support.html">Support</a>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maturity — term deposit tracking for iPhone, iPad and Mac</title>
+<meta name="description" content="Track term deposits, maturity dates and free cash across iPhone, iPad and Mac. Interest calculated on an actual/365 basis. Your data stays in your own iCloud.">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="styles.css">
+
+<meta property="og:title" content="Maturity — term deposit tracking">
+<meta property="og:description" content="See what's maturing, what it's earning, and what you've got free to deploy. iPhone, iPad and Mac.">
+<meta property="og:type" content="website">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="./">
+      <span class="glyph" aria-hidden="true">M</span>
+      Maturity
+    </a>
+    <nav class="site" aria-label="Site">
+      <a href="#features">Features</a>
+      <a href="#maths">How interest works</a>
+      <a href="#privacy-summary">Privacy</a>
+      <a href="support.html">Support</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<div class="hero">
+  <div class="wrap">
+    <span class="pill">iPhone &middot; iPad &middot; Mac</span>
+    <h1>Know what's maturing, and what's sitting idle.</h1>
+    <p class="lede">
+      Maturity tracks your term deposits across every bank you use: what each one earns,
+      when it matures, and how much cash you actually have free to deploy. Built for
+      Australian term deposits, with the interest maths done properly.
+    </p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="support.html">Support &amp; FAQ</a>
+      <a class="btn btn-ghost" href="privacy.html">Privacy policy</a>
+    </div>
+    <p class="note">One purchase covers iPhone, iPad and Mac. No subscription, no account to create.</p>
+  </div>
+</div>
+
+<section id="features">
+  <div class="wrap">
+    <h2>Three screens, no clutter</h2>
+    <p class="sub">
+      Everything is one tap from where you land. No dashboards to configure and no
+      onboarding to sit through.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <div class="icon" aria-hidden="true">&#9776;</div>
+        <h3>Summary</h3>
+        <p>
+          Free cash, your principal-weighted average yield, and a twelve-month ladder
+          showing exactly which months bring money back. Empty months are shown too,
+          because a gap in the ladder is the useful part.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon" aria-hidden="true">&#9673;</div>
+        <h3>Positions</h3>
+        <p>
+          Every deposit, active and closed, sortable by bank, rate, term or maturity
+          date. On the Mac it's a proper resizable table with click-to-sort headers.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon" aria-hidden="true">&#8644;</div>
+        <h3>Transactions</h3>
+        <p>
+          A complete ledger with a running balance on every row. Your free cash is this
+          list added up, so if a figure ever looks wrong you can scroll until the
+          balance stops matching.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon" aria-hidden="true">&#8635;</div>
+        <h3>Roll-overs, handled</h3>
+        <p>
+          Most Australian term deposits roll automatically if you give no instructions
+          before maturity. Maturity treats that as a first-class event, not an edge
+          case, and lets you roll part of the proceeds while keeping the rest as cash.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon" aria-hidden="true">&#9986;</div>
+        <h3>Breaking early, honestly</h3>
+        <p>
+          Records the 31 days' notice most banks require, estimates the reduced interest,
+          then lets you replace it with the figure your bank actually quotes. Logged as
+          its own transaction type so your history stays clear about what ran full term.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon" aria-hidden="true">&#61;</div>
+        <h3>Reconcile as a diff</h3>
+        <p>
+          Type what your bank shows. The app works out the difference and its direction,
+          then records the adjustment as a dated correction. Nothing to calculate in your
+          head, and no way to get the sign backwards.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="maths">
+  <div class="wrap">
+    <h2>The interest maths, stated plainly</h2>
+    <p class="sub">
+      Australian retail term deposits pay <strong>simple</strong> interest accrued daily
+      on an <strong>actual/365</strong> basis. That's the default. Every figure the app
+      calculates is a starting point you can overwrite with whatever your bank quotes.
+    </p>
+
+    <table>
+      <caption class="visually-hidden">Worked example of interest on a term deposit</caption>
+      <thead>
+        <tr><th scope="col">Example</th><th scope="col">Basis</th><th scope="col">Interest</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>$100,000 at 4.85% p.a. for 365 days</td>
+          <td>Actual/365</td>
+          <td class="num">$4,850.00</td>
+        </tr>
+        <tr>
+          <td>$100,000 at 4.85% p.a. for 90 days</td>
+          <td>Actual/365</td>
+          <td class="num">$1,195.89</td>
+        </tr>
+        <tr>
+          <td>The same 90 days on a 360-day year</td>
+          <td>Actual/360</td>
+          <td class="num">$1,212.50</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p style="color:var(--text-dim); max-width:62ch;">
+      That last row is why the basis matters: a 360-day year overstates the return by
+      about 1.4%. Actual/360 and 30/360 are both available per deposit for the odd
+      product that quotes on them, but actual/365 is what an Australian retail deposit
+      uses.
+    </p>
+
+    <div class="callout">
+      <p>
+        Money is stored as whole cents and rates as whole basis points, never as
+        floating-point numbers. Your balance is the exact sum of your transactions, not
+        an approximation that drifts by a cent every few hundred entries.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="privacy-summary">
+  <div class="wrap">
+    <h2>Your figures stay yours</h2>
+    <p class="sub">
+      Maturity has no server. There is no account to create, nothing to log in to, and
+      no analytics.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Stored on your devices</h3>
+        <p>
+          Your data lives on your iPhone, iPad and Mac, and syncs through your own
+          private iCloud container using CloudKit. It never passes through any
+          infrastructure belonging to the developer.
+        </p>
+      </div>
+      <div class="card">
+        <h3>No bank connections</h3>
+        <p>
+          Maturity never asks for banking credentials and never connects to a financial
+          institution. You enter what you know; nothing is fetched on your behalf.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Nothing collected</h3>
+        <p>
+          No analytics SDKs, no advertising identifiers, no crash-reporting third
+          parties, no tracking of any kind.
+        </p>
+      </div>
+    </div>
+
+    <p style="margin-top:26px;">
+      <a class="btn btn-ghost" href="privacy.html">Read the full privacy policy</a>
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Not financial advice</h2>
+    <p class="sub" style="margin-bottom:0;">
+      Maturity is a record-keeping and calculation tool. It does not provide financial,
+      investment or taxation advice, and it does not recommend products or institutions.
+      Figures it calculates are estimates based on what you enter — your bank's own
+      statements and quotes are always the authority. Confirm anything that matters with
+      your institution or a licensed adviser.
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>&copy; 2026 Maturity</span>
+    <span class="spacer"></span>
+    <a href="privacy.html">Privacy</a>
+    <a href="support.html">Support</a>
+    <a href="https://github.com/jack-cap/maturity/issues">Report an issue</a>
+  </div>
+</footer>
+
+</body>
+</html>
