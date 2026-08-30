@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy policy — Maturity</title>
-<meta name="description" content="Maturity collects no personal data. Your term deposit records stay on your devices and in your own private iCloud container.">
+<meta name="description" content="Maturity does not collect your financial records. Data stays on your devices and in your own private iCloud container unless you explicitly export and share it.">
 <meta name="color-scheme" content="light dark">
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -18,6 +18,7 @@
     </a>
     <nav class="site" aria-label="Site">
       <a href="./">Home</a>
+      <a href="docs.html">Docs</a>
       <a href="privacy.html">Privacy</a>
       <a href="support.html">Support</a>
     </nav>
@@ -35,164 +36,179 @@
 
     <div class="callout">
       <p>
-        <strong>The short version.</strong> Maturity collects nothing. It has no server, no
-        analytics and no account system. Your records stay on your own devices and sync
-        only through your personal iCloud. The developer cannot see your data, and has
-        built no mechanism that would allow it. One optional feature fetches published
-        exchange rates; it sends currency codes and nothing about you, and it is off until
-        you turn it on. Details in section 5.
+        <strong>The short version.</strong> Maturity has no developer-operated server,
+        analytics or account system. Your records stay on your devices and sync only through
+        your private iCloud container. The developer cannot see them. The optional exchange-rate
+        feature sends currency codes but no portfolio records. Exports are created locally only
+        when you ask, and any recipient you choose has its own privacy terms.
       </p>
     </div>
 
     <h2>1. What data the app holds</h2>
-    <p>
-      Maturity stores only what you type into it. That is:
-    </p>
+    <p>Maturity stores only what you type into it. That includes:</p>
     <ul>
-      <li>Names of banks or institutions, and any account or certificate reference you choose to add</li>
-      <li>Deposit amounts, interest rates, start and maturity dates, interest payment frequency and day-count basis</li>
-      <li>Your cash transaction history, including opening balances, deposits placed, interest received, maturities collected, early breaks, fees and reconciliation adjustments</li>
-      <li>Any notes or memos you write</li>
+      <li>Institution and account names, and optional account or certificate references</li>
+      <li>Deposit amounts, interest rates, dates, payment frequencies and day-count bases</li>
+      <li>Cash transactions, including opening balances, deposits, interest, maturities, early breaks, fees, transfers and reconciliation adjustments</li>
+      <li>Notes and transaction memos</li>
     </ul>
     <p>
       The app does not ask for your name, email address, date of birth, location, contacts,
-      photos, or any device identifier.
+      photos, banking credentials, advertising identifier or device identifier.
     </p>
     <p>
-      If you enable the optional indicative conversion described in section 5, the app also
-      keeps the exchange rates it fetched and the dates they were published. Those are public
-      reference figures rather than anything about you, they are held only on the device that
-      fetched them, and turning the feature off deletes them.
+      If indicative conversion is enabled, the app also caches public exchange rates, their
+      publication dates and the service's supported-currency list on that device. Disabling
+      the feature deletes this fetched cache.
     </p>
 
     <h2>2. Where that data lives</h2>
     <p>
-      Records are stored locally on the device, in the app's own storage. If you are signed
-      in to iCloud and have iCloud Drive enabled, they also sync to a
-      <strong>private CloudKit container</strong> tied to your Apple Account, so your
-      iPhone, iPad and Mac stay in step.
+      Records are stored locally in the app's container. When you are signed into iCloud with
+      iCloud Drive available, they also sync through a <strong>private CloudKit container</strong>
+      associated with your Apple Account.
     </p>
     <p>
-      That container is private by design. Apple operates the storage and processes it as
-      part of your iCloud data under
-      <a href="https://www.apple.com/legal/privacy/">Apple's privacy policy</a>. The
-      developer of Maturity has no access to it, no credentials for it, and no ability to
-      read, export or recover its contents.
-    </p>
-    <p>
-      If you are not signed in to iCloud, the app works normally and keeps everything on
-      the single device.
+      Apple operates that storage under
+      <a href="https://www.apple.com/legal/privacy/">Apple's privacy policy</a>. Maturity's
+      developer has no credentials or mechanism for reading, exporting or recovering its
+      contents. Without iCloud, the app continues to work with local storage only.
     </p>
 
     <h2>3. What is not collected</h2>
     <ul>
-      <li><strong>No analytics.</strong> The app contains no analytics or telemetry SDK, and reports no usage events anywhere.</li>
-      <li><strong>No tracking.</strong> No advertising identifiers, no fingerprinting, no cross-app or cross-site tracking, and no data shared with data brokers.</li>
-      <li><strong>No third-party SDKs.</strong> The app bundles no third-party code at all. Apple's own frameworks are the only dependencies. The optional rate lookup in section 5 is a plain HTTPS request the app makes itself, not a vendor library, and it has no account or API key.</li>
-      <li><strong>No crash reporting to the developer.</strong> If you have opted in to sharing diagnostics with Apple at the system level, Apple may provide the developer with anonymised crash reports. That is an Apple setting you control in Settings, and it contains no data you entered into the app.</li>
+      <li><strong>No analytics or telemetry.</strong> The App Store app reports no usage events to the developer.</li>
+      <li><strong>No tracking.</strong> No advertising identifiers, fingerprinting, cross-app or cross-site tracking, or data-broker sharing.</li>
+      <li><strong>No third-party SDKs in the app.</strong> The App Store binary uses Apple's frameworks. The separately built command-line and MCP tools described in section 7 are not part of the app binary.</li>
+      <li><strong>No developer-operated crash service.</strong> If you enable Apple's system diagnostic sharing, Apple may provide anonymised diagnostics under your Apple settings.</li>
       <li><strong>No advertising.</strong> The app shows none.</li>
     </ul>
     <p>
-      For App Store purposes, Maturity's privacy label is <strong>Data Not Collected</strong>.
+      For App Store purposes, the intended privacy answer is <strong>Data Not Collected</strong>
+      because the developer does not receive this data.
     </p>
 
     <h2>4. No connection to your bank</h2>
     <p>
-      Maturity never requests banking credentials and never connects to any financial
-      institution. There is no open banking integration, no screen scraping and no data
-      feed. Every figure in the app is one you entered by hand. This is deliberate: it
-      means there is no credential to be stolen and no third party in the middle.
-    </p>
-    <p>
-      The optional exchange-rate lookup is not an exception to this. It reads a public list of
-      published reference rates; it has no connection to any bank of yours, no knowledge of
-      your accounts, and no ability to move money.
+      Maturity never requests banking credentials and never connects to a financial institution,
+      uses open banking, scrapes an account or moves money. Every financial record is entered
+      manually. The optional rate service supplies public reference data only; it cannot see
+      bank accounts or transact with them.
     </p>
 
     <h2>5. Network activity</h2>
+    <p>The app can make network connections for two purposes:</p>
+    <ol>
+      <li><strong>Private iCloud sync.</strong> Records sync through Apple's CloudKit service to your own private container.</li>
+      <li><strong>Optional published exchange rates.</strong> If indicative conversion is enabled, the app may retrieve Frankfurter's public supported-currency list and request rates using ISO currency codes, for example <code>?base=HKD&amp;symbols=AUD,USD</code>.</li>
+    </ol>
     <p>
-      The app makes network connections for two purposes, one of which is optional and off by
-      default.
+      Rate requests contain no amounts, balances, institution names, record dates, notes,
+      references, record identifiers, API key or app-generated user identifier. Frankfurter
+      and its hosting infrastructure can see the request and ordinary network metadata such
+      as the source IP address and standard HTTP/TLS headers, and may process operational logs
+      under their own practices. The developer does not receive those logs. Leave indicative
+      conversion disabled if you do not want this connection.
     </p>
     <p>
-      <strong>iCloud sync.</strong> Your records sync with your own private CloudKit container
-      through Apple's service, as described in section 2. This is the only connection that
-      involves your data at all.
+      Fetched rates are held locally for offline estimates. They are never written into a
+      deposit, ledger entry, balance, interest calculation or yield. Converted totals are
+      visibly approximate and dated. Disabling the feature removes the fetched cache.
     </p>
+
+    <h2>6. User-triggered exports</h2>
     <p>
-      <strong>Published exchange rates, if you enable them.</strong> If you hold more than one
-      currency you can switch on an indicative conversion, which shows a single estimated total
-      across your currencies. Only then does the app request rates from
-      <a href="https://frankfurter.dev/">Frankfurter</a>, an open-source service that
-      republishes reference rates from central banks.
+      Maturity can create a versioned JSON analysis snapshot or a document package containing
+      separate CSV tables. Exporting is entirely local and occurs only after you open the
+      Export screen and press <strong>Export</strong>. The app does not automatically upload
+      an export, send it to an AI provider or expose its SwiftData store to another process.
     </p>
+    <p>Three privacy choices are available:</p>
     <ul>
-      <li><strong>What is sent:</strong> currency codes, and nothing else. A request looks like <code>?base=HKD&amp;symbols=AUD,USD</code>. There is no account, no API key, no identifier and no body.</li>
-      <li><strong>What is not sent:</strong> no amounts, no balances, no bank names, no dates from your records, no device identifier. Nothing you typed into the app leaves it.</li>
-      <li><strong>What the provider can see:</strong> the request itself and, as with any connection to any website, the IP address it came from. That is standard for all web traffic and is not something the app supplies deliberately, but it is the one piece of information that leaves which is not a currency code. If you would rather not have that happen, leave the setting off and the request is never made.</li>
-      <li><strong>What comes back</strong> is cached on the device so the figure survives being offline, and is deleted when you turn the setting off.</li>
+      <li><strong>Complete</strong> includes institution and account names, references, notes and transaction memos.</li>
+      <li><strong>Financial analysis</strong> replaces institution names with aliases and excludes references, notes and memos; account names remain.</li>
+      <li><strong>Redacted</strong>, the default, replaces institution and account names with export-specific aliases and excludes all user-entered free text.</li>
     </ul>
     <p>
-      Rates are never applied to any stored figure. Your balances, interest, yields and
-      per-currency totals are exactly what you recorded; the converted number is shown for
-      scale, marked as an estimate, and dated with the day its rate was published.
+      Aliases are consistent within one artifact but change when a new export is generated.
+      Amounts, rates, dates, currencies and record relationship identifiers remain so the
+      artifact can be analysed and its tables joined accurately. Review an export before
+      sharing it, particularly when choosing Complete or Financial analysis.
+    </p>
+    <p>
+      On Mac, the system save panel writes only to a location you select. On iPhone and iPad,
+      the system share sheet controls the destination. Any recipient or destination operates
+      under its own privacy terms. Temporary share files are removed when the flow ends; files
+      left by an interrupted process are removed the next time the Export screen opens.
     </p>
 
-    <h2>6. Deleting your data</h2>
+    <h2>7. Optional local analysis tools</h2>
+    <p>
+      The Maturity source repository provides separately built command-line and Model Context
+      Protocol (MCP) tools for validating and reading an export. These tools are not part of,
+      launched by or registered by the App Store app. They cannot open Maturity's SwiftData
+      store, private iCloud container or other live app data. They operate only on a JSON export
+      explicitly supplied by the user.
+    </p>
+    <p>
+      The MCP server is read-only. It can validate an embedded export and filter summary,
+      deposit, scheduled-cashflow, maturity-ladder, liquidity and attention rows already in
+      that artifact. It has no filesystem browsing, export-path access, network transport,
+      telemetry, record mutation or financial-action tools. It cannot create or edit deposits,
+      record transactions, move money or send instructions back to the app. The complete
+      technical boundary is documented on the <a href="docs.html">Docs page</a>.
+    </p>
+    <p>
+      The local tools do not upload exports by themselves. However, when you supply an export
+      to an MCP client, AI assistant or other analysis application, that client or its service
+      provider receives the artifact and may transmit, process, retain or log it under its own
+      terms. Prefer Redacted exports, inspect the artifact first and use only tools and providers
+      you trust. User-directed sharing does not give Maturity's developer access to the export.
+    </p>
+
+    <h2>8. Deleting your data</h2>
     <ul>
-      <li><strong>Individual records.</strong> Delete any deposit or transaction inside the app.</li>
-      <li><strong>Local copy.</strong> Delete the app from a device to remove its local storage on that device.</li>
-      <li>
-        <strong>iCloud copy.</strong> On iPhone or iPad, open Settings, tap your name, then
-        iCloud, then Manage Account Storage, and remove Maturity's data. On a Mac, open
-        System Settings, click your name, then iCloud, then Manage. Removing the app alone
-        does not clear the iCloud copy.
-      </li>
+      <li><strong>Individual records.</strong> Delete deposits or transactions inside the app.</li>
+      <li><strong>Local copy.</strong> Delete the app to remove its local container from that device.</li>
+      <li><strong>iCloud copy.</strong> Remove Maturity's data through the device's iCloud storage settings to delete the synced copy.</li>
     </ul>
     <p>
-      Because the developer holds no copy of your data, there is no deletion request to
-      submit and no one to ask. Deleting it on your side deletes it entirely.
+      Deleting the app alone may not remove its iCloud copy. Because the developer has no copy,
+      there is no developer-side account or dataset to delete on request.
     </p>
 
-    <h2>7. Children</h2>
+    <h2>9. Children</h2>
     <p>
-      Maturity is a personal finance tool intended for adults managing their own deposits.
-      It is not directed at children, and it collects no personal information from anyone,
-      including children.
+      Maturity is a personal finance record-keeping tool intended for adults. It is not directed
+      at children and does not collect personal information from them.
     </p>
 
-    <h2>8. Your rights</h2>
+    <h2>10. Your rights</h2>
     <p>
-      Privacy law in Australia (the Privacy Act 1988), the European Union (the GDPR), the
-      United Kingdom and elsewhere gives you rights to access, correct, export and erase
-      personal information a company holds about you. Maturity's developer holds no
-      personal information about you, so there is nothing to access or erase on request.
-      You have direct control over every record through the app itself and through your
-      iCloud settings.
+      The developer does not hold user records. You control records directly through the app
+      and your iCloud settings. Privacy rights concerning data processed by Apple are governed
+      by your relationship with Apple. Data you separately provide to an MCP client, AI assistant
+      or other recipient is governed by that recipient's terms and controls.
     </p>
 
-    <h2>9. Not financial advice</h2>
+    <h2>11. Not financial advice</h2>
     <p>
       Maturity is a record-keeping and calculation tool. It does not provide financial,
-      investment or taxation advice, and it does not recommend products or institutions.
-      Interest and early-break figures it produces are estimates derived from the terms you
-      enter; your bank's statements and quotes are always authoritative. Confirm anything
-      material with your institution or a licensed adviser.
+      investment or taxation advice or recommend products or institutions. Bank statements
+      and quotes remain authoritative.
     </p>
 
-    <h2>10. Changes to this policy</h2>
+    <h2>12. Changes to this policy</h2>
     <p>
-      If this policy changes, the revised version will be published on this page with a new
-      date at the top. Should a future version of the app ever begin collecting data, that
-      change would be described here and reflected in the App Store privacy label before
-      the release ships.
+      Material changes will be published on this page with a revised date and reflected in
+      the App Store privacy information before the corresponding release.
     </p>
 
-    <h2>11. Contact</h2>
+    <h2>13. Contact</h2>
     <p>
-      Questions about privacy, or anything else, can be raised at
+      Questions can be raised at
       <a href="https://github.com/jack-cap/maturity/issues">github.com/jack-cap/maturity/issues</a>.
-      See the <a href="support.html">support page</a> for other ways to get in touch.
+      See the <a href="support.html">support page</a> for product help.
     </p>
 
   </div>
@@ -204,6 +220,7 @@
     <span>&copy; 2026 Maturity</span>
     <span class="spacer"></span>
     <a href="./">Home</a>
+    <a href="docs.html">Docs</a>
     <a href="privacy.html">Privacy</a>
     <a href="support.html">Support</a>
   </div>

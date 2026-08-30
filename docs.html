@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Export and analysis documentation — Maturity</title>
+<meta name="description" content="Documentation for Maturity schema-v1 JSON exports and the separate read-only command-line and MCP analysis tools.">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="./">
+      <span class="glyph" aria-hidden="true">M</span>
+      Maturity
+    </a>
+    <nav class="site" aria-label="Site">
+      <a href="./">Home</a>
+      <a href="docs.html">Docs</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="support.html">Support</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section>
+  <div class="wrap prose">
+
+    <h1 style="font-size:clamp(1.7rem,4vw,2.3rem); letter-spacing:-0.025em; margin:0 0 8px;">
+      Export and analysis documentation
+    </h1>
+    <p class="updated">Schema v1 &middot; Read-only CLI and MCP tools</p>
+
+    <div class="callout">
+      <p>
+        <strong>Separate from the App Store app.</strong> These optional developer tools are
+        built from the source repository. The app does not bundle, launch or register them,
+        and they cannot access its SwiftData store, private iCloud container or other live
+        app data. They analyse only a JSON export explicitly supplied by the user or client.
+      </p>
+    </div>
+
+    <h2>1. Create an export</h2>
+    <p>
+      In Maturity, open <strong>Settings &rarr; Export</strong>, choose a privacy mode and
+      press <strong>Export</strong>. Exporting is user-triggered and local. The app hands the
+      completed artifact to the macOS save panel or the iOS and iPadOS share sheet; it does
+      not upload the artifact or select its destination.
+    </p>
+    <ul>
+      <li><strong>Redacted</strong> is the default. Institution and account names become export-specific aliases, and user-entered free text is excluded.</li>
+      <li><strong>Financial analysis</strong> aliases institution names and excludes references, notes and memos; account names remain.</li>
+      <li><strong>Complete</strong> includes institution and account names, references, notes and transaction memos.</li>
+    </ul>
+    <p>
+      Every mode keeps the amounts, rates, dates, currencies and relationship identifiers
+      required for accurate analysis. Review an artifact before sharing it and prefer
+      Redacted unless readable labels are necessary. See the
+      <a href="privacy.html">privacy policy</a> for the complete disclosure.
+    </p>
+
+    <h2>2. Build the source tools</h2>
+    <p>
+      The source and current package instructions live in the
+      <a href="https://github.com/jack-cap/maturity-app">Maturity app repository</a>.
+      From its root, build the Swift package with:
+    </p>
+    <pre><code>swift build</code></pre>
+    <p>
+      The package shares the app's schema-v1 decoding and structural validation code. It
+      does not import the app's SwiftData models or open the app container.
+    </p>
+
+    <h2>3. Validate or query from the command line</h2>
+    <pre><code>swift run maturity validate /path/to/export.json
+cat /path/to/export.json | swift run maturity validate -
+
+swift run maturity summary --currency AUD /path/to/export.json
+swift run maturity deposits --status active --maturity-through 2027-08-30 /path/to/export.json
+swift run maturity cashflows --currency AUD --date-from 2026-09-01 --is-maturity true /path/to/export.json
+swift run maturity ladder --granularity month --period-through 2027-08-01 /path/to/export.json
+swift run maturity liquidity --currency AUD --days 90 /path/to/export.json
+swift run maturity attention --kind awaitingCollection /path/to/export.json</code></pre>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th scope="col">Command</th><th scope="col">Optional filters</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>summary</code></td><td>Currency</td></tr>
+          <tr><td><code>deposits</code></td><td>Currency, deposit/account ID, status, funding, standing instruction and inclusive maturity-date range</td></tr>
+          <tr><td><code>cashflows</code></td><td>Currency, deposit ID, inclusive date range and maturity flag</td></tr>
+          <tr><td><code>ladder</code></td><td>Currency, month/quarter granularity and inclusive period range</td></tr>
+          <tr><td><code>liquidity</code></td><td>Currency and an exact precomputed day horizon</td></tr>
+          <tr><td><code>attention</code></td><td>Currency, item kind, deposit ID and inclusive date range</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      Filters on one command are combined with logical AND. Currency and UUID values are
+      normalised, and dates must be real Gregorian <code>YYYY-MM-DD</code> values. A valid
+      query with no matching rows succeeds with a row count of zero.
+    </p>
+    <p>
+      Results are deterministic JSON envelopes with source provenance and rows already
+      recorded or precomputed in the export. The tools do not recalculate interest,
+      liquidity, maturity ladders, attention items or portfolio totals, and never combine
+      different currencies into a new total.
+    </p>
+
+    <h2>4. Run the read-only MCP server</h2>
+    <pre><code>swift build -c release --product maturity-mcp</code></pre>
+    <p>
+      The executable is <code>.build/release/maturity-mcp</code>. It uses MCP over standard
+      input/output, accepts no command-line arguments and writes only protocol messages to
+      standard output. Configure an MCP client with the executable's absolute path. For Kiro:
+    </p>
+    <pre><code>{
+  "mcpServers": {
+    "maturity-analysis": {
+      "command": "/absolute/path/to/Maturity/.build/release/maturity-mcp",
+      "args": [],
+      "disabled": false
+    }
+  }
+}</code></pre>
+    <p>
+      Put the entry in the workspace <code>.kiro/settings/mcp.json</code> or user-level
+      <code>~/.kiro/settings/mcp.json</code>. The executable path lets the client start the
+      local process; it does not give the server a path-based export API.
+    </p>
+
+    <h3>Available MCP tools</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th scope="col">Tool</th><th scope="col">Returns</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>maturity_validate</code></td><td>Schema-v1 decoding and structural-validation result</td></tr>
+          <tr><td><code>maturity_summary</code></td><td>Precomputed per-currency summaries</td></tr>
+          <tr><td><code>maturity_deposits</code></td><td>Recorded deposit rows</td></tr>
+          <tr><td><code>maturity_cashflows</code></td><td>Precomputed scheduled cashflows</td></tr>
+          <tr><td><code>maturity_ladder</code></td><td>Precomputed monthly or quarterly maturity periods</td></tr>
+          <tr><td><code>maturity_liquidity</code></td><td>Exact precomputed liquidity horizons</td></tr>
+          <tr><td><code>maturity_attention</code></td><td>Precomputed attention items</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      Every call requires an <code>export</code> argument containing the complete JSON export
+      as an object. Paths, URLs, JSON strings, partial exports, unknown fields and incorrect
+      JSON types are rejected.
+    </p>
+    <pre><code>{
+  "export": {
+    "schemaVersion": 1,
+    "exportID": "...complete export continues here..."
+  },
+  "currency": "AUD"
+}</code></pre>
+    <p>
+      The abbreviated object shows argument placement only; an actual call must supply every
+      required schema-v1 field. Each compact embedded export is limited to 32 MiB. The bounded
+      transport rejects oversized newline-delimited input before MCP decoding and admits only
+      one request at a time.
+    </p>
+
+    <h2>5. Security and privacy boundary</h2>
+    <p>The MCP server is stateless and exposes tools only. It provides no:</p>
+    <ul>
+      <li>Export-path or URL arguments, filesystem browsing or filesystem-backed resources</li>
+      <li>HTTP or other network transport, exchange-rate fetching or telemetry</li>
+      <li>SwiftData, private CloudKit, app-container or other live-store access</li>
+      <li>Writes, record mutation, transaction recording or financial actions</li>
+      <li>Prompts, roots, sampling, elicitation or logging capabilities</li>
+    </ul>
+    <p>
+      It cannot create or edit deposits, collect or roll over a maturity, transfer money,
+      send instructions to the app, enrich redacted labels or recover excluded free text.
+      Read-only analysis of an explicitly supplied export is the final agent boundary for
+      this release.
+    </p>
+
+    <div class="callout">
+      <p>
+        <strong>Before using an AI or MCP client:</strong> the local server does not upload
+        an export by itself, but the client or its service provider receives the artifact
+        you supply and may transmit, process, retain or log it under its own terms. Prefer a
+        Redacted export, inspect it first and use only clients and providers you trust.
+      </p>
+    </div>
+
+    <h2>6. Current scope</h2>
+    <p>
+      Schema-v1 JSON validation, read-only CLI queries and the read-only MCP stdio server are
+      implemented. CSV-package reading, filesystem-backed MCP resources, network transports,
+      live-store tools and every mutation or financial-action tool are intentionally out of
+      scope. Any future expansion requires a separate privacy and security design, explicit
+      consent model, policy update and review before implementation.
+    </p>
+
+  </div>
+</section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>&copy; 2026 Maturity</span>
+    <span class="spacer"></span>
+    <a href="./">Home</a>
+    <a href="docs.html">Docs</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="support.html">Support</a>
+  </div>
+</footer>
+
+</body>
+</html>
