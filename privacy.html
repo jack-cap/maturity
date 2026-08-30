@@ -31,14 +31,16 @@
     <h1 style="font-size:clamp(1.7rem,4vw,2.3rem); letter-spacing:-0.025em; margin:0 0 8px;">
       Privacy policy
     </h1>
-    <p class="updated">Last updated 29 August 2026. Applies to Maturity for iPhone, iPad and Mac.</p>
+    <p class="updated">Last updated 30 August 2026. Applies to Maturity for iPhone, iPad and Mac.</p>
 
     <div class="callout">
       <p>
         <strong>The short version.</strong> Maturity collects nothing. It has no server, no
         analytics and no account system. Your records stay on your own devices and sync
         only through your personal iCloud. The developer cannot see your data, and has
-        built no mechanism that would allow it.
+        built no mechanism that would allow it. One optional feature fetches published
+        exchange rates; it sends currency codes and nothing about you, and it is off until
+        you turn it on. Details in section 5.
       </p>
     </div>
 
@@ -55,6 +57,12 @@
     <p>
       The app does not ask for your name, email address, date of birth, location, contacts,
       photos, or any device identifier.
+    </p>
+    <p>
+      If you enable the optional indicative conversion described in section 5, the app also
+      keeps the exchange rates it fetched and the dates they were published. Those are public
+      reference figures rather than anything about you, they are held only on the device that
+      fetched them, and turning the feature off deletes them.
     </p>
 
     <h2>2. Where that data lives</h2>
@@ -80,7 +88,7 @@
     <ul>
       <li><strong>No analytics.</strong> The app contains no analytics or telemetry SDK, and reports no usage events anywhere.</li>
       <li><strong>No tracking.</strong> No advertising identifiers, no fingerprinting, no cross-app or cross-site tracking, and no data shared with data brokers.</li>
-      <li><strong>No third-party services.</strong> The app bundles no third-party SDKs. Apple's own frameworks are the only dependencies.</li>
+      <li><strong>No third-party SDKs.</strong> The app bundles no third-party code at all. Apple's own frameworks are the only dependencies. The optional rate lookup in section 5 is a plain HTTPS request the app makes itself, not a vendor library, and it has no account or API key.</li>
       <li><strong>No crash reporting to the developer.</strong> If you have opted in to sharing diagnostics with Apple at the system level, Apple may provide the developer with anonymised crash reports. That is an Apple setting you control in Settings, and it contains no data you entered into the app.</li>
       <li><strong>No advertising.</strong> The app shows none.</li>
     </ul>
@@ -95,12 +103,39 @@
       feed. Every figure in the app is one you entered by hand. This is deliberate: it
       means there is no credential to be stolen and no third party in the middle.
     </p>
+    <p>
+      The optional exchange-rate lookup is not an exception to this. It reads a public list of
+      published reference rates; it has no connection to any bank of yours, no knowledge of
+      your accounts, and no ability to move money.
+    </p>
 
     <h2>5. Network activity</h2>
     <p>
-      The app makes network connections for exactly one purpose: syncing your records with
-      your own iCloud container through Apple's CloudKit service. It contacts no other
-      servers.
+      The app makes network connections for two purposes, one of which is optional and off by
+      default.
+    </p>
+    <p>
+      <strong>iCloud sync.</strong> Your records sync with your own private CloudKit container
+      through Apple's service, as described in section 2. This is the only connection that
+      involves your data at all.
+    </p>
+    <p>
+      <strong>Published exchange rates, if you enable them.</strong> If you hold more than one
+      currency you can switch on an indicative conversion, which shows a single estimated total
+      across your currencies. Only then does the app request rates from
+      <a href="https://frankfurter.dev/">Frankfurter</a>, an open-source service that
+      republishes reference rates from central banks.
+    </p>
+    <ul>
+      <li><strong>What is sent:</strong> currency codes, and nothing else. A request looks like <code>?base=HKD&amp;symbols=AUD,USD</code>. There is no account, no API key, no identifier and no body.</li>
+      <li><strong>What is not sent:</strong> no amounts, no balances, no bank names, no dates from your records, no device identifier. Nothing you typed into the app leaves it.</li>
+      <li><strong>What the provider can see:</strong> the request itself and, as with any connection to any website, the IP address it came from. That is standard for all web traffic and is not something the app supplies deliberately, but it is the one piece of information that leaves which is not a currency code. If you would rather not have that happen, leave the setting off and the request is never made.</li>
+      <li><strong>What comes back</strong> is cached on the device so the figure survives being offline, and is deleted when you turn the setting off.</li>
+    </ul>
+    <p>
+      Rates are never applied to any stored figure. Your balances, interest, yields and
+      per-currency totals are exactly what you recorded; the converted number is shown for
+      scale, marked as an estimate, and dated with the day its rate was published.
     </p>
 
     <h2>6. Deleting your data</h2>
