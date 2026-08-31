@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-AU">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -38,9 +38,11 @@
       <p>
         <strong>Get in touch:</strong> open an issue at
         <a href="https://github.com/jack-cap/maturity/issues">github.com/jack-cap/maturity/issues</a>.
-        Bug reports, calculation queries and feature requests all welcome. Please say which
-        device and OS version you're on, and for a calculation question include the deposit
-        terms so the figures can be reproduced.
+        Bug reports, calculation queries and feature requests are welcome. GitHub receives
+        what you submit together with your GitHub identity, and an issue may be public. Do
+        not post financial records or other sensitive details. Please say which device and
+        OS version you're on; for a calculation question, use non-sensitive representative
+        terms sufficient to reproduce the figure.
       </p>
     </div>
 
@@ -48,12 +50,12 @@
     <ol>
       <li><strong>Set your opening balance.</strong> Enter the cash you can actually deploy right now — the balance showing in the account you place deposits from. Don't add the principal of deposits you already hold.</li>
       <li><strong>Add the deposits you already hold.</strong> Enter each with its real start date, even if that's months ago. On each one set <em>Funding</em> to <strong>&ldquo;already open before I started tracking&rdquo;</strong>, and no cash movement is recorded for the principal — your bank took that money out before this ledger existed.</li>
-      <li><strong>Check the figure.</strong> Free cash should already match your bank. If it doesn't, use <em>Reconcile cash</em> to record the difference.</li>
+      <li><strong>Check Summary.</strong> It starts with <em>Tracked position</em>. That is exactly recorded free cash — shown as <em>Available cash</em> — plus the principal of open deposits. Accrued interest and projected or future interest are excluded. Available cash should already match your bank; if it doesn't, use <em>Reconcile cash</em> to record the difference.</li>
     </ol>
 
     <div class="callout">
       <p>
-        <strong>The one thing worth getting right.</strong> Free cash is the sum of your
+        <strong>The one thing worth getting right.</strong> Available cash is the sum of your
         transaction history. If you enter today's bank balance as your opening figure and
         then let a deposit you opened last week subtract its principal, that money comes
         out twice — once by your bank, once by the app — and you'll be short by the
@@ -76,22 +78,22 @@
       <p>
         There's a second approach that also works, if you prefer it: set your opening
         balance to your cash <em>plus</em> the principal of every deposit you hold, then
-        leave each deposit funded from free cash as normal. The arithmetic lands in the
+        leave each deposit funded from available cash as normal. The arithmetic lands in the
         same place. It just means remembering the rule for every deposit, and one slip
         leaves you short.
       </p>
     </details>
 
     <details>
-      <summary>Why is my free cash lower than my bank shows?</summary>
+      <summary>Why is my available cash lower than my bank shows?</summary>
       <p>
         Almost always because a deposit you opened before you started tracking is set to
-        be funded from free cash. The app subtracts the principal, but your bank already
+        be funded from available cash. The app subtracts the principal, but your bank already
         subtracted it, so the same money is gone twice.
       </p>
       <p>
         Open the deposit, change <em>Funding</em> to &ldquo;already open before I started
-        tracking&rdquo;, and save. The cash movement is removed and your free cash goes
+        tracking&rdquo;, and save. The cash movement is removed and your available cash goes
         back up by the principal. If the figures still disagree after that, use
         <em>Reconcile cash</em> to record the remaining difference.
       </p>
@@ -106,8 +108,12 @@
         check one bank's balance at a time, not a combined figure.
       </p>
       <p>
-        If all your cash sits in one place, ignore this entirely. One account is created
-        automatically and the app won't mention accounts anywhere until you add a second.
+        On Summary, open <strong>Available cash</strong> to see the account and bank
+        breakdown. <strong>Where your cash is</strong> groups accounts under collapsible bank
+        headers. One or two banks start open; longer bank lists start closed. Each header
+        shows its account count and, when every account uses one currency, a safe subtotal in
+        that native currency. A mixed-currency bank shows currency codes instead of adding
+        unlike amounts.
       </p>
     </details>
 
@@ -128,7 +134,7 @@
       </p>
       <p>
         <strong>3. What each account holds.</strong> An opening balance per account, which is
-        what free cash is measured from. You can set one for every account, not just the first.
+        what available cash is measured from. You can set one for every account, not just the first.
       </p>
       <p>
         <strong>4. Deposits you already hold.</strong> Optional, but if you have term deposits
@@ -149,10 +155,10 @@
         required; deposits are optional, since someone starting fresh has none.
       </p>
       <p>
-        Interest conventions don't need setting up: actual/365, at-maturity interest and 31 days'
-        break notice are the Australian retail defaults and are already in place. Change them in
-        Settings if your product quotes differently. There's nothing to configure for iCloud, and
-        no exchange rates to supply, since the app never combines currencies.
+        Maturity's app defaults are already selected, and you can change them in Settings
+        to match each product. There's nothing to configure for iCloud, and no exchange
+        rates to enter manually. If you enable <em>Show an indicative equivalent</em>, the
+        app retrieves public reference rates as described below.
       </p>
     </details>
 
@@ -192,8 +198,8 @@
       </p>
       <p>
         Because both sides are recorded as they happened, transfers work across currencies
-        with <strong>no exchange rate involved</strong>. Enter the AUD that left and the
-        HKD that arrived; each balance stays exact. A transfer never changes how much you
+        with <strong>no exchange rate involved</strong>. Enter the USD that left and the
+        EUR that arrived; each balance stays exact. A transfer never changes how much you
         hold overall, only where it sits &mdash; so it isn't treated as spending and
         earning. Deleting one side removes both, since a half-transfer would show money
         vanishing.
@@ -206,39 +212,30 @@
       <summary>Can I track deposits in more than one currency?</summary>
       <p>
         Yes. Add the currencies you use in Settings and pick one as your default. Each
-        deposit and each cash movement is denominated in a single currency, chosen when
-        you create it, and every figure is shown with that currency's own symbol.
+        deposit and cash movement is denominated in one currency, and every amount is shown
+        in that currency's native unit.
       </p>
       <p>
-        Free cash, weighted average yield and the maturity ladder are all reported
-        <strong>separately per currency</strong>. There is deliberately no combined total.
-        Adding two currencies together requires an exchange rate, and a rate would make
-        your headline balance depend on when it was last fetched — so a converted figure
-        would be an estimate wearing the clothes of a balance. Reconciliation is per
-        currency too, which matches how you actually check it: one bank account at a time.
+        Available cash, principal, weighted average yield and the maturity ladder are
+        reported separately per currency. Exact native-currency figures are authoritative;
+        currencies are never directly summed. Reconciliation is per account and currency
+        too, which matches how you check a bank statement.
       </p>
     </details>
 
     <details>
       <summary>How do I compare currencies if they're never added up?</summary>
       <p>
-        By comparing the figures that don't carry a currency. Summary opens on an overview
-        listing every currency side by side, and beneath it a comparison of
-        <strong>weighted average rate</strong>, <strong>idle cash</strong> as a proportion,
-        and <strong>average term remaining</strong> in days. All three are percentages or
-        durations, so no exchange rate is involved and nothing goes stale. The app will also
-        tell you the spread &mdash; how far the leading currency is ahead, in basis points.
+        Summary lists each currency's tracked position in its own native unit. If there are
+        more than three currency rows, they collapse to keep the headline compact; use
+        <strong>Show all</strong> and <strong>Show less</strong> to expand or collapse them.
       </p>
       <p>
-        Bars on that chart are always rates, never balances. A bar chart of two balances in
-        different currencies would be two unrelated units drawn against one axis, which is
-        meaningless however convincing it looks.
-      </p>
-      <p>
-        One caveat is stated on the card itself: a higher rate in one currency is not a
-        better return in another. Moving money across means taking on exchange-rate
-        movement, which can easily exceed the difference in yield, and this app neither
-        tracks nor forecasts rates.
+        The comparison beneath uses figures that don't carry a currency: weighted average
+        rate, idle cash as a proportion, and average term remaining in days. Bars are rates,
+        never unlike balances drawn against one axis. The app also states that a higher rate
+        in one currency is not necessarily a better return in another once exchange-rate
+        movement is considered.
       </p>
     </details>
 
@@ -246,28 +243,38 @@
       <summary>Can I see one total across all my currencies?</summary>
       <p>
         Yes, as an estimate, and only if you ask for it. Turn on <strong>Show an indicative
-        total</strong> in Settings under Currency. Summary then shows one converted figure for free
-        cash, principal on deposit and total position, each marked with &#8776; and shown with the
-        date of the rate used.
+        equivalent</strong> in Settings. Summary may then show one secondary &#8776;
+        equivalent of the complete tracked position, dated and identified with the
+        reference-rate source.
       </p>
       <p>
-        It is deliberately walled off from everything else. The conversion is never stored, never
-        applied to a balance, and never used in a yield or interest figure &mdash; your recorded
-        numbers do not change when a rate does. That was the whole reason the app avoided combined
-        totals to begin with: a stored converted balance would move on its own every time a rate
-        was refetched.
+        It appears only when every populated tracked-position currency can be converted. If
+        any required rate is unavailable, no partial numeric equivalent appears. There are
+        no separate converted available-cash or principal totals. Recorded native-currency
+        figures remain authoritative and are never directly summed.
       </p>
       <p>
-        Rates are published daily reference rates from central banks, retrieved from Frankfurter,
-        and they only cover about thirty major currencies. If one of yours isn't covered the app
-        says so and leaves those amounts out of the estimate rather than guessing. A real transfer
-        will differ &mdash; your bank's rate and fees aren't in here.
+        The conversion is never stored, never applied to a balance, and never used in a
+        yield or interest figure &mdash; your recorded numbers do not change when a rate
+        does. Rates are published daily reference rates retrieved from Frankfurter. A real
+        transfer will differ because your bank's rate and fees are not included.
       </p>
       <p>
-        Enabling this is the only thing that makes the app contact anything other than your own
-        iCloud. The request contains currency codes and nothing else; see the
-        <a href="privacy.html">privacy policy</a> for exactly what is and isn't sent. Turning it
-        back off deletes the cached rates.
+        Enabling this is the only thing that makes the app contact anything other than your
+        own iCloud. The request contains currency codes and no portfolio amounts, names or
+        record identifiers; see the <a href="privacy.html">privacy policy</a> for the full
+        network disclosure. Turning it back off deletes the cached rates.
+      </p>
+    </details>
+
+    <details>
+      <summary>What do the liquidity windows include?</summary>
+      <p>
+        Every cutoff is inclusive. <strong>Today</strong> includes exactly 0 days and
+        <strong>1 week</strong> includes exactly 7 days. <strong>1 month</strong> runs through
+        the calendar date one month from today, and <strong>3 months</strong> through the
+        calendar date three months from today; those are calendar additions, not fixed 30-
+        or 90-day spans.
       </p>
     </details>
 
@@ -279,7 +286,7 @@
         you what's already recorded and the button reads <em>Replace balance</em>.
       </p>
       <p>
-        This matters because free cash is the sum of your whole transaction history rather than a
+        This matters because available cash is the sum of your whole transaction history rather than a
         stored number. Two opening balances on one account would silently count the same money
         twice, with nothing on screen to indicate it. To record money arriving <em>after</em> you
         started tracking, use <strong>Cash in</strong> instead &mdash; that's a movement, not a
@@ -303,21 +310,20 @@
     </details>
 
     <details>
-      <summary>Why does my currency show as A$ rather than $?</summary>
+      <summary>Why does my currency symbol include letters?</summary>
       <p>
-        Because your device's region differs from the currency. When the region is, say,
-        Hong Kong and the amount is Australian dollars, the system adds the country prefix
-        so the two dollars aren't confused. Set your device region to match your main
-        currency if you'd prefer the plain symbol.
+        Your device's region helps determine how currency symbols are displayed. When a
+        symbol could be ambiguous, the system may add letters &mdash; for example, US$ or HK$
+        rather than $ &mdash; to distinguish currencies. Set your device region to match your
+        main currency if you'd prefer the plain symbol where the system supports it.
       </p>
     </details>
 
     <details>
       <summary>How is interest calculated?</summary>
       <p>
-        Simple interest accrued daily: principal &times; rate &times; days &divide; 365. That
-        actual/365 basis is what Australian retail term deposits use. Actual/360 and 30/360
-        are also selectable per deposit for products that quote on a different convention.
+        Maturity uses actual/365 as its default day-count basis. Actual/360 and 30/360 are
+        also selectable per deposit so you can match the product's quoted convention.
         Interest is rounded to the nearest cent at the end of each accrual period, which is
         what banks do, so a periodic-paying deposit can total a cent or two away from a
         single whole-term calculation.
@@ -338,13 +344,10 @@
     <details>
       <summary>How does breaking a deposit early work?</summary>
       <p>
-        Australian institutions generally don't touch your principal on an early break. They
-        recalculate the interest at a reduced rate, cut more heavily the earlier you break,
-        and most require around 31 days' notice before releasing funds. Maturity records the
-        notice and the settlement as two separate stages so your cash forecast stays accurate
-        across the gap. It estimates the reduced interest using a typical banded schedule,
-        but the reduction isn't standardised, so ask your bank for the exact figure and type
-        it in.
+        Terms vary by institution. Some reduce interest and/or require notice before releasing
+        funds. Maturity records the notice and settlement as separate stages so your cash
+        forecast stays accurate across the gap, and it estimates the reduced interest. Your
+        institution's quote is authoritative, so enter that figure when it is available.
       </p>
     </details>
 
@@ -387,8 +390,9 @@
       <p>
         If iCloud sync is on, your records exist in your private iCloud container as well as
         on each device, so losing one device doesn't lose the data. That is not a substitute
-        for a considered backup strategy. The developer holds no copy and cannot recover
-        anything on your behalf.
+        for a considered backup strategy. The developer has no in-app portfolio copy and
+        cannot recover it on your behalf. Content you voluntarily submit through GitHub for
+        support is separate and may be visible to the developer and the public.
       </p>
     </details>
 

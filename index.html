@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en-AU">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Maturity — term deposit tracking for iPhone, iPad and Mac</title>
-<meta name="description" content="Track term deposits, maturity dates and free cash across iPhone, iPad and Mac. Interest calculated on an actual/365 basis. Your data stays in your own iCloud.">
+<meta name="description" content="Track term deposits, tracked position and available cash across iPhone, iPad and Mac. Interest estimates use actual/365 by default, with other day-count bases supported. Your data stays in your own iCloud.">
 <meta name="color-scheme" content="light dark">
 <link rel="stylesheet" href="styles.css">
 
@@ -38,14 +38,14 @@
     <h1>Know what's maturing, and what's sitting idle.</h1>
     <p class="lede">
       Maturity tracks your term deposits across every bank you use: what each one earns,
-      when it matures, and how much cash you actually have free to deploy. Built for
-      Australian term deposits, with the interest maths done properly.
+      when it matures, and your tracked position and available cash. Designed to track
+      term deposits accurately, with the interest maths done properly.
     </p>
     <div class="cta-row">
       <a class="btn btn-primary" href="support.html">Support &amp; FAQ</a>
       <a class="btn btn-ghost" href="privacy.html">Privacy policy</a>
     </div>
-    <p class="note">One purchase covers iPhone, iPad and Mac. No subscription, no account to create.</p>
+    <p class="note">Available on iPhone, iPad and Mac. No Maturity account to create.</p>
   </div>
 </div>
 
@@ -62,10 +62,16 @@
         <div class="icon" aria-hidden="true">&#9776;</div>
         <h3>Summary</h3>
         <p>
-          What needs a decision today, then what you can deploy now, then when the next
-          deposit matures, then a twelve-month ladder grouped by month or by quarter. Empty
-          periods are shown too, because a gap in the ladder is the useful part, and the app
-          names the gaps for you.
+          Summary starts with <strong>Tracked position</strong>. It is exactly recorded free
+          cash &mdash; shown as <strong>Available cash</strong> &mdash; plus the principal of open
+          deposits. It excludes accrued interest and every projected or future interest
+          amount. Exact native-currency figures remain authoritative, and different
+          currencies are never directly summed.
+        </p>
+        <p>
+          Next come available cash, liquidity through the exact inclusive Today, 1 week,
+          1 month and 3 months windows, the next maturity, and a twelve-month ladder grouped
+          by month or quarter. Empty periods are shown too, because a gap is the useful part.
         </p>
       </div>
 
@@ -82,7 +88,7 @@
         <div class="icon" aria-hidden="true">&#8644;</div>
         <h3>Transactions</h3>
         <p>
-          A complete ledger with a running balance on every row. Your free cash is this
+          A complete ledger with a running balance on every row. Your available cash is this
           list added up, so if a figure ever looks wrong you can scroll until the
           balance stops matching. Deposits you already held when you started are
           recorded without a cash movement, so nothing gets subtracted twice.
@@ -93,9 +99,9 @@
         <div class="icon" aria-hidden="true">&#8635;</div>
         <h3>Roll-overs, handled</h3>
         <p>
-          Most Australian term deposits roll automatically if you give no instructions
-          before maturity. Maturity treats that as a first-class event, not an edge
-          case, and lets you roll part of the proceeds while keeping the rest as cash.
+          Some term deposits roll automatically if you give no instructions before maturity.
+          Maturity treats that as a first-class event, not an edge case, and lets you roll
+          part of the proceeds while keeping the rest as cash.
         </p>
       </div>
 
@@ -103,9 +109,9 @@
         <div class="icon" aria-hidden="true">&#9986;</div>
         <h3>Breaking early, honestly</h3>
         <p>
-          Records the 31 days' notice most banks require, estimates the reduced interest,
-          then lets you replace it with the figure your bank actually quotes. Logged as
-          its own transaction type so your history stays clear about what ran full term.
+          Records a product's required notice period, estimates the reduced interest, then
+          lets you replace it with the figure your bank actually quotes. Logged as its own
+          transaction type so your history stays clear about what ran full term.
         </p>
       </div>
 
@@ -113,11 +119,16 @@
         <div class="icon" aria-hidden="true">&#8646;</div>
         <h3>Where your cash actually is</h3>
         <p>
-          Money at one bank can't fund a deposit at another without moving first, so
-          balances are tracked per account and reconciled one bank at a time. Transfers
-          record what left and what arrived as separate figures, which is what keeps each
-          account true to its statement. Accounts group by bank everywhere they appear, and
-          you can reorder them, so a long list stays navigable.
+          Open <strong>Available cash</strong> for an account-and-bank breakdown. In
+          <strong>Where your cash is</strong>, accounts are grouped under collapsible bank
+          headers: one or two banks start open, while longer bank lists start closed. A header
+          shows its account count and a native-currency subtotal when that is safe; a
+          mixed-currency bank shows currency codes instead of adding unlike amounts.
+        </p>
+        <p>
+          Transfers record what left and what arrived as separate figures, which keeps each
+          account true to its statement. Accounts can be reordered within their bank, so a
+          long list stays navigable.
         </p>
       </div>
 
@@ -125,22 +136,23 @@
         <div class="icon" aria-hidden="true">&#164;</div>
         <h3>More than one currency</h3>
         <p>
-          Track deposits in several currencies at once. Each one is denominated in its
-          own, and balances, yields and ladders are reported per currency &mdash; never
-          merged into a single total, because that would need an exchange rate and your
-          balance shouldn't depend on when a rate was last fetched.
+          Track deposits in several currencies at once. Exact native-currency figures are
+          always authoritative, and currencies are never directly summed. On Summary,
+          tracked-position currency rows collapse when there are more than three; use
+          <strong>Show all</strong> and <strong>Show less</strong> to expand or collapse them.
         </p>
         <p>
-          Summary opens on an overview comparing every currency side by side, and each one
-          drills down to its own full summary. Because amounts can't be added, the
-          comparison uses the figures that carry no currency: weighted average rate, idle
-          cash and average term remaining. It also says plainly that a higher rate
-          elsewhere isn't a better return once exchange-rate movement is counted.
+          Each currency drills down to its own full summary. Cross-currency comparison uses
+          figures that carry no currency: weighted average rate, idle cash and average term
+          remaining. It also says plainly that a higher rate elsewhere is not necessarily a
+          better return once exchange-rate movement is counted.
         </p>
         <p>
-          If you want one number anyway, an optional indicative total converts using published
-          central-bank reference rates &mdash; marked as an estimate, dated with the rate it
-          used, never stored and never applied to a balance. Off until you turn it on.
+          If you enable <strong>Show an indicative equivalent</strong>, Summary may add one
+          secondary &#8776; equivalent of the complete tracked position. It appears only when
+          every populated currency can be converted, and is dated and identified with its
+          rate source. If any required rate is unavailable, no partial numeric equivalent is
+          shown. Available cash and principal do not get separate converted totals.
         </p>
       </div>
 
@@ -162,8 +174,8 @@
   <div class="wrap">
     <h2>The interest maths, stated plainly</h2>
     <p class="sub">
-      Australian retail term deposits pay <strong>simple</strong> interest accrued daily
-      on an <strong>actual/365</strong> basis. That's the default. Every figure the app
+      Products use different day-count bases. Maturity uses <strong>actual/365</strong> by
+      default, while actual/360 and 30/360 are supported per deposit. Every figure the app
       calculates is a starting point you can overwrite with whatever your bank quotes.
     </p>
 
@@ -192,10 +204,9 @@
     </table>
 
     <p style="color:var(--text-dim); max-width:62ch;">
-      That last row is why the basis matters: a 360-day year overstates the return by
-      about 1.4%. Actual/360 and 30/360 are both available per deposit for the odd
-      product that quotes on them, but actual/365 is what an Australian retail deposit
-      uses.
+      That last row is why the basis matters: in this example, using a 360-day year produces
+      a return about 1.4% higher than using a 365-day year. Choose actual/365, actual/360 or
+      30/360 per deposit to match the product's quoted convention.
     </p>
 
     <div class="callout">
@@ -229,7 +240,8 @@
         <h3>No bank connections</h3>
         <p>
           Maturity never asks for banking credentials and never connects to a financial
-          institution. You enter what you know; nothing is fetched on your behalf.
+          institution. You enter every financial record yourself; only optional public
+          reference-rate data is fetched when you enable indicative conversion.
         </p>
       </div>
       <div class="card">

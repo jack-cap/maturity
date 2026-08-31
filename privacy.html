@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-AU">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,36 +37,41 @@
     <div class="callout">
       <p>
         <strong>The short version.</strong> Maturity has no developer-operated server,
-        analytics or account system. Your records stay on your devices and sync only through
-        your private iCloud container. The developer cannot see them. The optional exchange-rate
-        feature sends currency codes but no portfolio records. Exports are created locally only
-        when you ask, and any recipient you choose has its own privacy terms.
+        analytics or account system. Your app records stay on your devices and sync only
+        through your private iCloud container, which the developer cannot access. The
+        optional exchange-rate feature sends currency codes but no portfolio records.
+        Exports are created locally only when you ask. Content you voluntarily submit for
+        support is separate and is handled by GitHub and may be public.
       </p>
     </div>
 
     <h2>1. What data the app holds</h2>
-    <p>Maturity stores only what you type into it. That includes:</p>
+    <p>Maturity stores data needed to provide the app, including:</p>
     <ul>
-      <li>Institution and account names, and optional account or certificate references</li>
-      <li>Deposit amounts, interest rates, dates, payment frequencies and day-count bases</li>
-      <li>Cash transactions, including opening balances, deposits, interest, maturities, early breaks, fees, transfers and reconciliation adjustments</li>
-      <li>Notes and transaction memos</li>
+      <li>User-entered institution and account names, optional account or certificate references, notes and transaction memos</li>
+      <li>User-entered deposit amounts, interest rates, dates, payment frequencies and day-count bases</li>
+      <li>User-entered cash transactions, including opening balances, deposits, interest, maturities, early breaks, fees, transfers and reconciliation adjustments</li>
+      <li>The app derives balances, interest estimates, tracked-position summaries, liquidity views, maturity ladders and attention items from those records on the device; those views are not separate synced records</li>
+      <li>Settings that sync with the portfolio, plus device-local preferences and caches used to operate the app</li>
     </ul>
     <p>
       The app does not ask for your name, email address, date of birth, location, contacts,
       photos, banking credentials, advertising identifier or device identifier.
     </p>
     <p>
-      If indicative conversion is enabled, the app also caches public exchange rates, their
-      publication dates and the service's supported-currency list on that device. Disabling
-      the feature deletes this fetched cache.
+      If <em>Show an indicative equivalent</em> is enabled, the app also caches public
+      exchange rates, their publication dates and the service's supported-currency list on
+      that device. Disabling the feature deletes this fetched cache.
     </p>
 
     <h2>2. Where that data lives</h2>
     <p>
       Records are stored locally in the app's container. When you are signed into iCloud with
-      iCloud Drive available, they also sync through a <strong>private CloudKit container</strong>
-      associated with your Apple Account.
+      iCloud Drive available, Apple's system-managed CloudKit integration automatically syncs
+      records and synced settings through a <strong>private CloudKit container</strong>
+      associated with your Apple Account. Apple controls sync scheduling, transport and
+      availability; there is no manual upload to, or developer-operated sync service.
+      Device-local preferences and caches remain on that device.
     </p>
     <p>
       Apple operates that storage under
@@ -85,7 +90,9 @@
     </ul>
     <p>
       For App Store purposes, the intended privacy answer is <strong>Data Not Collected</strong>
-      because the developer does not receive this data.
+      because the app does not transmit this data to the developer. This does not cover
+      content a user separately and voluntarily submits through GitHub Issues for support,
+      as described in section 9.
     </p>
 
     <h2>4. No connection to your bank</h2>
@@ -99,29 +106,35 @@
     <h2>5. Network activity</h2>
     <p>The app can make network connections for two purposes:</p>
     <ol>
-      <li><strong>Private iCloud sync.</strong> Records sync through Apple's CloudKit service to your own private container.</li>
-      <li><strong>Optional published exchange rates.</strong> If indicative conversion is enabled, the app may retrieve Frankfurter's public supported-currency list and request rates using ISO currency codes, for example <code>?base=HKD&amp;symbols=AUD,USD</code>.</li>
+      <li><strong>Private iCloud sync.</strong> Records and synced settings move through Apple's system-managed CloudKit service to your own private container.</li>
+      <li><strong>Optional published exchange rates.</strong> If <em>Show an indicative equivalent</em> is enabled, the app uses <code>api.frankfurter.dev/v1</code>. It requests <code>/currencies</code>, then <code>/latest</code> with <code>base</code> set to the current reporting/base currency code and <code>symbols</code> set to the currency codes present in the tracked position.</li>
     </ol>
     <p>
-      Rate requests contain no amounts, balances, institution names, record dates, notes,
-      references, record identifiers, API key or app-generated user identifier. Frankfurter
-      and its hosting infrastructure can see the request and ordinary network metadata such
-      as the source IP address and standard HTTP/TLS headers, and may process operational logs
-      under their own practices. The developer does not receive those logs. Leave indicative
-      conversion disabled if you do not want this connection.
+      Rate requests contain no amounts, balances, institution or account names, record
+      dates, notes, references, record identifiers, API key or app-generated user
+      identifier. Frankfurter and its hosting infrastructure can see the requested currency
+      codes and ordinary network metadata such as the source IP address and standard HTTP/TLS
+      metadata, and may process operational logs under their own practices. The developer
+      does not receive those logs. Leave the setting disabled if you do not want this
+      connection.
     </p>
     <p>
       Fetched rates are held locally for offline estimates. They are never written into a
-      deposit, ledger entry, balance, interest calculation or yield. Converted totals are
-      visibly approximate and dated. Disabling the feature removes the fetched cache.
+      deposit, ledger entry, balance, interest calculation or yield. The app shows only one
+      secondary &#8776; equivalent of the complete tracked position, visibly approximate,
+      dated and identified with its rate source. It appears only when every populated
+      tracked-position currency can be converted; if any required rate is unavailable, no
+      partial numeric equivalent appears. The app does not show separate converted cash or
+      principal totals. Disabling the feature removes the fetched cache.
     </p>
 
     <h2>6. User-triggered exports</h2>
     <p>
-      Maturity can create a versioned JSON analysis snapshot or a document package containing
-      separate CSV tables. Exporting is entirely local and occurs only after you open the
-      Export screen and press <strong>Export</strong>. The app does not automatically upload
-      an export, send it to an AI provider or expose its SwiftData store to another process.
+      Maturity can create a versioned JSON analysis snapshot or a <code>.maturitycsv</code>
+      document package containing separate CSV tables. Exporting is entirely local and
+      occurs only after you open <strong>Settings &rarr; Data &rarr; Export portfolio</strong>
+      and press <strong>Export</strong>. The app does not automatically upload an export,
+      send it to an AI provider or expose its SwiftData store to another process.
     </p>
     <p>Three privacy choices are available:</p>
     <ul>
@@ -130,10 +143,13 @@
       <li><strong>Redacted</strong>, the default, replaces institution and account names with export-specific aliases and excludes all user-entered free text.</li>
     </ul>
     <p>
+      Financial analysis and Redacted exports are <strong>pseudonymised, not anonymous</strong>.
       Aliases are consistent within one artifact but change when a new export is generated.
-      Amounts, rates, dates, currencies and record relationship identifiers remain so the
-      artifact can be analysed and its tables joined accurately. Review an export before
-      sharing it, particularly when choosing Complete or Financial analysis.
+      Stable source UUIDs and relationship identifiers remain, together with amounts, rates,
+      dates, currencies, statuses, calculated views, record timestamps, and app, export and
+      time-zone metadata. Those retained fields can permit linkage or correlation with other
+      information. Review an export before sharing it, particularly when choosing Complete or
+      Financial analysis.
     </p>
     <p>
       On Mac, the system save panel writes only to a location you select. On iPhone and iPad,
@@ -169,46 +185,63 @@
     <h2>8. Deleting your data</h2>
     <ul>
       <li><strong>Individual records.</strong> Delete deposits or transactions inside the app.</li>
-      <li><strong>Local copy.</strong> Delete the app to remove its local container from that device.</li>
-      <li><strong>iCloud copy.</strong> Remove Maturity's data through the device's iCloud storage settings to delete the synced copy.</li>
+      <li><strong>Delete all data.</strong> The in-app action removes synced accounts, deposits, transactions and settings; clears local preferences and the FX cache on that device; and recreates only the empty scaffolding the app needs to operate.</li>
+      <li><strong>Delete the app.</strong> This removes the local app container from that device but does not remove data retained in iCloud.</li>
     </ul>
     <p>
-      Deleting the app alone may not remove its iCloud copy. Because the developer has no copy,
-      there is no developer-side account or dataset to delete on request.
+      Use the app's <strong>Delete all data</strong> action when you want to remove the synced
+      portfolio. Deleting the app alone does not remove iCloud data and it may return after a
+      reinstall. The developer has no separate copy of in-app portfolio records to delete;
+      support content you voluntarily submit is handled separately as described below.
     </p>
 
-    <h2>9. Children</h2>
+    <h2>9. Support submissions</h2>
+    <p>
+      Support is provided through GitHub Issues. GitHub receives content you voluntarily
+      submit together with your GitHub identity, and issues and comments may be public and
+      processed under GitHub's terms. Do not post financial records, exports, account or
+      certificate references, or other sensitive details. A support submission is an
+      exception to statements that the developer does not receive your data: the developer
+      can read content you choose to post, but does not thereby gain access to your app or
+      iCloud records.
+    </p>
+
+    <h2>10. Children</h2>
     <p>
       Maturity is a personal finance record-keeping tool intended for adults. It is not directed
-      at children and does not collect personal information from them.
+      at children and does not collect personal information from them through the app.
     </p>
 
-    <h2>10. Your rights</h2>
+    <h2>11. Your rights</h2>
     <p>
-      The developer does not hold user records. You control records directly through the app
-      and your iCloud settings. Privacy rights concerning data processed by Apple are governed
-      by your relationship with Apple. Data you separately provide to an MCP client, AI assistant
-      or other recipient is governed by that recipient's terms and controls.
+      The developer does not receive in-app portfolio records through operation of the app,
+      but may hold support content you voluntarily submit. You control portfolio records
+      through the app and your iCloud settings. Privacy rights concerning data processed by
+      Apple or GitHub are governed by your relationship with those services. Data you
+      separately provide to an MCP client, AI assistant or other recipient is governed by
+      that recipient's terms and controls.
     </p>
 
-    <h2>11. Not financial advice</h2>
+    <h2>12. Not financial advice</h2>
     <p>
       Maturity is a record-keeping and calculation tool. It does not provide financial,
       investment or taxation advice or recommend products or institutions. Bank statements
       and quotes remain authoritative.
     </p>
 
-    <h2>12. Changes to this policy</h2>
+    <h2>13. Changes to this policy</h2>
     <p>
       Material changes will be published on this page with a revised date and reflected in
       the App Store privacy information before the corresponding release.
     </p>
 
-    <h2>13. Contact</h2>
+    <h2>14. Contact</h2>
     <p>
       Questions can be raised at
       <a href="https://github.com/jack-cap/maturity/issues">github.com/jack-cap/maturity/issues</a>.
-      See the <a href="support.html">support page</a> for product help.
+      GitHub receives what you submit and an issue may be public, so do not include financial
+      records or sensitive details. See the <a href="support.html">support page</a> for product
+      help.
     </p>
 
   </div>

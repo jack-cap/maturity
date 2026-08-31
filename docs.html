@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-AU">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -45,10 +45,11 @@
 
     <h2>1. Create an export</h2>
     <p>
-      In Maturity, open <strong>Settings &rarr; Export</strong>, choose a privacy mode and
-      press <strong>Export</strong>. Exporting is user-triggered and local. The app hands the
-      completed artifact to the macOS save panel or the iOS and iPadOS share sheet; it does
-      not upload the artifact or select its destination.
+      In Maturity, open <strong>Settings &rarr; Data &rarr; Export portfolio</strong>, choose
+      <strong>JSON</strong> and a privacy mode, then press <strong>Export</strong>. Exporting
+      is user-triggered and local. The app hands the completed artifact to the macOS save
+      panel or the iOS and iPadOS share sheet; it does not upload the artifact or select its
+      destination.
     </p>
     <ul>
       <li><strong>Redacted</strong> is the default. Institution and account names become export-specific aliases, and user-entered free text is excluded.</li>
@@ -56,10 +57,15 @@
       <li><strong>Complete</strong> includes institution and account names, references, notes and transaction memos.</li>
     </ul>
     <p>
-      Every mode keeps the amounts, rates, dates, currencies and relationship identifiers
-      required for accurate analysis. Review an artifact before sharing it and prefer
-      Redacted unless readable labels are necessary. See the
-      <a href="privacy.html">privacy policy</a> for the complete disclosure.
+      Financial analysis and Redacted exports are pseudonymised, not anonymous. Every mode
+      keeps the amounts, rates, dates, currencies and relationship identifiers required for
+      accurate analysis. Review an artifact before sharing it and prefer Redacted unless
+      readable labels are necessary. See the <a href="privacy.html">privacy policy</a> for
+      the complete disclosure.
+    </p>
+    <p>
+      The source-built CLI and MCP tools accept schema-v1 <strong>JSON exports only</strong>.
+      They do not accept <code>.maturitycsv</code> document packages.
     </p>
 
     <h2>2. Build the source tools</h2>
@@ -78,11 +84,11 @@
     <pre><code>swift run maturity validate /path/to/export.json
 cat /path/to/export.json | swift run maturity validate -
 
-swift run maturity summary --currency AUD /path/to/export.json
+swift run maturity summary --currency USD /path/to/export.json
 swift run maturity deposits --status active --maturity-through 2027-08-30 /path/to/export.json
-swift run maturity cashflows --currency AUD --date-from 2026-09-01 --is-maturity true /path/to/export.json
+swift run maturity cashflows --currency USD --date-from 2026-09-01 --is-maturity true /path/to/export.json
 swift run maturity ladder --granularity month --period-through 2027-08-01 /path/to/export.json
-swift run maturity liquidity --currency AUD --days 90 /path/to/export.json
+swift run maturity liquidity --currency USD --days 90 /path/to/export.json
 swift run maturity attention --kind awaitingCollection /path/to/export.json</code></pre>
 
     <div class="table-wrap">
@@ -95,11 +101,20 @@ swift run maturity attention --kind awaitingCollection /path/to/export.json</cod
           <tr><td><code>deposits</code></td><td>Currency, deposit/account ID, status, funding, standing instruction and inclusive maturity-date range</td></tr>
           <tr><td><code>cashflows</code></td><td>Currency, deposit ID, inclusive date range and maturity flag</td></tr>
           <tr><td><code>ladder</code></td><td>Currency, month/quarter granularity and inclusive period range</td></tr>
-          <tr><td><code>liquidity</code></td><td>Currency and an exact precomputed day horizon</td></tr>
+          <tr><td><code>liquidity</code></td><td>Currency and nominal <code>days</code> selector: <code>0</code>, <code>7</code>, <code>30</code> or <code>90</code></td></tr>
           <tr><td><code>attention</code></td><td>Currency, item kind, deposit ID and inclusive date range</td></tr>
         </tbody>
       </table>
     </div>
+    <p>
+      Liquidity uses inclusive cutoffs. <code>days=0</code> selects Today at exactly 0 days,
+      and <code>days=7</code> selects 1 week at exactly 7 days. <code>days=30</code> and
+      <code>days=90</code> are nominal selectors for the 1 month and 3 months rows, whose
+      app cutoffs are inclusive calendar <code>+1 month</code> and <code>+3 months</code>
+      respectively. They do not mean fixed 30- or 90-day deadlines. Schema v1 records the
+      nominal selector but omits the actual calendar deadline and window kind, so consumers
+      must not infer either field from <code>days</code>.
+    </p>
     <p>
       Filters on one command are combined with logical AND. Currency and UUID values are
       normalised, and dates must be real Gregorian <code>YYYY-MM-DD</code> values. A valid
@@ -146,11 +161,17 @@ swift run maturity attention --kind awaitingCollection /path/to/export.json</cod
           <tr><td><code>maturity_deposits</code></td><td>Recorded deposit rows</td></tr>
           <tr><td><code>maturity_cashflows</code></td><td>Precomputed scheduled cashflows</td></tr>
           <tr><td><code>maturity_ladder</code></td><td>Precomputed monthly or quarterly maturity periods</td></tr>
-          <tr><td><code>maturity_liquidity</code></td><td>Exact precomputed liquidity horizons</td></tr>
+          <tr><td><code>maturity_liquidity</code></td><td>Precomputed liquidity rows selected by nominal <code>days</code> value</td></tr>
           <tr><td><code>maturity_attention</code></td><td>Precomputed attention items</td></tr>
         </tbody>
       </table>
     </div>
+    <p>
+      <code>maturity_liquidity</code> uses the same nominal <code>days</code> selectors
+      <code>0</code>, <code>7</code>, <code>30</code> and <code>90</code> described above.
+      For schema v1, clients receive the precomputed row but not the actual calendar deadline
+      or window kind for the month-based selectors.
+    </p>
     <p>
       Every call requires an <code>export</code> argument containing the complete JSON export
       as an object. Paths, URLs, JSON strings, partial exports, unknown fields and incorrect
@@ -161,7 +182,7 @@ swift run maturity attention --kind awaitingCollection /path/to/export.json</cod
     "schemaVersion": 1,
     "exportID": "...complete export continues here..."
   },
-  "currency": "AUD"
+  "currency": "USD"
 }</code></pre>
     <p>
       The abbreviated object shows argument placement only; an actual call must supply every
@@ -198,10 +219,19 @@ swift run maturity attention --kind awaitingCollection /path/to/export.json</cod
     <h2>6. Current scope</h2>
     <p>
       Schema-v1 JSON validation, read-only CLI queries and the read-only MCP stdio server are
-      implemented. CSV-package reading, filesystem-backed MCP resources, network transports,
-      live-store tools and every mutation or financial-action tool are intentionally out of
-      scope. Any future expansion requires a separate privacy and security design, explicit
-      consent model, policy update and review before implementation.
+      implemented. <code>.maturitycsv</code> package reading, filesystem-backed MCP resources,
+      network transports, live-store tools and every mutation or financial-action tool are
+      intentionally out of scope. Any future expansion requires a separate privacy and
+      security design, explicit consent model, policy update and review before implementation.
+    </p>
+
+    <h2>Not financial advice</h2>
+    <p>
+      Maturity and its source-built analysis tools are record-keeping and calculation tools.
+      They do not provide financial, investment or taxation advice and do not recommend
+      products or institutions. Exported and queried figures depend on the supplied records;
+      bank statements and quotes remain authoritative. Confirm anything material with your
+      institution or a licensed adviser.
     </p>
 
   </div>

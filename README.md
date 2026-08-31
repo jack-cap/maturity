@@ -14,16 +14,22 @@ Published with GitHub Pages at **https://jack-cap.github.io/maturity/**
 
 ## About this repository
 
-This repo contains the website only. The app and optional source-built analysis tools live
-separately and are not published here.
+This `site` directory is its own Git repository, with the remote
+`jack-cap/maturity`. It is separate from the parent `maturity-app` repository; the app and
+optional source-built analysis tools are not published here. Website changes must be
+committed and pushed from inside this `site` directory so they go to the website remote,
+not the parent repository.
 
 Plain HTML and CSS with no build step, no JavaScript and no third-party requests. The site
 itself does not add analytics, trackers or remote assets.
 
-## Editing
+## Editing and deployment
 
-Change the HTML and push to `main`. GitHub Pages redeploys automatically, usually within a
-minute.
+Edit the HTML from inside this repository. Deployment is likely GitHub Pages from the
+`main` branch and repository root, but that source cannot be verified from the local
+checkout. Before relying on it, check **GitHub Settings &rarr; Pages** for the configured
+branch and folder. Commit and push website changes from inside `site` only after that
+configuration is confirmed.
 
 Shared styling lives in `styles.css`. Colours are defined once as custom properties at the
 top and adapt to light and dark mode via `prefers-color-scheme`.
