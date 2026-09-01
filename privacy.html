@@ -32,16 +32,17 @@
     <h1 style="font-size:clamp(1.7rem,4vw,2.3rem); letter-spacing:-0.025em; margin:0 0 8px;">
       Privacy policy
     </h1>
-    <p class="updated">Last updated 30 August 2026. Applies to Maturity for iPhone, iPad and Mac.</p>
+    <p class="updated">Last updated 1 September 2026. Applies to Maturity for iPhone, iPad and Mac.</p>
 
     <div class="callout">
       <p>
         <strong>The short version.</strong> Maturity has no developer-operated server,
         analytics or account system. Your app records stay on your devices and sync only
-        through your private iCloud container, which the developer cannot access. The
-        optional exchange-rate feature sends currency codes but no portfolio records.
-        Exports are created locally only when you ask. Content you voluntarily submit for
-        support is separate and is handled by GitHub and may be public.
+        through your private iCloud container, which the developer cannot access. Maturity
+        reminders and your language choice are managed locally on each device. The optional
+        exchange-rate feature sends currency codes but no portfolio records. Exports are
+        created locally only when you ask. Content you voluntarily submit for support is
+        separate and is handled by GitHub and may be public.
       </p>
     </div>
 
@@ -53,15 +54,27 @@
       <li>User-entered cash transactions, including opening balances, deposits, interest, maturities, early breaks, fees, transfers and reconciliation adjustments</li>
       <li>The app derives balances, interest estimates, tracked-position summaries, liquidity views, maturity ladders and attention items from those records on the device; those views are not separate synced records</li>
       <li>Settings that sync with the portfolio, plus device-local preferences and caches used to operate the app</li>
+      <li>Device-local choices for the interface language and maturity reminders, together with pending notification requests managed by the operating system</li>
     </ul>
     <p>
       The app does not ask for your name, email address, date of birth, location, contacts,
       photos, banking credentials, advertising identifier or device identifier.
     </p>
     <p>
-      If <em>Show an indicative equivalent</em> is enabled, the app also caches public
-      exchange rates, their publication dates and the service's supported-currency list on
-      that device. Disabling the feature deletes this fetched cache.
+      If you enable maturity reminders, the app asks the operating system for notification
+      permission and schedules local alerts for active deposits at 9:00 AM seven days before
+      and on the maturity day. Alerts contain the bank and maturity date but no amount. They
+      are generated on the device and do not pass through a developer-operated server or add
+      another network purpose. Disabling reminders removes Maturity's pending requests; the
+      in-app <strong>Delete all data</strong> action also clears local preferences and managed
+      reminder requests on that device.
+    </p>
+    <p>
+      Your selected interface language is stored only on that device, applies immediately and
+      does not alter or translate portfolio records. If <em>Show an indicative equivalent</em>
+      is enabled, the app also caches public exchange rates, their publication dates and the
+      service's supported-currency list on that device. Disabling the feature deletes this
+      fetched cache.
     </p>
 
     <h2>2. Where that data lives</h2>

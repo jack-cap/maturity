@@ -187,6 +187,163 @@ nav.site a:hover { color: var(--accent); }
   color: var(--text-faint);
 }
 
+.hero .wrap,
+.showcase .wrap {
+  max-width: 1120px;
+}
+
+.hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(430px, 1.12fr);
+  gap: clamp(34px, 6vw, 76px);
+  align-items: center;
+}
+
+.hero-copy { position: relative; z-index: 4; }
+
+.device-stage {
+  position: relative;
+  min-height: 470px;
+  isolation: isolate;
+}
+
+.device-stage::before {
+  content: "";
+  position: absolute;
+  inset: 12% 4% 4% 8%;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--accent) 22%, transparent), transparent 68%);
+  filter: blur(24px);
+}
+
+.device {
+  position: absolute;
+  display: block;
+  max-width: 100%;
+  height: auto;
+  background: #f7f7f9;
+  border: 1px solid color-mix(in srgb, var(--border) 76%, transparent);
+  box-shadow: 0 22px 52px rgba(9, 18, 28, 0.2);
+}
+
+.device-mac {
+  z-index: 1;
+  width: 94%;
+  top: 5%;
+  left: 0;
+  border-radius: 14px;
+}
+
+.device-ipad {
+  z-index: 2;
+  width: 37%;
+  right: 7%;
+  bottom: 0;
+  border-radius: 16px;
+}
+
+.device-iphone {
+  z-index: 3;
+  width: 24%;
+  right: -1%;
+  bottom: 4%;
+  border-radius: 18px;
+}
+
+/* ---------- Product showcase ---------- */
+
+.showcase {
+  background: var(--bg-soft);
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.platform-group {
+  margin-top: 48px;
+  padding-top: 34px;
+  border-top: 1px solid var(--border);
+}
+
+.platform-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.platform-heading h3 {
+  margin: 0 0 3px;
+  font-size: 1.16rem;
+  letter-spacing: -0.012em;
+}
+
+.platform-heading p {
+  margin: 0;
+  color: var(--text-dim);
+  font-size: 0.93rem;
+}
+
+.platform-mark {
+  flex: none;
+  min-width: 72px;
+  padding: 5px 10px;
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--border));
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 650;
+  text-align: center;
+}
+
+.screenshot-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  align-items: start;
+}
+
+.screenshot-card {
+  margin: 0;
+  padding: 9px;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) + 2px);
+  box-shadow: 0 12px 30px rgba(9, 18, 28, 0.08);
+}
+
+.screenshot-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
+  border-radius: 10px;
+  background: #f2f3f7;
+}
+
+.screenshot-card figcaption {
+  display: grid;
+  gap: 2px;
+  padding: 11px 5px 5px;
+  color: var(--text-dim);
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.screenshot-card figcaption strong {
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
 /* ---------- Sections ---------- */
 
 section { padding: 62px 0; }
@@ -368,6 +525,80 @@ footer.site a { color: var(--text-dim); text-decoration: none; }
 footer.site a:hover { color: var(--accent); }
 
 footer.site .spacer { margin-left: auto; }
+
+/* ---------- Responsive layout ---------- */
+
+@media (max-width: 900px) {
+  .hero-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-copy { max-width: 700px; }
+
+  .device-stage {
+    width: min(100%, 680px);
+    min-height: 500px;
+    margin: 4px auto 0;
+  }
+
+  .screenshot-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .wrap { padding-inline: 18px; }
+
+  header.site .wrap {
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    padding-block: 12px;
+  }
+
+  nav.site {
+    width: 100%;
+    margin-left: 0;
+    gap: 8px 16px;
+  }
+
+  nav.site a { font-size: 0.84rem; }
+
+  .hero { padding: 54px 0 42px; }
+
+  .device-stage {
+    min-height: 320px;
+  }
+
+  .device-mac { width: 96%; }
+  .device-ipad { width: 38%; right: 6%; }
+  .device-iphone { width: 25%; right: -1%; }
+
+  .platform-group {
+    margin-top: 38px;
+    padding-top: 28px;
+  }
+
+  .platform-heading {
+    display: grid;
+    gap: 10px;
+  }
+
+  .platform-mark { width: fit-content; }
+
+  .screenshot-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .platform-iphone .screenshot-card {
+    width: min(100%, 360px);
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 380px) {
+  .device-stage { min-height: 280px; }
+  .cta-row .btn { width: 100%; text-align: center; }
+}
 
 /* ---------- Accessibility ---------- */
 
