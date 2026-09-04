@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maturity — 정기예금 만기를 월별로 계획하세요</title>
+<meta name="description" content="지금 사용 가능한 현금, 다가오는 정기예금 만기와 공백을 월별로 확인하세요. iPhone, iPad, Mac에서 순환형 포트폴리오를 비공개로 추적할 수 있습니다.">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="../styles.css">
+<link rel="canonical" href="https://jack-cap.github.io/maturity/ko/">
+<link rel="alternate" hreflang="en" href="https://jack-cap.github.io/maturity/">
+<link rel="alternate" hreflang="de" href="https://jack-cap.github.io/maturity/de/">
+<link rel="alternate" hreflang="es" href="https://jack-cap.github.io/maturity/es/">
+<link rel="alternate" hreflang="fr" href="https://jack-cap.github.io/maturity/fr/">
+<link rel="alternate" hreflang="it" href="https://jack-cap.github.io/maturity/it/">
+<link rel="alternate" hreflang="ja" href="https://jack-cap.github.io/maturity/ja/">
+<link rel="alternate" hreflang="ko" href="https://jack-cap.github.io/maturity/ko/">
+<link rel="alternate" hreflang="pt-PT" href="https://jack-cap.github.io/maturity/pt-PT/">
+<link rel="alternate" hreflang="zh-Hans" href="https://jack-cap.github.io/maturity/zh-Hans/">
+<link rel="alternate" hreflang="zh-Hant" href="https://jack-cap.github.io/maturity/zh-Hant/">
+<link rel="alternate" hreflang="zh-HK" href="https://jack-cap.github.io/maturity/zh-HK/">
+<link rel="alternate" hreflang="x-default" href="https://jack-cap.github.io/maturity/">
+
+<meta property="og:title" content="Maturity — 정기예금 만기를 월별로 계획하세요">
+<meta property="og:description" content="지금 사용 가능한 금액, 매월 돌아오는 금액, 정기예금 포트폴리오의 공백을 확인하세요.">
+<meta property="og:type" content="website">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="./">
+      <span class="glyph" aria-hidden="true">M</span>
+      Maturity
+    </a>
+    <nav class="site" aria-label="사이트">
+      <a href="#why">필요한 이유</a>
+      <a href="#plan">작동 방식</a>
+      <a href="#tour">앱 둘러보기</a>
+      <a href="#maths">계산</a>
+      <a href="#privacy-summary">개인정보 보호</a>
+      <a href="../support.html" hreflang="en">지원(영어)</a>
+      <details class="language-menu">
+        <summary>한국어</summary>
+        <ul class="language-options">
+          <li><a href="../" hreflang="en" lang="en">English</a></li>
+          <li><a href="../de/" hreflang="de" lang="de">Deutsch</a></li>
+          <li><a href="../es/" hreflang="es" lang="es">Español</a></li>
+          <li><a href="../fr/" hreflang="fr" lang="fr">Français</a></li>
+          <li><a href="../it/" hreflang="it" lang="it">Italiano</a></li>
+          <li><a href="../ja/" hreflang="ja" lang="ja">日本語</a></li>
+          <li><a href="../ko/" hreflang="ko" lang="ko" aria-current="page">한국어</a></li>
+          <li><a href="../pt-PT/" hreflang="pt-PT" lang="pt-PT">Português (Portugal)</a></li>
+          <li><a href="../zh-Hans/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li>
+          <li><a href="../zh-Hant/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li>
+          <li><a href="../zh-HK/" hreflang="zh-HK" lang="zh-HK">繁體中文（香港）</a></li>
+        </ul>
+      </details>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<div class="hero">
+  <div class="wrap hero-layout">
+    <div class="hero-copy">
+      <span class="pill">iPhone &middot; iPad &middot; Mac</span>
+      <h1>만기를 먼 훗날의 한 날짜가 아닌 매월의 리듬으로 만드세요.</h1>
+      <p class="lede">
+        Maturity는 지금 예치할 수 있는 금액, 앞으로 매월 돌아올 금액과 공백을 보여줍니다.
+        만기를 연중에 고르게 배치하고, 다음 결정을 내릴 때까지 단기 정기예금의 자금 흐름도 계속 확인하세요.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#plan">작동 방식 보기</a>
+        <a class="btn btn-ghost" href="../support.html" hreflang="en">지원 및 FAQ(영어)</a>
+      </div>
+      <p class="note">비공개 iCloud 동기화. Maturity 계정 없음. 은행 연결 없음.</p>
+    </div>
+
+    <div class="device-stage" aria-hidden="true">
+      <img class="device device-mac" src="../assets/screenshots/mac-summary.webp" width="933" height="700" alt="" decoding="async" fetchpriority="high">
+      <img class="device device-ipad" src="../assets/screenshots/ipad-summary.webp" width="820" height="1180" alt="" decoding="async">
+      <img class="device device-iphone" src="../assets/screenshots/iphone-summary.webp" width="585" height="1266" alt="" decoding="async">
+    </div>
+  </div>
+</div>
+
+<section id="why" class="story-section">
+  <div class="wrap">
+    <span class="eyebrow">시점이 중요한 이유</span>
+    <h2>좋은 금리는 결정의 일부일 뿐입니다</h2>
+    <p class="sub">
+      큰 금액을 하나의 장기 정기예금에 넣으면 그 사이 여러 달 동안 돌아오는 원금이 전혀 없을 수 있습니다.
+      이자를 얻을 수는 있지만, 유동성도 한 날짜에 집중됩니다.
+    </p>
+
+    <div class="pattern-grid">
+      <article class="pattern-card pattern-card-muted">
+        <span class="pattern-label">한 번의 큰 만기</span>
+        <h3>모든 금액이 한꺼번에 돌아옵니다</h3>
+        <div class="maturity-pattern pattern-single" aria-hidden="true">
+          <span class="pattern-point is-start">지금</span>
+          <span class="pattern-point"></span>
+          <span class="pattern-point"></span>
+          <span class="pattern-point"></span>
+          <span class="pattern-point is-end">나중</span>
+        </div>
+        <p>
+          예치일부터 만기일까지 돌아오도록 예정된 원금이 없습니다.
+          포트폴리오 전체에 대해 같은 날 새로운 결정을 내려야 합니다.
+        </p>
+      </article>
+
+      <article class="pattern-card pattern-card-accent">
+        <span class="pattern-label">시간에 걸쳐 분산된 만기</span>
+        <h3>매월의 흐름이 보입니다</h3>
+        <div class="maturity-pattern pattern-rolling" aria-hidden="true">
+          <span class="pattern-point is-start">지금</span>
+          <span class="pattern-point is-return">1</span>
+          <span class="pattern-point is-return">2</span>
+          <span class="pattern-point is-return">3</span>
+          <span class="pattern-point is-return">4</span>
+        </div>
+        <p>
+          돌아오는 원금이 달력 전체에 분산됩니다. 각 기간에 돌아올 금액을 확인하고
+          다음에 무엇을 예치할지 결정할 수 있습니다.
+        </p>
+      </article>
+    </div>
+
+    <div class="principle">
+      <strong>목표는 더 많은 돈을 놀리는 것이 아닙니다.</strong>
+      <span>자금이 필요한 시점을 파악하고, 기다리는 동안 단기 예치 내역을 계속 확인하는 것입니다.</span>
+    </div>
+  </div>
+</section>
+
+<section id="plan" class="plan-section">
+  <div class="wrap">
+    <span class="eyebrow">Maturity가 돕는 방법</span>
+    <h2>실제로 보유한 포트폴리오에서 계획을 시작하세요</h2>
+    <p class="sub">
+      Maturity는 오늘의 지금 사용 가능 금액과 기록된 향후 12개월의 만기를 한 화면에 모아 보여줍니다.
+      일정은 Maturity가 보여주지만, 모든 예치 결정은 사용자의 몫입니다.
+    </p>
+
+    <ol class="journey">
+      <li class="journey-step">
+        <span class="step-number" aria-hidden="true">1</span>
+        <div>
+          <h3>오늘부터 시작하세요</h3>
+          <p>
+            <strong>지금 사용 가능</strong>은 선택한 통화의 정확한 거래 내역 합계입니다.
+            열어 보면 지금 어떤 계좌와 은행에서 실제로 정기예금 자금을 마련할 수 있는지 알 수 있습니다.
+          </p>
+        </div>
+      </li>
+      <li class="journey-step">
+        <span class="step-number" aria-hidden="true">2</span>
+        <div>
+          <h3>앞으로의 달을 살펴보세요</h3>
+          <p>
+            만기 래더는 월별 또는 분기별로 돌아올 원금과 이자를 보여줍니다.
+            공백이 포트폴리오의 형태를 설명하므로 비어 있는 기간도 그대로 표시됩니다.
+          </p>
+        </div>
+      </li>
+      <li class="journey-step">
+        <span class="step-number" aria-hidden="true">3</span>
+        <div>
+          <h3>다음 움직임을 기록하세요</h3>
+          <p>
+            선택한 정기예금을 추가하세요. 자금이 나중 달을 기다리고 있다면 기록된 단기 정기예금은
+            다시 사용 가능해질 때까지 일정에 남아 있습니다.
+          </p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="planning-boundary">
+      <div>
+        <span class="eyebrow">전략을 명확하게 기록</span>
+        <h3>만기를 분산하거나 단기와 장기 예치 기간의 비중을 조절하세요</h3>
+      </div>
+      <p>
+        같은 월별 화면이 두 방식 모두를 지원합니다. Maturity는 금액, 날짜와 공백을 보여주며,
+        금액, 예치 기간, 금리, 상품 또는 금융기관을 추천하지 않습니다.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="tour" class="showcase tour-section">
+  <div class="wrap">
+    <span class="eyebrow">하나의 포트폴리오, 세 가지 화면</span>
+    <h2>일정부터 그 뒤의 기록까지</h2>
+    <p class="sub">
+      요약은 지금 사용 가능한 금액과 다음에 돌아올 금액을 알려줍니다. 포지션에는 예치 조건이 담기고,
+      거래 내역은 현금 잔액의 모든 움직임을 설명합니다.
+    </p>
+
+    <div class="tour-grid">
+      <figure class="screenshot-card">
+        <img src="../assets/screenshots/iphone-summary.webp" width="585" height="1266" loading="lazy" decoding="async" alt="추적 중인 포지션과 다가오는 만기를 보여주는 iPhone의 Maturity 요약 화면">
+        <figcaption>
+          <strong>iPhone의 요약</strong>
+          <span>지금 사용 가능 금액, 유동성 구간, 다음 만기와 12개월 만기 래더.</span>
+        </figcaption>
+      </figure>
+      <figure class="screenshot-card">
+        <img src="../assets/screenshots/ipad-positions.webp" width="820" height="1180" loading="lazy" decoding="async" alt="Maturity 포지션 목록과 정기예금 상세 정보를 보여주는 iPad 화면">
+        <figcaption>
+          <strong>iPad의 포지션</strong>
+          <span>모든 활성 및 종료된 정기예금을 은행, 금리, 예치 기간 또는 만기별로 정렬.</span>
+        </figcaption>
+      </figure>
+      <figure class="screenshot-card">
+        <img src="../assets/screenshots/mac-transactions.webp" width="933" height="700" loading="lazy" decoding="async" alt="Maturity 거래 원장과 항목 상세 정보를 보여주는 Mac 화면">
+        <figcaption>
+          <strong>Mac의 거래 내역</strong>
+          <span>모든 행에 잔액 흐름이 표시되는 추적 가능한 원장.</span>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="platform-strip" aria-label="지원 플랫폼">
+      <div>
+        <strong>iPhone</strong>
+        <span>주의가 필요한 항목을 집중해서 확인.</span>
+      </div>
+      <div>
+        <strong>iPad</strong>
+        <span>상황별 상세 보기가 있는 넉넉한 작업 공간.</span>
+      </div>
+      <div>
+        <strong>Mac</strong>
+        <span>큰 포트폴리오를 위한 크기 조절 및 정렬 가능한 표.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="records" class="records-section">
+  <div class="wrap">
+    <span class="eyebrow">실제 기록을 위한 설계</span>
+    <h2>상황이 달라져도 유용한 화면</h2>
+    <p class="sub">
+      정기예금은 재예치되고, 현금은 은행 사이를 이동하며, 제시된 이자는 달라지고, 서로 다른 통화를
+      단순히 합산할 수는 없습니다. Maturity는 이런 세부 사항을 감추지 않고 명확하게 유지합니다.
+    </p>
+
+    <div class="feature-groups">
+      <article class="feature-group">
+        <div class="icon" aria-hidden="true">&#8646;</div>
+        <h3>대조할 수 있는 현금</h3>
+        <p>
+          현금은 계좌와 은행별로 추적됩니다. 이체는 나간 금액과 들어온 금액을 따로 기록하고,
+          대조는 은행이 보여주는 잔액과의 차이를 기록합니다.
+        </p>
+        <ul>
+          <li>모든 원장 행의 잔액 흐름</li>
+          <li>계좌별 지금 사용 가능 금액</li>
+          <li>조용한 수정 대신 날짜가 있는 정정 기록</li>
+        </ul>
+      </article>
+
+      <article class="feature-group">
+        <div class="icon" aria-hidden="true">&#8635;</div>
+        <h3>정기예금의 전체 생애 주기</h3>
+        <p>
+          전액 또는 일부 재예치를 기록하고, 수익금 일부를 현금으로 남기거나,
+          통지 기간과 금융기관의 최종 견적을 보존한 채 정기예금을 중도 해지할 수 있습니다.
+        </p>
+        <ul>
+          <li>활성 및 종료된 포지션</li>
+          <li>전액 및 일부 재예치</li>
+          <li>교체할 수 있는 중도 해지 예상치</li>
+        </ul>
+      </article>
+
+      <article class="feature-group">
+        <div class="icon" aria-hidden="true">&#164;</div>
+        <h3>통화를 정직하게 표시</h3>
+        <p>
+          원래 통화 금액을 기준으로 유지하며 직접 합산하지 않습니다. 서로 다른 통화를 하나의 잔액인 것처럼
+          취급하지 않고 금리, 유휴 현금 비율과 남은 예치 기간을 비교할 수 있습니다.
+        </p>
+        <ul>
+          <li>통화별 요약과 만기 래더</li>
+          <li>날짜가 표시되는 선택적 환산 금액</li>
+          <li>환율이 없을 때 불완전한 환산 총액을 표시하지 않음</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="utility-strip">
+      <span><strong>만기 알림</strong> 7일 전과 당일</span>
+      <span><strong>11개 인터페이스 언어</strong> 기기별 선택</span>
+      <span><strong>로컬 JSON 및 패키지 CSV 표</strong> 필요할 때 선택</span>
+    </div>
+  </div>
+</section>
+
+<section id="maths" class="maths-section">
+  <div class="wrap math-layout">
+    <div class="math-copy">
+      <span class="eyebrow">직접 확인할 수 있는 계산</span>
+      <h2>이자 계산을 명확하게 설명합니다</h2>
+      <p>
+        상품마다 일수 계산 기준이 다릅니다. Maturity는 기본적으로 <strong>Actual/365</strong>를 사용하며,
+        각 정기예금에 Actual/360과 30/360도 지원합니다. 모든 계산값은 시작점이며 은행의 견적으로 바꿀 수 있습니다.
+      </p>
+      <div class="callout">
+        <p>
+          금액은 센트 단위의 정수로, 금리는 베이시스 포인트 단위의 정수로 저장됩니다.
+          잔액은 부동소수점 근삿값이 아니라 거래 내역의 정확한 합계입니다.
+        </p>
+      </div>
+    </div>
+
+    <div class="math-example">
+      <table>
+        <caption>USD 100,000, 연 4.85%의 이자</caption>
+        <thead>
+          <tr><th scope="col">예치 기간</th><th scope="col">기준</th><th scope="col">이자</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>365일</td>
+            <td>Actual/365</td>
+            <td class="num">$4,850.00</td>
+          </tr>
+          <tr>
+            <td>90일</td>
+            <td>Actual/365</td>
+            <td class="num">$1,195.89</td>
+          </tr>
+          <tr>
+            <td>90일</td>
+            <td>Actual/360</td>
+            <td class="num">$1,212.50</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="table-note">
+        기준에 따라 결과가 달라집니다. 각 상품에 명시된 규칙을 선택하고,
+        금융기관의 계산 방식이 다르면 예상치를 바꾸세요.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="privacy-summary" class="privacy-section">
+  <div class="wrap">
+    <span class="eyebrow">처음부터 고려한 개인정보 보호</span>
+    <h2>사용자의 포트폴리오는 상품이 아닙니다</h2>
+    <p class="sub">
+      Maturity에는 개발자가 운영하는 서버도, 만들 계정도, 분석 기능도 없습니다.
+      기록에 대한 통제권은 사용자에게 있습니다.
+    </p>
+
+    <div class="privacy-grid">
+      <article class="card">
+        <h3>사용자 기기에 저장</h3>
+        <p>
+          기록은 iPhone, iPad와 Mac에 저장되며, 가능한 경우 CloudKit을 사용해
+          사용자의 비공개 iCloud 컨테이너를 통해 동기화됩니다.
+        </p>
+      </article>
+      <article class="card">
+        <h3>은행 인증 정보 불필요</h3>
+        <p>
+          Maturity는 금융기관에 연결하지 않습니다. 모든 기록을 직접 입력하므로
+          앱에 은행 로그인 정보를 제공할 필요가 없습니다.
+        </p>
+      </article>
+      <article class="card">
+        <h3>개발자 분석 없음</h3>
+        <p>
+          분석 SDK, 광고 식별자 또는 타사 충돌 보고 기능이 없습니다. 환산 금액을 사용하면 기준 환율 제공자는
+          요청한 통화 코드와 일반 연결 메타데이터만 받으며, 포트폴리오 금액이나 기록 식별자는 받지 않습니다.
+        </p>
+      </article>
+    </div>
+
+    <div class="section-actions">
+      <a class="btn btn-ghost" href="../privacy.html" hreflang="en">개인정보 처리방침 읽기(영어)</a>
+      <a class="btn btn-ghost" href="../docs.html" hreflang="en">내보내기 및 분석 문서(영어)</a>
+    </div>
+  </div>
+</section>
+
+<section class="closing-section">
+  <div class="wrap closing-layout">
+    <div>
+      <span class="eyebrow">다음 달을 시야에 두세요</span>
+      <h2>일정을 추적하고 직접 결정하세요.</h2>
+      <p>
+        지금 사용 가능한 금액에서 시작해 다음에 돌아올 금액을 확인하고,
+        새 예치를 주변 포트폴리오와 연결된 상태로 유지하세요.
+      </p>
+    </div>
+    <a class="btn btn-primary" href="../support.html" hreflang="en">설정 가이드 읽기(영어)</a>
+  </div>
+  <div class="wrap advice-note">
+    <strong>Maturity는 기록 관리 및 계산 도구입니다.</strong> 금융, 투자 또는 세무 자문을 제공하지 않습니다. 중요한 사항은 해당 기관 또는 면허를 보유한 자문가와 확인하세요.
+  </div>
+</section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>&copy; 2026 Maturity</span>
+    <span class="spacer"></span>
+    <a href="../privacy.html" hreflang="en">개인정보 보호(영어)</a>
+    <a href="../docs.html" hreflang="en">문서(영어)</a>
+    <a href="../support.html" hreflang="en">지원(영어)</a>
+    <a href="https://github.com/jack-cap/maturity/issues">문제 신고</a>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maturity — pianifica mese per mese le scadenze dei depositi a termine</title>
+<meta name="description" content="Visualizza la liquidità disponibile, le prossime scadenze dei depositi a termine e i periodi scoperti, mese per mese. Tieni traccia privatamente di un portafoglio a rotazione su iPhone, iPad e Mac.">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="../styles.css">
+<link rel="canonical" href="https://jack-cap.github.io/maturity/it/">
+<link rel="alternate" hreflang="en" href="https://jack-cap.github.io/maturity/">
+<link rel="alternate" hreflang="de" href="https://jack-cap.github.io/maturity/de/">
+<link rel="alternate" hreflang="es" href="https://jack-cap.github.io/maturity/es/">
+<link rel="alternate" hreflang="fr" href="https://jack-cap.github.io/maturity/fr/">
+<link rel="alternate" hreflang="it" href="https://jack-cap.github.io/maturity/it/">
+<link rel="alternate" hreflang="ja" href="https://jack-cap.github.io/maturity/ja/">
+<link rel="alternate" hreflang="ko" href="https://jack-cap.github.io/maturity/ko/">
+<link rel="alternate" hreflang="pt-PT" href="https://jack-cap.github.io/maturity/pt-PT/">
+<link rel="alternate" hreflang="zh-Hans" href="https://jack-cap.github.io/maturity/zh-Hans/">
+<link rel="alternate" hreflang="zh-Hant" href="https://jack-cap.github.io/maturity/zh-Hant/">
+<link rel="alternate" hreflang="zh-HK" href="https://jack-cap.github.io/maturity/zh-HK/">
+<link rel="alternate" hreflang="x-default" href="https://jack-cap.github.io/maturity/">
+
+<meta property="og:title" content="Maturity — pianifica mese per mese le scadenze dei depositi a termine">
+<meta property="og:description" content="Scopri cosa è disponibile ora, cosa rientra ogni mese e dove sono i periodi scoperti nel tuo portafoglio di depositi a termine.">
+<meta property="og:type" content="website">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="./">
+      <span class="glyph" aria-hidden="true">M</span>
+      Maturity
+    </a>
+    <nav class="site" aria-label="Sito">
+      <a href="#why">Perché</a>
+      <a href="#plan">Come funziona</a>
+      <a href="#tour">Esplora l’app</a>
+      <a href="#maths">Calcoli</a>
+      <a href="#privacy-summary">Privacy</a>
+      <a href="../support.html">Assistenza (English)</a>
+      <details class="language-menu">
+        <summary>Italiano</summary>
+        <ul class="language-options">
+          <li><a href="../">English</a></li>
+          <li><a href="../de/">Deutsch</a></li>
+          <li><a href="../es/">Español</a></li>
+          <li><a href="../fr/">Français</a></li>
+          <li><a href="./" aria-current="page">Italiano</a></li>
+          <li><a href="../ja/">日本語</a></li>
+          <li><a href="../ko/">한국어</a></li>
+          <li><a href="../pt-PT/">Português (Portugal)</a></li>
+          <li><a href="../zh-Hans/">简体中文</a></li>
+          <li><a href="../zh-Hant/">繁體中文</a></li>
+          <li><a href="../zh-HK/">繁體中文（香港）</a></li>
+        </ul>
+      </details>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<div class="hero">
+  <div class="wrap hero-layout">
+    <div class="hero-copy">
+      <span class="pill">iPhone &middot; iPad &middot; Mac</span>
+      <h1>Trasforma le scadenze in un ritmo mensile, non in un’unica data lontana.</h1>
+      <p class="lede">
+        Maturity mostra cosa puoi depositare ora, cosa ti verrà restituito in ciascuno dei prossimi mesi e
+        dove sono i periodi scoperti. Distribuisci le scadenze lungo l’anno, mantenendo visibili i
+        depositi a termine più brevi finché il denaro non sarà pronto per la decisione successiva.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#plan">Scopri come funziona</a>
+        <a class="btn btn-ghost" href="../support.html">Assistenza e FAQ (English)</a>
+      </div>
+      <p class="note">Sincronizzazione iCloud privata. Nessun account Maturity. Nessun collegamento bancario.</p>
+    </div>
+
+    <div class="device-stage" aria-hidden="true">
+      <img class="device device-mac" src="../assets/screenshots/mac-summary.webp" width="933" height="700" alt="" decoding="async" fetchpriority="high">
+      <img class="device device-ipad" src="../assets/screenshots/ipad-summary.webp" width="820" height="1180" alt="" decoding="async">
+      <img class="device device-iphone" src="../assets/screenshots/iphone-summary.webp" width="585" height="1266" alt="" decoding="async">
+    </div>
+  </div>
+</div>
+
+<section id="why" class="story-section">
+  <div class="wrap">
+    <span class="eyebrow">Perché il momento conta</span>
+    <h2>Un buon tasso è solo una parte della decisione</h2>
+    <p class="sub">
+      Se investi un unico importo elevato in un deposito a lungo termine, nei mesi intermedi potrebbe non
+      rientrare alcun capitale. Può generare interessi, ma concentra anche tutta la liquidità
+      in un’unica data.
+    </p>
+
+    <div class="pattern-grid">
+      <article class="pattern-card pattern-card-muted">
+        <span class="pattern-label">Un’unica grande scadenza</span>
+        <h3>Tutto rientra in una volta</h3>
+        <div class="maturity-pattern pattern-single" aria-hidden="true">
+          <span class="pattern-point is-start">Ora</span>
+          <span class="pattern-point"></span>
+          <span class="pattern-point"></span>
+          <span class="pattern-point"></span>
+          <span class="pattern-point is-end">Più avanti</span>
+        </div>
+        <p>
+          Nei mesi tra il versamento e la scadenza non è previsto alcun rientro.
+          L’intero portafoglio richiede una nuova decisione nella stessa data.
+        </p>
+      </article>
+
+      <article class="pattern-card pattern-card-accent">
+        <span class="pattern-label">Scadenze distribuite nel tempo</span>
+        <h3>Ogni mese diventa visibile</h3>
+        <div class="maturity-pattern pattern-rolling" aria-hidden="true">
+          <span class="pattern-point is-start">Ora</span>
+          <span class="pattern-point is-return">1</span>
+          <span class="pattern-point is-return">2</span>
+          <span class="pattern-point is-return">3</span>
+          <span class="pattern-point is-return">4</span>
+        </div>
+        <p>
+          Il capitale che rientra è distribuito nel calendario. Puoi vedere l’importo dovuto
+          in ogni periodo e decidere cosa depositare in seguito.
+        </p>
+      </article>
+    </div>
+
+    <div class="principle">
+      <strong>L’obiettivo non è lasciare più denaro inutilizzato.</strong>
+      <span>È sapere quando servirà il denaro e, nell’attesa, mantenere visibili i depositi a termine più brevi.</span>
+    </div>
+  </div>
+</section>
+
+<section id="plan" class="plan-section">
+  <div class="wrap">
+    <span class="eyebrow">Come ti aiuta Maturity</span>
+    <h2>Pianifica a partire dal portafoglio che possiedi davvero</h2>
+    <p class="sub">
+      Maturity riunisce in un’unica vista la liquidità disponibile oggi e i prossimi dodici mesi di
+      scadenze registrate. Ti offre lo scadenziario; ogni decisione di deposito resta tua.
+    </p>
+
+    <ol class="journey">
+      <li class="journey-step">
+        <span class="step-number" aria-hidden="true">1</span>
+        <div>
+          <h3>Parti da oggi</h3>
+          <p>
+            <strong>Disponibile ora</strong> è il totale esatto del registro per la
+            valuta selezionata. Aprilo per vedere quale conto e quale banca possono finanziare davvero un deposito ora.
+          </p>
+        </div>
+      </li>
+      <li class="journey-step">
+        <span class="step-number" aria-hidden="true">2</span>
+        <div>
+          <h3>Guarda i mesi che verranno</h3>
+          <p>
+            Lo scadenziario mostra il capitale e gli interessi in rientro per mese o trimestre.
+            I periodi vuoti restano visibili, perché mostrano la forma del portafoglio.
+          </p>
+        </div>
+      </li>
+      <li class="journey-step">
+        <span class="step-number" aria-hidden="true">3</span>
+        <div>
+          <h3>Registra la mossa successiva</h3>
+          <p>
+            Aggiungi il deposito che scegli. Se il denaro deve attendere un mese successivo, un
+            deposito a termine più breve registrato resta nello scadenziario finché non torna disponibile.
+          </p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="planning-boundary">
+      <div>
+        <span class="eyebrow">La tua strategia, registrata con chiarezza</span>
+        <h3>Distribuisci le scadenze oppure privilegia termini più brevi o più lunghi</h3>
+      </div>
+      <p>
+        La stessa vista mensile supporta entrambi gli approcci. Maturity riporta importi,
+        date e periodi scoperti; non consiglia importi, termini, tassi, prodotti o istituzioni.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="tour" class="showcase tour-section">
+  <div class="wrap">
+    <span class="eyebrow">Un portafoglio, tre viste</span>
+    <h2>Dallo scadenziario ai dati che lo compongono</h2>
+    <p class="sub">
+      Riepilogo mostra cosa è disponibile e cosa rientra dopo. Posizioni conserva i termini.
+      Operazioni spiega ogni movimento del saldo di cassa.
+    </p>
+
+    <div class="tour-grid">
+      <figure class="screenshot-card">
+        <img src="../assets/screenshots/iphone-summary.webp" width="585" height="1266" loading="lazy" decoding="async" alt="Riepilogo di Maturity su iPhone con posizioni monitorate e prossime scadenze">
+        <figcaption>
+          <strong>Riepilogo su iPhone</strong>
+          <span>Disponibile ora, finestre di liquidità, prossima scadenza e scadenziario di dodici mesi.</span>
+        </figcaption>
+      </figure>
+      <figure class="screenshot-card">
+        <img src="../assets/screenshots/ipad-positions.webp" width="820" height="1180" loading="lazy" decoding="async" alt="Elenco Posizioni e pannello di controllo dei depositi di Maturity su iPad">
+        <figcaption>
+          <strong>Posizioni su iPad</strong>
+          <span>Tutti i depositi attivi e chiusi, ordinabili per banca, tasso, termine o scadenza.</span>
+        </figcaption>
+      </figure>
+      <figure class="screenshot-card">
+        <img src="../assets/screenshots/mac-transactions.webp" width="933" height="700" loading="lazy" decoding="async" alt="Registro Operazioni e pannello dei dettagli di Maturity su Mac">
+        <figcaption>
+          <strong>Operazioni su Mac</strong>
+          <span>Un registro verificabile con il saldo progressivo su ogni riga.</span>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="platform-strip" aria-label="Piattaforme supportate">
+      <div>
+        <strong>iPhone</strong>
+        <span>Una panoramica mirata su ciò che richiede attenzione.</span>
+      </div>
+      <div>
+        <strong>iPad</strong>
+        <span>Uno spazio di lavoro ampio con pannelli contestuali.</span>
+      </div>
+      <div>
+        <strong>Mac</strong>
+        <span>Tabelle ridimensionabili e ordinabili per portafogli più grandi.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="records" class="records-section">
+  <div class="wrap">
+    <span class="eyebrow">Pensato per dati reali</span>
+    <h2>La vista resta utile quando la realtà cambia</h2>
+    <p class="sub">
+      I depositi vengono rinnovati, la liquidità si sposta tra banche, gli interessi quotati cambiano e le valute non possono
+      essere sommate correttamente. Maturity mantiene espliciti questi dettagli, senza nasconderli dietro semplificazioni.
+    </p>
+
+    <div class="feature-groups">
+      <article class="feature-group">
+        <div class="icon" aria-hidden="true">&#8646;</div>
+        <h3>Liquidità che puoi riconciliare</h3>
+        <p>
+          La liquidità è tracciata per conto e banca. I trasferimenti registrano separatamente ciò che è uscito
+          e ciò che è arrivato, mentre la riconciliazione registra la differenza rispetto al saldo indicato dalla banca.
+        </p>
+        <ul>
+          <li>Saldo progressivo su ogni riga del registro</li>
+          <li>Liquidità disponibile per conto</li>
+          <li>Correzioni datate invece di modifiche invisibili</li>
+        </ul>
+      </article>
+
+      <article class="feature-group">
+        <div class="icon" aria-hidden="true">&#8635;</div>
+        <h3>L’intero ciclo di vita di un deposito</h3>
+        <p>
+          Registra un rinnovo completo o parziale, conserva parte dei proventi come liquidità oppure effettua uno
+          svincolo anticipato, mantenendo il periodo di preavviso e la quotazione finale della tua istituzione.
+        </p>
+        <ul>
+          <li>Posizioni attive e chiuse</li>
+          <li>Rinnovi completi e parziali</li>
+          <li>Stime di svincolo anticipato che puoi sostituire</li>
+        </ul>
+      </article>
+
+      <article class="feature-group">
+        <div class="icon" aria-hidden="true">&#164;</div>
+        <h3>Le valute restano corrette</h3>
+        <p>
+          I valori nella valuta nativa restano autoritativi e non vengono mai sommati direttamente.
+          Confronta tasso, quota di liquidità inutilizzata e termine residuo senza fingere che valute diverse siano un unico saldo.
+        </p>
+        <ul>
+          <li>Riepilogo e scadenziario separati per ogni valuta</li>
+          <li>Equivalente indicativo facoltativo e datato</li>
+          <li>Nessun totale convertito parziale se manca un tasso</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="utility-strip">
+      <span><strong>Promemoria di scadenza</strong> sette giorni prima e il giorno stesso</span>
+      <span><strong>Undici lingue dell’interfaccia</strong> selezionate su ciascun dispositivo</span>
+      <span><strong>JSON locale e tabelle CSV incluse</strong> quando vuoi</span>
+    </div>
+  </div>
+</section>
+
+<section id="maths" class="maths-section">
+  <div class="wrap math-layout">
+    <div class="math-copy">
+      <span class="eyebrow">Calcoli che puoi verificare</span>
+      <h2>Il calcolo degli interessi, spiegato con chiarezza</h2>
+      <p>
+        I prodotti usano basi di calcolo dei giorni diverse. Maturity usa <strong>actual/365</strong> per
+        impostazione predefinita, ma supporta actual/360 e 30/360 per ogni deposito. Ogni cifra calcolata
+        è un punto di partenza che puoi sostituire con la quotazione della tua banca.
+      </p>
+      <div class="callout">
+        <p>
+          Il denaro è memorizzato in centesimi interi e i tassi in punti base interi. Il tuo saldo è
+          la somma esatta delle operazioni, non un’approssimazione in virgola mobile.
+        </p>
+      </div>
+    </div>
+
+    <div class="math-example">
+      <table>
+        <caption>Interessi su USD 100,000 al 4.85% annuo</caption>
+        <thead>
+          <tr><th scope="col">Termine</th><th scope="col">Base</th><th scope="col">Interessi</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>365 giorni</td>
+            <td>Actual/365</td>
+            <td class="num">$4,850.00</td>
+          </tr>
+          <tr>
+            <td>90 giorni</td>
+            <td>Actual/365</td>
+            <td class="num">$1,195.89</td>
+          </tr>
+          <tr>
+            <td>90 giorni</td>
+            <td>Actual/360</td>
+            <td class="num">$1,212.50</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="table-note">
+        La base cambia il risultato. Seleziona la convenzione indicata per ogni prodotto, quindi
+        sostituisci la stima se la tua istituzione esegue il calcolo in modo diverso.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="privacy-summary" class="privacy-section">
+  <div class="wrap">
+    <span class="eyebrow">Privato fin dalla progettazione</span>
+    <h2>Il tuo portafoglio non è il prodotto</h2>
+    <p class="sub">
+      Maturity non ha server gestiti dallo sviluppatore, account da creare né sistemi di analisi.
+      I tuoi dati restano sotto il tuo controllo.
+    </p>
+
+    <div class="privacy-grid">
+      <article class="card">
+        <h3>Archiviato sui tuoi dispositivi</h3>
+        <p>
+          I dati risiedono su iPhone, iPad e Mac e, quando disponibile, si sincronizzano tramite il tuo
+          contenitore iCloud privato usando CloudKit.
+        </p>
+      </article>
+      <article class="card">
+        <h3>Nessuna credenziale bancaria</h3>
+        <p>
+          Maturity non si collega agli istituti finanziari. Inserisci personalmente ogni dato,
+          quindi non devi fornire all’app alcun accesso bancario.
+        </p>
+      </article>
+      <article class="card">
+        <h3>Nessuna analisi dello sviluppatore</h3>
+        <p>
+          Nessun SDK di analisi, identificatore pubblicitario o servizio di segnalazione degli arresti anomali di terze parti. Se
+          abiliti la conversione indicativa, il fornitore dei tassi di riferimento riceve i codici valuta richiesti
+          e i normali metadati di connessione, mai importi del portafoglio o identificativi dei dati.
+        </p>
+      </article>
+    </div>
+
+    <div class="section-actions">
+      <a class="btn btn-ghost" href="../privacy.html">Leggi l’informativa sulla privacy (English)</a>
+      <a class="btn btn-ghost" href="../docs.html">Documentazione su esportazione e analisi (English)</a>
+    </div>
+  </div>
+</section>
+
+<section class="closing-section">
+  <div class="wrap closing-layout">
+    <div>
+      <span class="eyebrow">Tieni in vista il prossimo mese</span>
+      <h2>Segui lo scadenziario. Prendi la tua decisione.</h2>
+      <p>
+        Parti da ciò che è disponibile ora, guarda cosa rientra dopo e mantieni ogni nuovo deposito
+        collegato al portafoglio che lo circonda.
+      </p>
+    </div>
+    <a class="btn btn-primary" href="../support.html">Leggi la guida alla configurazione (English)</a>
+  </div>
+  <div class="wrap advice-note">
+    <strong>Maturity è uno strumento per la registrazione e il calcolo.</strong> Non fornisce consulenza finanziaria, di investimento o fiscale. Conferma qualsiasi aspetto rilevante con la tua istituzione o con un consulente autorizzato.
+  </div>
+</section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>&copy; 2026 Maturity</span>
+    <span class="spacer"></span>
+    <a href="../privacy.html">Privacy (English)</a>
+    <a href="../docs.html">Documentazione (English)</a>
+    <a href="../support.html">Assistenza (English)</a>
+    <a href="https://github.com/jack-cap/maturity/issues">Segnala un problema</a>
+  </div>
+</footer>
+
+</body>
+</html>

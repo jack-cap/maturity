@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maturity — 定期預金の満期を月ごとに計画</title>
+<meta name="description" content="現在利用可能な資金、今後の定期預金の満期、空白期間を月ごとに確認。iPhone、iPad、Macで継続運用するポートフォリオをプライベートに管理できます。">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="../styles.css">
+<link rel="canonical" href="https://jack-cap.github.io/maturity/ja/">
+<link rel="alternate" hreflang="en" href="https://jack-cap.github.io/maturity/">
+<link rel="alternate" hreflang="de" href="https://jack-cap.github.io/maturity/de/">
+<link rel="alternate" hreflang="es" href="https://jack-cap.github.io/maturity/es/">
+<link rel="alternate" hreflang="fr" href="https://jack-cap.github.io/maturity/fr/">
+<link rel="alternate" hreflang="it" href="https://jack-cap.github.io/maturity/it/">
+<link rel="alternate" hreflang="ja" href="https://jack-cap.github.io/maturity/ja/">
+<link rel="alternate" hreflang="ko" href="https://jack-cap.github.io/maturity/ko/">
+<link rel="alternate" hreflang="pt-PT" href="https://jack-cap.github.io/maturity/pt-PT/">
+<link rel="alternate" hreflang="zh-Hans" href="https://jack-cap.github.io/maturity/zh-Hans/">
+<link rel="alternate" hreflang="zh-Hant" href="https://jack-cap.github.io/maturity/zh-Hant/">
+<link rel="alternate" hreflang="zh-HK" href="https://jack-cap.github.io/maturity/zh-HK/">
+<link rel="alternate" hreflang="x-default" href="https://jack-cap.github.io/maturity/">
+
+<meta property="og:title" content="Maturity — 定期預金の満期を月ごとに計画">
+<meta property="og:description" content="現在利用可能な資金、毎月戻る資金、定期預金ポートフォリオの空白期間を確認できます。">
+<meta property="og:type" content="website">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="./">
+      <span class="glyph" aria-hidden="true">M</span>
+      Maturity
+    </a>
+    <nav class="site" aria-label="サイト">
+      <a href="#why">タイミングの重要性</a>
+      <a href="#plan">仕組み</a>
+      <a href="#tour">アプリを見る</a>
+      <a href="#maths">計算</a>
+      <a href="#privacy-summary">プライバシー</a>
+      <a href="../support.html">サポート（English）</a>
+      <details class="language-menu">
+        <summary>日本語</summary>
+        <ul class="language-options">
+          <li><a href="../">English</a></li>
+          <li><a href="../de/">Deutsch</a></li>
+          <li><a href="../es/">Español</a></li>
+          <li><a href="../fr/">Français</a></li>
+          <li><a href="../it/">Italiano</a></li>
+          <li><a href="./" aria-current="page">日本語</a></li>
+          <li><a href="../ko/">한국어</a></li>
+          <li><a href="../pt-PT/">Português (Portugal)</a></li>
+          <li><a href="../zh-Hans/">简体中文</a></li>
+          <li><a href="../zh-Hant/">繁體中文</a></li>
+          <li><a href="../zh-HK/">繁體中文（香港）</a></li>
+        </ul>
+      </details>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<div class="hero">
+  <div class="wrap hero-layout">
+    <div class="hero-copy">
+      <span class="pill">iPhone &middot; iPad &middot; Mac</span>
+      <h1>満期を遠い一日ではなく、毎月のリズムに。</h1>
+      <p class="lede">
+        Maturityなら、現在預け入れられる資金、今後の各月に戻る資金、空白期間がわかります。
+        満期を一年にわたって分散し、短期の定期預金も、その資金を次に運用できるようになるまで見える状態に保てます。
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#plan">仕組みを見る</a>
+        <a class="btn btn-ghost" href="../support.html">サポートとFAQ（English）</a>
+      </div>
+      <p class="note">プライベートなiCloud同期。Maturityアカウント不要。銀行との接続なし。</p>
+    </div>
+
+    <div class="device-stage" aria-hidden="true">
+      <img class="device device-mac" src="../assets/screenshots/mac-summary.webp" width="933" height="700" alt="" decoding="async" fetchpriority="high">
+      <img class="device device-ipad" src="../assets/screenshots/ipad-summary.webp" width="820" height="1180" alt="" decoding="async">
+      <img class="device device-iphone" src="../assets/screenshots/iphone-summary.webp" width="585" height="1266" alt="" decoding="async">
+    </div>
+  </div>
+</div>
+
+<section id="why" class="story-section">
+  <div class="wrap">
+    <span class="eyebrow">タイミングが重要な理由</span>
+    <h2>好金利だけで決まるものではありません</h2>
+    <p class="sub">
+      大きな金額を一つの長期定期預金に預けると、その間の月には元金がまったく戻らないことがあります。
+      利息は得られても、流動性が一日に集中してしまいます。
+    </p>
+
+    <div class="pattern-grid">
+      <article class="pattern-card pattern-card-muted">
+        <span class="pattern-label">一度だけの大きな満期</span>
+        <h3>すべての資金が一度に戻る</h3>
+        <div class="maturity-pattern pattern-single" aria-hidden="true">
+          <span class="pattern-point is-start">現在</span>
+          <span class="pattern-point"></span>
+          <span class="pattern-point"></span>
+          <span class="pattern-point"></span>
+          <span class="pattern-point is-end">将来</span>
+        </div>
+        <p>
+          預入日から満期までの各月には、戻る予定の資金がありません。
+          ポートフォリオ全体について同じ日に新たな判断が必要になります。
+        </p>
+      </article>
+
+      <article class="pattern-card pattern-card-accent">
+        <span class="pattern-label">時期を分散した満期</span>
+        <h3>各月の見通しが立つ</h3>
+        <div class="maturity-pattern pattern-rolling" aria-hidden="true">
+          <span class="pattern-point is-start">現在</span>
+          <span class="pattern-point is-return">1</span>
+          <span class="pattern-point is-return">2</span>
+          <span class="pattern-point is-return">3</span>
+          <span class="pattern-point is-return">4</span>
+        </div>
+        <p>
+          戻る元金がカレンダー上に分散されます。各期間に戻る金額を確認し、
+          次にどの資金を預け入れるか判断できます。
+        </p>
+      </article>
+    </div>
+
+    <div class="principle">
+      <strong>より多くの資金を遊ばせることが目的ではありません。</strong>
+      <span>資金が必要になる時期を把握し、それまで短期の定期預金を見える状態に保つことが目的です。</span>
+    </div>
+  </div>
+</section>
+
+<section id="plan" class="plan-section">
+  <div class="wrap">
+    <span class="eyebrow">Maturityでできること</span>
+    <h2>実際に保有するポートフォリオから計画</h2>
+    <p class="sub">
+      Maturityは、今日の利用可能な資金と、記録済みの今後12か月の満期を一つの画面にまとめます。
+      スケジュールはMaturityが示し、預入判断はすべてご自身で行えます。
+    </p>
+
+    <ol class="journey">
+      <li class="journey-step">
+        <span class="step-number" aria-hidden="true">1</span>
+        <div>
+          <h3>今日から始める</h3>
+          <p>
+            <strong>現在利用可能</strong>は、選択した通貨についての取引台帳の正確な合計です。
+            開くと、今どの口座と銀行から定期預金に預け入れられるか確認できます。
+          </p>
+        </div>
+      </li>
+      <li class="journey-step">
+        <span class="step-number" aria-hidden="true">2</span>
+        <div>
+          <h3>今後の月を確認する</h3>
+          <p>
+            満期ラダーには、月または四半期ごとに戻る元金と利息が表示されます。
+            空白期間もそのまま表示されるため、ポートフォリオの構成を把握できます。
+          </p>
+        </div>
+      </li>
+      <li class="journey-step">
+        <span class="step-number" aria-hidden="true">3</span>
+        <div>
+          <h3>次の動きを記録する</h3>
+          <p>
+            選んだ定期預金を追加します。将来の月まで資金を待機させる場合は、記録した短期の定期預金が、
+            再び利用可能になるまでスケジュールに残ります。
+          </p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="planning-boundary">
+      <div>
+        <span class="eyebrow">ご自身の戦略を明確に記録</span>
+        <h3>満期を分散するか、短期と長期の比重を調整</h3>
+      </div>
+      <p>
+        同じ月別表示で、どちらの方針にも対応できます。Maturityは金額、日付、空白期間を示しますが、
+        金額、期間、金利、商品、金融機関を推奨することはありません。
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="tour" class="showcase tour-section">
+  <div class="wrap">
+    <span class="eyebrow">一つのポートフォリオ、三つの画面</span>
+    <h2>スケジュールから、その根拠となる記録まで</h2>
+    <p class="sub">
+      サマリーでは、現在利用可能な資金と次に戻る資金を確認できます。ポジションには条件を記録。
+      取引では、現金残高のすべての動きを確認できます。
+    </p>
+
+    <div class="tour-grid">
+      <figure class="screenshot-card">
+        <img src="../assets/screenshots/iphone-summary.webp" width="585" height="1266" loading="lazy" decoding="async" alt="追跡中のポジションと今後の満期を表示するiPhone版Maturityのサマリー">
+        <figcaption>
+          <strong>iPhoneのサマリー</strong>
+          <span>現在利用可能な資金、流動性の時期、次回満期、12か月の満期ラダー。</span>
+        </figcaption>
+      </figure>
+      <figure class="screenshot-card">
+        <img src="../assets/screenshots/ipad-positions.webp" width="820" height="1180" loading="lazy" decoding="async" alt="Maturityのポジション一覧と定期預金の詳細を表示するiPad画面">
+        <figcaption>
+          <strong>iPadのポジション</strong>
+          <span>運用中および閉鎖済みのすべての定期預金を、銀行、金利、期間、満期で並べ替え。</span>
+        </figcaption>
+      </figure>
+      <figure class="screenshot-card">
+        <img src="../assets/screenshots/mac-transactions.webp" width="933" height="700" loading="lazy" decoding="async" alt="Maturityの取引台帳と明細を表示するMac画面">
+        <figcaption>
+          <strong>Macの取引</strong>
+          <span>各行に残高を表示する、追跡可能な取引台帳。</span>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="platform-strip" aria-label="対応プラットフォーム">
+      <div>
+        <strong>iPhone</strong>
+        <span>注意が必要な項目をすばやく確認。</span>
+      </div>
+      <div>
+        <strong>iPad</strong>
+        <span>状況に応じた詳細パネルを備えた広々とした作業画面。</span>
+      </div>
+      <div>
+        <strong>Mac</strong>
+        <span>大きなポートフォリオに対応する、サイズ変更と並べ替えが可能な表。</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="records" class="records-section">
+  <div class="wrap">
+    <span class="eyebrow">実際の記録に対応</span>
+    <h2>状況が変わっても役立つ表示</h2>
+    <p class="sub">
+      定期預金は継続され、資金は銀行間を移動し、提示される利息は変わり、異なる通貨を安易に合算することはできません。
+      Maturityは、そうした詳細を曖昧にせず、明確に記録します。
+    </p>
+
+    <div class="feature-groups">
+      <article class="feature-group">
+        <div class="icon" aria-hidden="true">&#8646;</div>
+        <h3>照合できる現金</h3>
+        <p>
+          現金は口座と銀行ごとに追跡されます。送金では、出金と入金を別々に記録し、
+          照合では、銀行が示す残高との差額を記録します。
+        </p>
+        <ul>
+          <li>取引台帳の各行に残高を表示</li>
+          <li>口座ごとの利用可能な現金</li>
+          <li>目立たない編集ではなく、日付付きの修正</li>
+        </ul>
+      </article>
+
+      <article class="feature-group">
+        <div class="icon" aria-hidden="true">&#8635;</div>
+        <h3>定期預金の全期間を記録</h3>
+        <p>
+          全額または一部の継続を記録し、受取額の一部を現金として残すことも、通知期間と金融機関の最終提示額を保存して
+          中途解約することもできます。
+        </p>
+        <ul>
+          <li>運用中および閉鎖済みのポジション</li>
+          <li>全額および一部の継続</li>
+          <li>置き換え可能な中途解約の見積もり</li>
+        </ul>
+      </article>
+
+      <article class="feature-group">
+        <div class="icon" aria-hidden="true">&#164;</div>
+        <h3>通貨を正確に扱う</h3>
+        <p>
+          各通貨建ての金額を正式な値として扱い、直接合算することはありません。
+          異なる通貨を一つの残高に見せかけることなく、金利、待機資金の割合、残存期間を比較できます。
+        </p>
+        <ul>
+          <li>通貨ごとに分けたサマリーと満期ラダー</li>
+          <li>任意で表示できる日付付きの参考換算額</li>
+          <li>レートがない場合は一部だけの換算合計を表示しない</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="utility-strip">
+      <span><strong>満期リマインダー</strong> 7日前と当日に通知</span>
+      <span><strong>11のインターフェイス言語</strong>をデバイスごとに選択</span>
+      <span><strong>ローカルJSONと同梱CSV表</strong>を必要なときに利用</span>
+    </div>
+  </div>
+</section>
+
+<section id="maths" class="maths-section">
+  <div class="wrap math-layout">
+    <div class="math-copy">
+      <span class="eyebrow">確認できる計算</span>
+      <h2>利息計算をわかりやすく表示</h2>
+      <p>
+        商品によって日数計算の基準は異なります。Maturityでは初期設定で<strong>actual/365</strong>を使用し、
+        定期預金ごとにactual/360と30/360も選択できます。計算値はすべて出発点であり、銀行の提示額に置き換えられます。
+      </p>
+      <div class="callout">
+        <p>
+          金額は1セント単位の整数、金利は1ベーシスポイント単位の整数で保存されます。残高は浮動小数点による近似値ではなく、
+          取引を正確に合計した値です。
+        </p>
+      </div>
+    </div>
+
+    <div class="math-example">
+      <table>
+        <caption>USD 100,000、年利4.85%の利息</caption>
+        <thead>
+          <tr><th scope="col">期間</th><th scope="col">基準</th><th scope="col">利息</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>365日</td>
+            <td>Actual/365</td>
+            <td class="num">$4,850.00</td>
+          </tr>
+          <tr>
+            <td>90日</td>
+            <td>Actual/365</td>
+            <td class="num">$1,195.89</td>
+          </tr>
+          <tr>
+            <td>90日</td>
+            <td>Actual/360</td>
+            <td class="num">$1,212.50</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="table-note">
+        基準によって結果が変わります。商品ごとに提示された方式を選択し、金融機関の計算方法が異なる場合は見積もりを置き換えてください。
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="privacy-summary" class="privacy-section">
+  <div class="wrap">
+    <span class="eyebrow">プライバシー重視の設計</span>
+    <h2>あなたのポートフォリオを商品にしません</h2>
+    <p class="sub">
+      Maturityには、開発者が運営するサーバーも、作成するアカウントも、分析機能もありません。
+      記録はご自身の管理下に置かれます。
+    </p>
+
+    <div class="privacy-grid">
+      <article class="card">
+        <h3>デバイスに保存</h3>
+        <p>
+          記録はiPhone、iPad、Macに保存され、利用可能な場合はCloudKitを使用して
+          ご自身のプライベートなiCloudコンテナ経由で同期されます。
+        </p>
+      </article>
+      <article class="card">
+        <h3>銀行の認証情報は不要</h3>
+        <p>
+          Maturityは金融機関に接続しません。各記録をご自身で入力するため、
+          銀行のログイン情報をアプリに渡す必要はありません。
+        </p>
+      </article>
+      <article class="card">
+        <h3>開発者による分析なし</h3>
+        <p>
+          分析SDK、広告識別子、第三者のクラッシュレポート機能はありません。参考換算を有効にした場合、
+          参照レート提供者が受け取るのは、要求された通貨コードと通常の接続メタデータだけです。
+          ポートフォリオの金額や記録IDが送信されることはありません。
+        </p>
+      </article>
+    </div>
+
+    <div class="section-actions">
+      <a class="btn btn-ghost" href="../privacy.html">プライバシーポリシーを読む（English）</a>
+      <a class="btn btn-ghost" href="../docs.html">エクスポートと分析のドキュメント（English）</a>
+    </div>
+  </div>
+</section>
+
+<section class="closing-section">
+  <div class="wrap closing-layout">
+    <div>
+      <span class="eyebrow">次の一か月を見通す</span>
+      <h2>スケジュールを記録し、ご自身で判断を。</h2>
+      <p>
+        現在利用可能な資金から始め、次に戻る資金を確認し、新しい預け入れを
+        ポートフォリオ全体と結び付けて管理できます。
+      </p>
+    </div>
+    <a class="btn btn-primary" href="../support.html">設定ガイドを読む（English）</a>
+  </div>
+  <div class="wrap advice-note">
+    <strong>Maturityは記録および計算ツールです。</strong>財務、投資、または税務に関する助言は提供しません。重要な事項については、金融機関または公認アドバイザーにご確認ください。
+  </div>
+</section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>&copy; 2026 Maturity</span>
+    <span class="spacer"></span>
+    <a href="../privacy.html">プライバシー（English）</a>
+    <a href="../docs.html">ドキュメント（English）</a>
+    <a href="../support.html">サポート（English）</a>
+    <a href="https://github.com/jack-cap/maturity/issues">問題を報告</a>
+  </div>
+</footer>
+
+</body>
+</html>

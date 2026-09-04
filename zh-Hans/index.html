@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maturity — 按月规划定期存款到期安排</title>
+<meta name="description" content="按月查看当前可用资金、即将到期的定期存款和空档。在 iPhone、iPad 和 Mac 上私密追踪滚动持仓组合。">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="../styles.css">
+<link rel="canonical" href="https://jack-cap.github.io/maturity/zh-Hans/">
+<link rel="alternate" hreflang="en" href="https://jack-cap.github.io/maturity/">
+<link rel="alternate" hreflang="de" href="https://jack-cap.github.io/maturity/de/">
+<link rel="alternate" hreflang="es" href="https://jack-cap.github.io/maturity/es/">
+<link rel="alternate" hreflang="fr" href="https://jack-cap.github.io/maturity/fr/">
+<link rel="alternate" hreflang="it" href="https://jack-cap.github.io/maturity/it/">
+<link rel="alternate" hreflang="ja" href="https://jack-cap.github.io/maturity/ja/">
+<link rel="alternate" hreflang="ko" href="https://jack-cap.github.io/maturity/ko/">
+<link rel="alternate" hreflang="pt-PT" href="https://jack-cap.github.io/maturity/pt-PT/">
+<link rel="alternate" hreflang="zh-Hans" href="https://jack-cap.github.io/maturity/zh-Hans/">
+<link rel="alternate" hreflang="zh-Hant" href="https://jack-cap.github.io/maturity/zh-Hant/">
+<link rel="alternate" hreflang="zh-HK" href="https://jack-cap.github.io/maturity/zh-HK/">
+<link rel="alternate" hreflang="x-default" href="https://jack-cap.github.io/maturity/">
+
+<meta property="og:title" content="Maturity — 按月规划定期存款到期安排">
+<meta property="og:description" content="查看当前可用资金、每月返还的资金，以及定期存款持仓组合中的空档。">
+<meta property="og:type" content="website">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="./">
+      <span class="glyph" aria-hidden="true">M</span>
+      Maturity
+    </a>
+    <nav class="site" aria-label="网站">
+      <a href="#why">为何重要</a>
+      <a href="#plan">工作方式</a>
+      <a href="#tour">应用导览</a>
+      <a href="#maths">计算</a>
+      <a href="#privacy-summary">隐私</a>
+      <a href="../support.html" hreflang="en">支持（英文）</a>
+      <details class="language-menu">
+        <summary>简体中文</summary>
+        <ul class="language-options">
+          <li><a href="../" hreflang="en" lang="en">English</a></li>
+          <li><a href="../de/" hreflang="de" lang="de">Deutsch</a></li>
+          <li><a href="../es/" hreflang="es" lang="es">Español</a></li>
+          <li><a href="../fr/" hreflang="fr" lang="fr">Français</a></li>
+          <li><a href="../it/" hreflang="it" lang="it">Italiano</a></li>
+          <li><a href="../ja/" hreflang="ja" lang="ja">日本語</a></li>
+          <li><a href="../ko/" hreflang="ko" lang="ko">한국어</a></li>
+          <li><a href="../pt-PT/" hreflang="pt-PT" lang="pt-PT">Português (Portugal)</a></li>
+          <li><a href="../zh-Hans/" hreflang="zh-Hans" lang="zh-Hans" aria-current="page">简体中文</a></li>
+          <li><a href="../zh-Hant/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li>
+          <li><a href="../zh-HK/" hreflang="zh-HK" lang="zh-HK">繁體中文（香港）</a></li>
+        </ul>
+      </details>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<div class="hero">
+  <div class="wrap hero-layout">
+    <div class="hero-copy">
+      <span class="pill">iPhone &middot; iPad &middot; Mac</span>
+      <h1>让到期成为每月的节奏，而不是遥远的某一天。</h1>
+      <p class="lede">
+        Maturity 会显示你现在可以存入的资金、未来每月将返还的资金，以及其中的空档。
+        将到期日分散在全年，同时持续查看短期定期存款，直到资金可以用于下一次决策。
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#plan">查看工作方式</a>
+        <a class="btn btn-ghost" href="../support.html" hreflang="en">支持与常见问题（英文）</a>
+      </div>
+      <p class="note">私密 iCloud 同步。无需 Maturity 账户。不连接银行。</p>
+    </div>
+
+    <div class="device-stage" aria-hidden="true">
+      <img class="device device-mac" src="../assets/screenshots/mac-summary.webp" width="933" height="700" alt="" decoding="async" fetchpriority="high">
+      <img class="device device-ipad" src="../assets/screenshots/ipad-summary.webp" width="820" height="1180" alt="" decoding="async">
+      <img class="device device-iphone" src="../assets/screenshots/iphone-summary.webp" width="585" height="1266" alt="" decoding="async">
+    </div>
+  </div>
+</div>
+
+<section id="why" class="story-section">
+  <div class="wrap">
+    <span class="eyebrow">时机为何重要</span>
+    <h2>高利率只是决策的一部分</h2>
+    <p class="sub">
+      如果把一大笔资金存入一笔长期定期存款，中间数月可能完全没有本金返还。
+      这样或许能赚取利息，但也会把流动性集中在同一个日期。
+    </p>
+
+    <div class="pattern-grid">
+      <article class="pattern-card pattern-card-muted">
+        <span class="pattern-label">一笔大额到期</span>
+        <h3>所有资金一次返还</h3>
+        <div class="maturity-pattern pattern-single" aria-hidden="true">
+          <span class="pattern-point is-start">现在</span>
+          <span class="pattern-point"></span>
+          <span class="pattern-point"></span>
+          <span class="pattern-point"></span>
+          <span class="pattern-point is-end">以后</span>
+        </div>
+        <p>
+          从存入到到期之间，没有本金安排返还。
+          整个持仓组合都需要在同一天重新作出决定。
+        </p>
+      </article>
+
+      <article class="pattern-card pattern-card-accent">
+        <span class="pattern-label">分散在不同时间到期</span>
+        <h3>每个月都清晰可见</h3>
+        <div class="maturity-pattern pattern-rolling" aria-hidden="true">
+          <span class="pattern-point is-start">现在</span>
+          <span class="pattern-point is-return">1</span>
+          <span class="pattern-point is-return">2</span>
+          <span class="pattern-point is-return">3</span>
+          <span class="pattern-point is-return">4</span>
+        </div>
+        <p>
+          返还的本金分散在日历中。你可以查看每个期间将返还的金额，
+          再决定下一笔资金如何存入。
+        </p>
+      </article>
+    </div>
+
+    <div class="principle">
+      <strong>目标不是让更多资金闲置。</strong>
+      <span>而是知道何时需要资金，并在等待期间持续查看短期存款的安排。</span>
+    </div>
+  </div>
+</section>
+
+<section id="plan" class="plan-section">
+  <div class="wrap">
+    <span class="eyebrow">Maturity 如何提供帮助</span>
+    <h2>从你实际持有的组合开始规划</h2>
+    <p class="sub">
+      Maturity 将今天的当前可用资金和已记录的未来 12 个月到期情况汇集在一个视图中。
+      它为你呈现安排；每一笔存款决策仍由你自己作出。
+    </p>
+
+    <ol class="journey">
+      <li class="journey-step">
+        <span class="step-number" aria-hidden="true">1</span>
+        <div>
+          <h3>从今天开始</h3>
+          <p>
+            <strong>当前可用</strong>是所选货币在交易账本中的准确合计。
+            打开后即可查看现在究竟可以从哪个账户和哪家银行拨出资金存入定期存款。
+          </p>
+        </div>
+      </li>
+      <li class="journey-step">
+        <span class="step-number" aria-hidden="true">2</span>
+        <div>
+          <h3>查看未来各月</h3>
+          <p>
+            到期阶梯按月或按季度显示将返还的本金和利息。
+            空白期间也会保留，因为这些空档解释了持仓组合的结构。
+          </p>
+        </div>
+      </li>
+      <li class="journey-step">
+        <span class="step-number" aria-hidden="true">3</span>
+        <div>
+          <h3>记录下一步</h3>
+          <p>
+            添加你选择的定期存款。如果资金要等到之后的月份使用，已记录的短期定期存款会保留在安排中，
+            直到资金再次可用。
+          </p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="planning-boundary">
+      <div>
+        <span class="eyebrow">清晰记录你的策略</span>
+        <h3>分散到期时间，或调整短期与长期存款的比重</h3>
+      </div>
+      <p>
+        同一个月度视图可以支持这两种方式。Maturity 会呈现你的金额、日期和空档；
+        它不会推荐金额、存款期、利率、产品或金融机构。
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="tour" class="showcase tour-section">
+  <div class="wrap">
+    <span class="eyebrow">一个持仓组合，三个视图</span>
+    <h2>从安排到背后的每笔记录</h2>
+    <p class="sub">
+      摘要回答当前有多少资金可用以及接下来会返还什么。持仓保留各项存款条件，
+      交易则解释现金余额的每一次变动。
+    </p>
+
+    <div class="tour-grid">
+      <figure class="screenshot-card">
+        <img src="../assets/screenshots/iphone-summary.webp" width="585" height="1266" loading="lazy" decoding="async" alt="iPhone 上的 Maturity 摘要，显示已追踪的持仓和即将到期的存款">
+        <figcaption>
+          <strong>iPhone 上的摘要</strong>
+          <span>当前可用资金、流动性时段、下一次到期和 12 个月到期阶梯。</span>
+        </figcaption>
+      </figure>
+      <figure class="screenshot-card">
+        <img src="../assets/screenshots/ipad-positions.webp" width="820" height="1180" loading="lazy" decoding="async" alt="iPad 上的 Maturity 持仓列表和定期存款检查器">
+        <figcaption>
+          <strong>iPad 上的持仓</strong>
+          <span>查看每笔有效和已结束的定期存款，并按银行、利率、存款期或到期日排序。</span>
+        </figcaption>
+      </figure>
+      <figure class="screenshot-card">
+        <img src="../assets/screenshots/mac-transactions.webp" width="933" height="700" loading="lazy" decoding="async" alt="Mac 上的 Maturity 交易账本和条目检查器">
+        <figcaption>
+          <strong>Mac 上的交易</strong>
+          <span>可追溯的账本，每一行都显示滚动余额。</span>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="platform-strip" aria-label="支持的平台">
+      <div>
+        <strong>iPhone</strong>
+        <span>集中浏览需要留意的事项。</span>
+      </div>
+      <div>
+        <strong>iPad</strong>
+        <span>宽敞的工作区，配有上下文检查器。</span>
+      </div>
+      <div>
+        <strong>Mac</strong>
+        <span>可调整大小、可排序的表格，适合较大的持仓组合。</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="records" class="records-section">
+  <div class="wrap">
+    <span class="eyebrow">为真实记录而设计</span>
+    <h2>现实变化时，视图依然实用</h2>
+    <p class="sub">
+      定期存款会续存，现金会在银行之间转移，利息报价会有差异，不同货币也不能如实地直接相加。
+      Maturity 会明确保留这些细节，而不是将它们模糊处理。
+    </p>
+
+    <div class="feature-groups">
+      <article class="feature-group">
+        <div class="icon" aria-hidden="true">&#8646;</div>
+        <h3>可以核对的现金</h3>
+        <p>
+          现金按账户和银行追踪。转账会分别记录转出的金额和到账的金额，
+          核对则记录账本与银行所示余额之间的差额。
+        </p>
+        <ul>
+          <li>每一行账本都显示滚动余额</li>
+          <li>账户级别的当前可用资金</li>
+          <li>以注明日期的更正取代无痕修改</li>
+        </ul>
+      </article>
+
+      <article class="feature-group">
+        <div class="icon" aria-hidden="true">&#8635;</div>
+        <h3>定期存款的完整生命周期</h3>
+        <p>
+          记录全部或部分续存，将部分所得保留为现金，或提前支取定期存款，
+          同时保留通知期和金融机构的最终报价。
+        </p>
+        <ul>
+          <li>有效和已结束的持仓</li>
+          <li>全部和部分续存</li>
+          <li>可替换的提前支取估算</li>
+        </ul>
+      </article>
+
+      <article class="feature-group">
+        <div class="icon" aria-hidden="true">&#164;</div>
+        <h3>如实呈现不同货币</h3>
+        <p>
+          原始货币金额始终是权威数据，绝不会直接相加。
+          比较利率、闲置现金比例和剩余存款期，而不假装不同货币可以合为一个余额。
+        </p>
+        <ul>
+          <li>每种货币分别显示摘要和到期阶梯</li>
+          <li>可选的带日期参考等值</li>
+          <li>缺少汇率时不显示不完整的换算总额</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="utility-strip">
+      <span><strong>到期提醒</strong> 提前七天和到期当天</span>
+      <span><strong>十一种界面语言</strong> 在每台设备上分别选择</span>
+      <span><strong>本地 JSON 和打包的 CSV 表格</strong> 在你选择时生成</span>
+    </div>
+  </div>
+</section>
+
+<section id="maths" class="maths-section">
+  <div class="wrap math-layout">
+    <div class="math-copy">
+      <span class="eyebrow">可以检查的计算</span>
+      <h2>清楚说明利息计算方式</h2>
+      <p>
+        不同产品采用不同的计息天数基准。Maturity 默认使用<strong>实际天数/365</strong>，
+        每笔定期存款也支持实际天数/360和 30/360。每个计算结果都是起点，你可以用银行报价替换。
+      </p>
+      <div class="callout">
+        <p>
+          金额以整分储存，利率以整基点储存。你的余额是所有交易的准确总和，
+          而不是浮点近似值。
+        </p>
+      </div>
+    </div>
+
+    <div class="math-example">
+      <table>
+        <caption>USD 100,000 按 4.85% 年利率计算的利息</caption>
+        <thead>
+          <tr><th scope="col">存款期</th><th scope="col">基准</th><th scope="col">利息</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>365 天</td>
+            <td>实际天数/365</td>
+            <td class="num">$4,850.00</td>
+          </tr>
+          <tr>
+            <td>90 天</td>
+            <td>实际天数/365</td>
+            <td class="num">$1,195.89</td>
+          </tr>
+          <tr>
+            <td>90 天</td>
+            <td>实际天数/360</td>
+            <td class="num">$1,212.50</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="table-note">
+        基准会改变计算结果。请选择每种产品注明的惯例；
+        如果你的金融机构采用不同算法，请替换估算值。
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="privacy-summary" class="privacy-section">
+  <div class="wrap">
+    <span class="eyebrow">隐私源于设计</span>
+    <h2>你的持仓组合不是产品</h2>
+    <p class="sub">
+      Maturity 没有由开发者运营的服务器，无需创建账户，也不使用分析工具。
+      你的记录始终由你掌控。
+    </p>
+
+    <div class="privacy-grid">
+      <article class="card">
+        <h3>储存在你的设备上</h3>
+        <p>
+          记录保存在你的 iPhone、iPad 和 Mac 上；条件允许时，
+          通过 CloudKit 在你自己的私密 iCloud 容器中同步。
+        </p>
+      </article>
+      <article class="card">
+        <h3>无需银行登录信息</h3>
+        <p>
+          Maturity 不连接金融机构。每条记录都由你自行输入，
+          因此无需向应用提供银行登录信息。
+        </p>
+      </article>
+      <article class="card">
+        <h3>不使用开发者分析工具</h3>
+        <p>
+          没有分析 SDK、广告标识符或第三方崩溃报告。启用参考换算后，参考汇率提供商只会收到
+          所请求的货币代码和普通连接元数据，绝不会收到持仓金额或记录标识符。
+        </p>
+      </article>
+    </div>
+
+    <div class="section-actions">
+      <a class="btn btn-ghost" href="../privacy.html" hreflang="en">阅读隐私政策（英文）</a>
+      <a class="btn btn-ghost" href="../docs.html" hreflang="en">导出与分析文档（英文）</a>
+    </div>
+  </div>
+</section>
+
+<section class="closing-section">
+  <div class="wrap closing-layout">
+    <div>
+      <span class="eyebrow">始终看清下个月</span>
+      <h2>追踪安排。自己作出决定。</h2>
+      <p>
+        从当前可用资金开始，查看接下来会返还的资金，
+        并让每笔新存款都与周围的持仓组合保持联系。
+      </p>
+    </div>
+    <a class="btn btn-primary" href="../support.html" hreflang="en">阅读设置指南（英文）</a>
+  </div>
+  <div class="wrap advice-note">
+    <strong>Maturity 是一款记录和计算工具，</strong>不提供财务、投资或税务建议。任何重大事项请与你的金融机构或持牌顾问确认。
+  </div>
+</section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>&copy; 2026 Maturity</span>
+    <span class="spacer"></span>
+    <a href="../privacy.html" hreflang="en">隐私（英文）</a>
+    <a href="../docs.html" hreflang="en">文档（英文）</a>
+    <a href="../support.html" hreflang="en">支持（英文）</a>
+    <a href="https://github.com/jack-cap/maturity/issues">报告问题</a>
+  </div>
+</footer>
+
+</body>
+</html>
