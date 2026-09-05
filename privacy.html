@@ -18,7 +18,7 @@
     </a>
     <nav class="site" aria-label="Site">
       <a href="./">Home</a>
-      <a href="docs.html">Docs</a>
+      <a href="docs.html">Export guide</a>
       <a href="privacy.html">Privacy</a>
       <a href="support.html">Support</a>
     </nav>
@@ -32,7 +32,7 @@
     <h1 style="font-size:clamp(1.7rem,4vw,2.3rem); letter-spacing:-0.025em; margin:0 0 8px;">
       Privacy policy
     </h1>
-    <p class="updated">Last updated 1 September 2026. Applies to Maturity for iPhone, iPad and Mac.</p>
+    <p class="updated">Last updated 5 September 2026. Applies to Maturity for iPhone, iPad and Mac.</p>
 
     <div class="callout">
       <p>
@@ -97,7 +97,7 @@
     <ul>
       <li><strong>No analytics or telemetry.</strong> The App Store app reports no usage events to the developer.</li>
       <li><strong>No tracking.</strong> No advertising identifiers, fingerprinting, cross-app or cross-site tracking, or data-broker sharing.</li>
-      <li><strong>No third-party SDKs in the app.</strong> The App Store binary uses Apple's frameworks. The separately built command-line and MCP tools described in section 7 are not part of the app binary.</li>
+      <li><strong>No third-party SDKs in the app.</strong> The App Store binary uses Apple's frameworks.</li>
       <li><strong>No developer-operated crash service.</strong> If you enable Apple's system diagnostic sharing, Apple may provide anonymised diagnostics under your Apple settings.</li>
       <li><strong>No advertising.</strong> The app shows none.</li>
     </ul>
@@ -105,7 +105,7 @@
       For App Store purposes, the intended privacy answer is <strong>Data Not Collected</strong>
       because the app does not transmit this data to the developer. This does not cover
       content a user separately and voluntarily submits through GitHub Issues for support,
-      as described in section 9.
+      as described in section 8.
     </p>
 
     <h2>4. No connection to your bank</h2>
@@ -152,17 +152,17 @@
     <p>Three privacy choices are available:</p>
     <ul>
       <li><strong>Complete</strong> includes institution and account names, references, notes and transaction memos.</li>
-      <li><strong>Financial analysis</strong> replaces institution names with aliases and excludes references, notes and memos; account names remain.</li>
+      <li><strong>Financial Analysis</strong> replaces institution names with aliases and excludes references, notes and memos; account names remain.</li>
       <li><strong>Redacted</strong>, the default, replaces institution and account names with export-specific aliases and excludes all user-entered free text.</li>
     </ul>
     <p>
-      Financial analysis and Redacted exports are <strong>pseudonymised, not anonymous</strong>.
+      Financial Analysis and Redacted exports are <strong>pseudonymised, not anonymous</strong>.
       Aliases are consistent within one artifact but change when a new export is generated.
       Stable source UUIDs and relationship identifiers remain, together with amounts, rates,
       dates, currencies, statuses, calculated views, record timestamps, and app, export and
       time-zone metadata. Those retained fields can permit linkage or correlation with other
       information. Review an export before sharing it, particularly when choosing Complete or
-      Financial analysis.
+      Financial Analysis.
     </p>
     <p>
       On Mac, the system save panel writes only to a location you select. On iPhone and iPad,
@@ -170,32 +170,16 @@
       under its own privacy terms. Temporary share files are removed when the flow ends; files
       left by an interrupted process are removed the next time the Export screen opens.
     </p>
-
-    <h2>7. Optional local analysis tools</h2>
     <p>
-      The Maturity source repository provides separately built command-line and Model Context
-      Protocol (MCP) tools for validating and reading an export. These tools are not part of,
-      launched by or registered by the App Store app. They cannot open Maturity's SwiftData
-      store, private iCloud container or other live app data. They operate only on a JSON export
-      explicitly supplied by the user.
-    </p>
-    <p>
-      The MCP server is read-only. It can validate an embedded export and filter summary,
-      deposit, scheduled-cashflow, maturity-ladder, liquidity and attention rows already in
-      that artifact. It has no filesystem browsing, export-path access, network transport,
-      telemetry, record mutation or financial-action tools. It cannot create or edit deposits,
-      record transactions, move money or send instructions back to the app. The complete
-      technical boundary is documented on the <a href="docs.html">Docs page</a>.
-    </p>
-    <p>
-      The local tools do not upload exports by themselves. However, when you supply an export
-      to an MCP client, AI assistant or other analysis application, that client or its service
-      provider receives the artifact and may transmit, process, retain or log it under its own
-      terms. Prefer Redacted exports, inspect the artifact first and use only tools and providers
-      you trust. User-directed sharing does not give Maturity's developer access to the export.
+      If you supply an export to cloud storage, an AI assistant, analysis software, a financial
+      adviser or another recipient, that recipient receives the artifact and may transmit,
+      process, retain or log it under its own terms. Prefer Redacted exports, inspect the
+      artifact first and provide it only to recipients and services you trust. User-directed
+      sharing does not give Maturity's developer access to the export. See the
+      <a href="docs.html">export guide</a> for practical handling guidance.
     </p>
 
-    <h2>8. Deleting your data</h2>
+    <h2>7. Deleting your data</h2>
     <ul>
       <li><strong>Individual records.</strong> Delete deposits or transactions inside the app.</li>
       <li><strong>Delete all data.</strong> The in-app action removes synced accounts, deposits, transactions and settings; clears local preferences and the FX cache on that device; and recreates only the empty scaffolding the app needs to operate.</li>
@@ -208,7 +192,7 @@
       support content you voluntarily submit is handled separately as described below.
     </p>
 
-    <h2>9. Support submissions</h2>
+    <h2>8. Support submissions</h2>
     <p>
       Support is provided through GitHub Issues. GitHub receives content you voluntarily
       submit together with your GitHub identity, and issues and comments may be public and
@@ -219,36 +203,36 @@
       iCloud records.
     </p>
 
-    <h2>10. Children</h2>
+    <h2>9. Children</h2>
     <p>
       Maturity is a personal finance record-keeping tool intended for adults. It is not directed
       at children and does not collect personal information from them through the app.
     </p>
 
-    <h2>11. Your rights</h2>
+    <h2>10. Your rights</h2>
     <p>
       The developer does not receive in-app portfolio records through operation of the app,
       but may hold support content you voluntarily submit. You control portfolio records
       through the app and your iCloud settings. Privacy rights concerning data processed by
       Apple or GitHub are governed by your relationship with those services. Data you
-      separately provide to an MCP client, AI assistant or other recipient is governed by
-      that recipient's terms and controls.
+      separately provide to an AI assistant, analysis service or other recipient is governed
+      by that recipient's terms and controls.
     </p>
 
-    <h2>12. Not financial advice</h2>
+    <h2>11. Not financial advice</h2>
     <p>
       Maturity is a record-keeping and calculation tool. It does not provide financial,
       investment or taxation advice or recommend products or institutions. Bank statements
       and quotes remain authoritative.
     </p>
 
-    <h2>13. Changes to this policy</h2>
+    <h2>12. Changes to this policy</h2>
     <p>
       Material changes will be published on this page with a revised date and reflected in
       the App Store privacy information before the corresponding release.
     </p>
 
-    <h2>14. Contact</h2>
+    <h2>13. Contact</h2>
     <p>
       Questions can be raised at
       <a href="https://github.com/jack-cap/maturity/issues">github.com/jack-cap/maturity/issues</a>.
@@ -266,7 +250,7 @@
     <span>&copy; 2026 Maturity</span>
     <span class="spacer"></span>
     <a href="./">Home</a>
-    <a href="docs.html">Docs</a>
+    <a href="docs.html">Export guide</a>
     <a href="privacy.html">Privacy</a>
     <a href="support.html">Support</a>
   </div>

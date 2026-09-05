@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Export and analysis documentation — Maturity</title>
-<meta name="description" content="Documentation for Maturity schema-v1 JSON exports and the separate read-only command-line and MCP analysis tools.">
+<title>Export guide — Maturity</title>
+<meta name="description" content="How to create, review and safely share local JSON and CSV exports from Maturity.">
 <meta name="color-scheme" content="light dark">
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -18,7 +18,7 @@
     </a>
     <nav class="site" aria-label="Site">
       <a href="./">Home</a>
-      <a href="docs.html">Docs</a>
+      <a href="docs.html">Export guide</a>
       <a href="privacy.html">Privacy</a>
       <a href="support.html">Support</a>
     </nav>
@@ -30,208 +30,105 @@
   <div class="wrap prose">
 
     <h1 style="font-size:clamp(1.7rem,4vw,2.3rem); letter-spacing:-0.025em; margin:0 0 8px;">
-      Export and analysis documentation
+      Export your Maturity data
     </h1>
-    <p class="updated">Schema v1 &middot; Read-only CLI and MCP tools</p>
+    <p class="updated">Schema v1 &middot; Local JSON and CSV exports</p>
 
     <div class="callout">
       <p>
-        <strong>Separate from the App Store app.</strong> These optional developer tools are
-        built from the source repository. The app does not bundle, launch or register them,
-        and they cannot access its SwiftData store, private iCloud container or other live
-        app data. They analyse only a JSON export explicitly supplied by the user or client.
+        <strong>You stay in control.</strong> Maturity creates an export only when you ask.
+        The app hands the finished file to the system save panel or share sheet; it does not
+        upload the file, choose a recipient or send it to the developer.
       </p>
     </div>
 
     <h2>1. Create an export</h2>
     <p>
-      In Maturity, open <strong>Settings &rarr; Data &rarr; Export portfolio</strong>, choose
-      <strong>JSON</strong> and a privacy mode, then press <strong>Export</strong>. Exporting
-      is user-triggered and local. The app hands the completed artifact to the macOS save
-      panel or the iOS and iPadOS share sheet; it does not upload the artifact or select its
-      destination.
+      In Maturity, open <strong>Settings &rarr; Data &rarr; Export portfolio</strong>. Choose
+      a format and privacy mode, review the explanation shown in the app, then press
+      <strong>Export</strong>.
     </p>
+    <p>
+      On Mac, choose a destination in the system save panel. On iPhone and iPad, choose a
+      destination or recipient from the system share sheet. Maturity does not control what
+      happens after you select another app, service or person.
+    </p>
+
+    <h2>2. Choose a privacy mode</h2>
     <ul>
       <li><strong>Redacted</strong> is the default. Institution and account names become export-specific aliases, and user-entered free text is excluded.</li>
-      <li><strong>Financial analysis</strong> aliases institution names and excludes references, notes and memos; account names remain.</li>
+      <li><strong>Financial Analysis</strong> aliases institution names and excludes references, notes and memos; account names remain.</li>
       <li><strong>Complete</strong> includes institution and account names, references, notes and transaction memos.</li>
     </ul>
     <p>
-      Financial analysis and Redacted exports are pseudonymised, not anonymous. Every mode
-      keeps the amounts, rates, dates, currencies and relationship identifiers required for
-      accurate analysis. Review an artifact before sharing it and prefer Redacted unless
-      readable labels are necessary. See the <a href="privacy.html">privacy policy</a> for
-      the complete disclosure.
-    </p>
-    <p>
-      The source-built CLI and MCP tools accept schema-v1 <strong>JSON exports only</strong>.
-      They do not accept <code>.maturitycsv</code> document packages.
+      Financial Analysis and Redacted exports are <strong>pseudonymised, not anonymous</strong>.
+      Every mode retains the amounts, rates, dates, currencies, statuses and relationship
+      identifiers needed to represent the portfolio accurately. Those fields may allow an
+      export to be linked with other information. Review the actual artifact before sharing
+      it and prefer Redacted unless readable labels are necessary.
     </p>
 
-    <h2>2. Build the source tools</h2>
+    <h2>3. JSON snapshot</h2>
     <p>
-      The source and current package instructions live in the
-      <a href="https://github.com/jack-cap/maturity-app">Maturity app repository</a>.
-      From its root, build the Swift package with:
-    </p>
-    <pre><code>swift build</code></pre>
-    <p>
-      The package shares the app's schema-v1 decoding and structural validation code. It
-      does not import the app's SwiftData models or open the app container.
-    </p>
-
-    <h2>3. Validate or query from the command line</h2>
-    <pre><code>swift run maturity validate /path/to/export.json
-cat /path/to/export.json | swift run maturity validate -
-
-swift run maturity summary --currency USD /path/to/export.json
-swift run maturity deposits --status active --maturity-through 2027-08-30 /path/to/export.json
-swift run maturity cashflows --currency USD --date-from 2026-09-01 --is-maturity true /path/to/export.json
-swift run maturity ladder --granularity month --period-through 2027-08-01 /path/to/export.json
-swift run maturity liquidity --currency USD --days 90 /path/to/export.json
-swift run maturity attention --kind awaitingCollection /path/to/export.json</code></pre>
-
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr><th scope="col">Command</th><th scope="col">Optional filters</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><code>summary</code></td><td>Currency</td></tr>
-          <tr><td><code>deposits</code></td><td>Currency, deposit/account ID, status, funding, standing instruction and inclusive maturity-date range</td></tr>
-          <tr><td><code>cashflows</code></td><td>Currency, deposit ID, inclusive date range and maturity flag</td></tr>
-          <tr><td><code>ladder</code></td><td>Currency, month/quarter granularity and inclusive period range</td></tr>
-          <tr><td><code>liquidity</code></td><td>Currency and nominal <code>days</code> selector: <code>0</code>, <code>7</code>, <code>30</code> or <code>90</code></td></tr>
-          <tr><td><code>attention</code></td><td>Currency, item kind, deposit ID and inclusive date range</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p>
-      Liquidity uses inclusive cutoffs. <code>days=0</code> selects Today at exactly 0 days,
-      and <code>days=7</code> selects 1 week at exactly 7 days. <code>days=30</code> and
-      <code>days=90</code> are nominal selectors for the 1 month and 3 months rows, whose
-      app cutoffs are inclusive calendar <code>+1 month</code> and <code>+3 months</code>
-      respectively. They do not mean fixed 30- or 90-day deadlines. Schema v1 records the
-      nominal selector but omits the actual calendar deadline and window kind, so consumers
-      must not infer either field from <code>days</code>.
+      The JSON option creates a versioned, machine-readable snapshot. It contains portfolio
+      records together with precomputed summaries, cashflows, maturity periods, liquidity
+      rows, attention items and export provenance. Values remain separated by currency; the
+      export does not invent a combined total for unlike currencies.
     </p>
     <p>
-      Filters on one command are combined with logical AND. Currency and UUID values are
-      normalised, and dates must be real Gregorian <code>YYYY-MM-DD</code> values. A valid
-      query with no matching rows succeeds with a row count of zero.
-    </p>
-    <p>
-      Results are deterministic JSON envelopes with source provenance and rows already
-      recorded or precomputed in the export. The tools do not recalculate interest,
-      liquidity, maturity ladders, attention items or portfolio totals, and never combine
-      different currencies into a new total.
+      Schema information in the file allows compatible software to identify the format.
+      Treat the complete JSON object as sensitive financial information even when Redacted
+      mode is selected.
     </p>
 
-    <h2>4. Run the read-only MCP server</h2>
-    <pre><code>swift build -c release --product maturity-mcp</code></pre>
+    <h2>4. CSV data package</h2>
     <p>
-      The executable is <code>.build/release/maturity-mcp</code>. It uses MCP over standard
-      input/output, accepts no command-line arguments and writes only protocol messages to
-      standard output. Configure an MCP client with the executable's absolute path. For Kiro:
+      The CSV option creates a <code>.maturitycsv</code> document package containing a
+      <code>manifest.json</code> file and separate, joinable CSV tables. The tables keep
+      related records separate rather than flattening the portfolio into one ambiguous
+      spreadsheet.
     </p>
-    <pre><code>{
-  "mcpServers": {
-    "maturity-analysis": {
-      "command": "/absolute/path/to/Maturity/.build/release/maturity-mcp",
-      "args": [],
-      "disabled": false
-    }
-  }
-}</code></pre>
     <p>
-      Put the entry in the workspace <code>.kiro/settings/mcp.json</code> or user-level
-      <code>~/.kiro/settings/mcp.json</code>. The executable path lets the client start the
-      local process; it does not give the server a path-based export API.
+      On Mac, you can inspect the package in Finder with <strong>Show Package Contents</strong>.
+      Spreadsheet applications may format dates, identifiers, rates or large numbers in their
+      own way, so compare anything important with Maturity and your institution's records.
     </p>
 
-    <h3>Available MCP tools</h3>
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr><th scope="col">Tool</th><th scope="col">Returns</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><code>maturity_validate</code></td><td>Schema-v1 decoding and structural-validation result</td></tr>
-          <tr><td><code>maturity_summary</code></td><td>Precomputed per-currency summaries</td></tr>
-          <tr><td><code>maturity_deposits</code></td><td>Recorded deposit rows</td></tr>
-          <tr><td><code>maturity_cashflows</code></td><td>Precomputed scheduled cashflows</td></tr>
-          <tr><td><code>maturity_ladder</code></td><td>Precomputed monthly or quarterly maturity periods</td></tr>
-          <tr><td><code>maturity_liquidity</code></td><td>Precomputed liquidity rows selected by nominal <code>days</code> value</td></tr>
-          <tr><td><code>maturity_attention</code></td><td>Precomputed attention items</td></tr>
-        </tbody>
-      </table>
-    </div>
+    <h2>5. Share exports safely</h2>
     <p>
-      <code>maturity_liquidity</code> uses the same nominal <code>days</code> selectors
-      <code>0</code>, <code>7</code>, <code>30</code> and <code>90</code> described above.
-      For schema v1, clients receive the precomputed row but not the actual calendar deadline
-      or window kind for the month-based selectors.
+      Maturity does not transmit an export automatically. If you give one to cloud storage,
+      an AI assistant, analysis software, a financial adviser or another person, that
+      recipient receives the artifact and may transmit, process, retain or log it under its
+      own terms. This user-directed sharing does not give Maturity's developer access to the
+      export.
     </p>
-    <p>
-      Every call requires an <code>export</code> argument containing the complete JSON export
-      as an object. Paths, URLs, JSON strings, partial exports, unknown fields and incorrect
-      JSON types are rejected.
-    </p>
-    <pre><code>{
-  "export": {
-    "schemaVersion": 1,
-    "exportID": "...complete export continues here..."
-  },
-  "currency": "USD"
-}</code></pre>
-    <p>
-      The abbreviated object shows argument placement only; an actual call must supply every
-      required schema-v1 field. Each compact embedded export is limited to 32 MiB. The bounded
-      transport rejects oversized newline-delimited input before MCP decoding and admits only
-      one request at a time.
-    </p>
-
-    <h2>5. Security and privacy boundary</h2>
-    <p>The MCP server is stateless and exposes tools only. It provides no:</p>
     <ul>
-      <li>Export-path or URL arguments, filesystem browsing or filesystem-backed resources</li>
-      <li>HTTP or other network transport, exchange-rate fetching or telemetry</li>
-      <li>SwiftData, private CloudKit, app-container or other live-store access</li>
-      <li>Writes, record mutation, transaction recording or financial actions</li>
-      <li>Prompts, roots, sampling, elicitation or logging capabilities</li>
+      <li>Use Redacted mode unless the recipient genuinely needs readable names or notes.</li>
+      <li>Open and inspect the finished artifact before sharing it.</li>
+      <li>Send it only to recipients and services you trust.</li>
+      <li>Store and delete exported copies using the controls provided by their destination.</li>
+      <li>Do not post an export in a public GitHub issue or other public support channel.</li>
     </ul>
     <p>
-      It cannot create or edit deposits, collect or roll over a maturity, transfer money,
-      send instructions to the app, enrich redacted labels or recover excluded free text.
-      Read-only analysis of an explicitly supplied export is the final agent boundary for
-      this release.
+      See the <a href="privacy.html">privacy policy</a> for the complete description of
+      retained fields, local export handling and third-party destinations.
     </p>
 
-    <div class="callout">
-      <p>
-        <strong>Before using an AI or MCP client:</strong> the local server does not upload
-        an export by itself, but the client or its service provider receives the artifact
-        you supply and may transmit, process, retain or log it under its own terms. Prefer a
-        Redacted export, inspect it first and use only clients and providers you trust.
-      </p>
-    </div>
-
-    <h2>6. Current scope</h2>
-    <p>
-      Schema-v1 JSON validation, read-only CLI queries and the read-only MCP stdio server are
-      implemented. <code>.maturitycsv</code> package reading, filesystem-backed MCP resources,
-      network transports, live-store tools and every mutation or financial-action tool are
-      intentionally out of scope. Any future expansion requires a separate privacy and
-      security design, explicit consent model, policy update and review before implementation.
-    </p>
+    <h2>6. What an export does not do</h2>
+    <ul>
+      <li>It does not connect to a bank, validate records against a financial institution or move money.</li>
+      <li>It does not upload itself or expose Maturity's live SwiftData store or private iCloud container.</li>
+      <li>It does not make Financial Analysis or Redacted data anonymous.</li>
+      <li>It does not make calculated figures authoritative over bank statements or quotes.</li>
+    </ul>
 
     <h2>Not financial advice</h2>
     <p>
-      Maturity and its source-built analysis tools are record-keeping and calculation tools.
-      They do not provide financial, investment or taxation advice and do not recommend
-      products or institutions. Exported and queried figures depend on the supplied records;
-      bank statements and quotes remain authoritative. Confirm anything material with your
-      institution or a licensed adviser.
+      Maturity is a record-keeping and calculation tool. It does not provide financial,
+      investment or taxation advice and does not recommend products or institutions.
+      Exported figures depend on the records supplied by the user; bank statements and
+      quotes remain authoritative. Confirm anything material with your institution or a
+      licensed adviser.
     </p>
 
   </div>
@@ -243,7 +140,7 @@ swift run maturity attention --kind awaitingCollection /path/to/export.json</cod
     <span>&copy; 2026 Maturity</span>
     <span class="spacer"></span>
     <a href="./">Home</a>
-    <a href="docs.html">Docs</a>
+    <a href="docs.html">Export guide</a>
     <a href="privacy.html">Privacy</a>
     <a href="support.html">Support</a>
   </div>

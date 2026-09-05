@@ -8,17 +8,14 @@ Published with GitHub Pages at **https://jack-cap.github.io/maturity/**
 | Page | Purpose | Used by App Store Connect as |
 | --- | --- | --- |
 | [`index.html`](index.html) | Landing page | Marketing URL |
-| [`docs.html`](docs.html) | Export, CLI and read-only MCP documentation | — |
+| [`docs.html`](docs.html) | Export guide | — |
 | [`privacy.html`](privacy.html) | Privacy policy | **Privacy Policy URL** (required) |
 | [`support.html`](support.html) | Help, FAQ and contact | **Support URL** (required) |
 
 ## About this repository
 
-This `site` directory is its own Git repository, with the remote
-`jack-cap/maturity`. It is separate from the parent `maturity-app` repository; the app and
-optional source-built analysis tools are not published here. Website changes must be
-committed and pushed from inside this `site` directory so they go to the website remote,
-not the parent repository.
+This `site` directory is a separate website repository. The app source is not published
+here. Website changes must be committed and pushed from inside this `site` directory.
 
 Plain HTML and CSS with no build step, no JavaScript and no third-party requests. The site
 itself does not add analytics, trackers or remote assets.
