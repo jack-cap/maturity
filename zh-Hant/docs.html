@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>匯出指南 — Maturity</title>
+<meta name="description" content="如何從 Maturity 建立、檢查並安全分享本機 JSON 和 CSV 匯出內容。">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="../styles.css">
+<link rel="canonical" href="https://jack-cap.github.io/maturity/zh-Hant/docs.html">
+<link rel="alternate" hreflang="en" href="https://jack-cap.github.io/maturity/docs.html">
+<link rel="alternate" hreflang="de" href="https://jack-cap.github.io/maturity/de/docs.html">
+<link rel="alternate" hreflang="es" href="https://jack-cap.github.io/maturity/es/docs.html">
+<link rel="alternate" hreflang="fr" href="https://jack-cap.github.io/maturity/fr/docs.html">
+<link rel="alternate" hreflang="it" href="https://jack-cap.github.io/maturity/it/docs.html">
+<link rel="alternate" hreflang="ja" href="https://jack-cap.github.io/maturity/ja/docs.html">
+<link rel="alternate" hreflang="ko" href="https://jack-cap.github.io/maturity/ko/docs.html">
+<link rel="alternate" hreflang="pt-PT" href="https://jack-cap.github.io/maturity/pt-PT/docs.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://jack-cap.github.io/maturity/zh-Hans/docs.html">
+<link rel="alternate" hreflang="zh-Hant" href="https://jack-cap.github.io/maturity/zh-Hant/docs.html">
+<link rel="alternate" hreflang="zh-HK" href="https://jack-cap.github.io/maturity/zh-HK/docs.html">
+<link rel="alternate" hreflang="x-default" href="https://jack-cap.github.io/maturity/docs.html">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="./">
+      <span class="glyph" aria-hidden="true">M</span>
+      Maturity
+    </a>
+    <nav class="site" aria-label="網站導覽">
+      <a href="./">首頁</a>
+      <a href="docs.html">匯出指南</a>
+      <a href="../privacy.html" hreflang="en">隱私權政策（英文）</a>
+      <a href="support.html">支援</a>
+      <details class="language-menu">
+        <summary>繁體中文</summary>
+        <ul class="language-options">
+          <li><a href="../docs.html" hreflang="en" lang="en">English</a></li>
+          <li><a href="../de/docs.html" hreflang="de" lang="de">Deutsch</a></li>
+          <li><a href="../es/docs.html" hreflang="es" lang="es">Español</a></li>
+          <li><a href="../fr/docs.html" hreflang="fr" lang="fr">Français</a></li>
+          <li><a href="../it/docs.html" hreflang="it" lang="it">Italiano</a></li>
+          <li><a href="../ja/docs.html" hreflang="ja" lang="ja">日本語</a></li>
+          <li><a href="../ko/docs.html" hreflang="ko" lang="ko">한국어</a></li>
+          <li><a href="../pt-PT/docs.html" hreflang="pt-PT" lang="pt-PT">Português (Portugal)</a></li>
+          <li><a href="../zh-Hans/docs.html" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li>
+          <li><a href="docs.html" hreflang="zh-Hant" lang="zh-Hant" aria-current="page">繁體中文</a></li>
+          <li><a href="../zh-HK/docs.html" hreflang="zh-HK" lang="zh-HK">繁體中文（香港）</a></li>
+        </ul>
+      </details>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section>
+  <div class="wrap prose">
+
+    <h1 style="font-size:clamp(1.7rem,4vw,2.3rem); letter-spacing:-0.025em; margin:0 0 8px;">
+      匯出你的 Maturity 資料
+    </h1>
+    <p class="updated">結構描述 v1 &middot; 本機 JSON 和 CSV 匯出</p>
+
+    <div class="callout">
+      <p>
+        <strong>一切由你掌控。</strong>只有在你要求時，Maturity 才會建立匯出內容。
+        應用程式會把完成的檔案交給系統儲存面板或分享表單；不會上傳檔案、選擇收件者，
+        也不會把檔案傳送給開發者。
+      </p>
+    </div>
+
+    <h2>1. 建立匯出內容</h2>
+    <p>
+      在 Maturity 中開啟<strong>設定 &rarr; 資料 &rarr; 匯出投資組合…</strong>。
+      選擇格式和隱私模式，閱讀應用程式顯示的說明，然後按下<strong>匯出</strong>。
+    </p>
+    <p>
+      在 Mac 上，請從系統儲存面板選擇目的地。在 iPhone 和 iPad 上，
+      請從系統分享表單選擇目的地或收件者。你選擇其他應用程式、服務或人員後，
+      Maturity 無法控制後續處理方式。
+    </p>
+
+    <h2>2. 選擇隱私模式</h2>
+    <ul>
+      <li><strong>已隱去敏感資料</strong>是預設值。金融機構和帳戶名稱會改為該次匯出專用的別名，並排除使用者輸入的自由文字。</li>
+      <li><strong>財務分析</strong>會以別名取代金融機構名稱，並排除參照資料、附註和備忘錄；帳戶名稱則會保留。</li>
+      <li><strong>完成</strong>會包含金融機構和帳戶名稱、參照資料、附註及交易備忘錄。</li>
+    </ul>
+    <p>
+      財務分析和已隱去敏感資料匯出內容都經過<strong>假名化，而非匿名化</strong>。
+      每種模式都會保留精確呈現投資組合所需的金額、利率、日期、貨幣、狀態和關聯識別碼。
+      這些欄位可能讓他人將匯出內容與其他資訊相互連結。分享前請檢查實際產生的成品；
+      除非確實需要可讀標籤，否則請優先使用已隱去敏感資料模式。
+    </p>
+
+    <h2>3. JSON 快照</h2>
+    <p>
+      JSON 選項會建立具版本資訊、可由機器讀取的快照。其中包含投資組合記錄，
+      以及預先計算的摘要、現金流、到期期間、流動性資料列、待處理項目和匯出來源資訊。
+      數值會依貨幣分開保存；匯出內容不會為不同貨幣虛構合併總額。
+    </p>
+    <p>
+      檔案中的結構描述資訊可讓相容軟體辨識格式。即使選擇已隱去敏感資料模式，
+      也應將完整 JSON 物件視為敏感財務資訊。
+    </p>
+
+    <h2>4. CSV 資料套件</h2>
+    <p>
+      CSV 選項會建立副檔名為 <code>.maturitycsv</code> 的文件套件，其中包含
+      <code>manifest.json</code> 檔案和多個可相互聯結的 CSV 表格。
+      這些表格會將相關記錄分開保存，而不是把整個投資組合壓平成一份意義不明的試算表。
+    </p>
+    <p>
+      在 Mac 上，你可以在 Finder 中使用<strong>顯示套件內容</strong>檢查套件。
+      試算表應用程式可能會自行格式化日期、識別碼、利率或大數值，
+      因此重要資料請與 Maturity 和金融機構記錄比對。
+    </p>
+
+    <h2>5. 安全分享匯出內容</h2>
+    <p>
+      Maturity 不會自動傳輸匯出內容。如果你把成品交給雲端儲存空間、AI 助理、分析軟體、
+      財務顧問或其他人，該收件者就會取得成品，並可能依其自身條款傳輸、處理、保留或記錄內容。
+      這類由使用者主動進行的分享不會讓 Maturity 的開發者取得匯出內容。
+    </p>
+    <ul>
+      <li>除非收件者確實需要可讀的名稱或附註，否則請使用已隱去敏感資料模式。</li>
+      <li>分享前，請開啟並檢查完成的成品。</li>
+      <li>只傳送給你信任的收件者和服務。</li>
+      <li>請使用目的地所提供的控制項來儲存和刪除匯出副本。</li>
+      <li>請勿在公開的 GitHub issue 或其他公開支援管道張貼匯出內容。</li>
+    </ul>
+    <p>
+      如需了解保留欄位、本機匯出處理方式和第三方目的地的完整說明，
+      請參閱<a href="../privacy.html" hreflang="en">隱私權政策（英文）</a>。
+    </p>
+
+    <h2>6. 匯出不會執行的事項</h2>
+    <ul>
+      <li>不會連接銀行、不會向金融機構驗證記錄，也不會移動資金。</li>
+      <li>不會自行上傳，也不會公開 Maturity 的即時 SwiftData 儲存區或私人 iCloud 容器。</li>
+      <li>不會讓財務分析或已隱去敏感資料資料成為匿名資料。</li>
+      <li>不會讓計算結果的權威性高於銀行帳單或報價。</li>
+    </ul>
+
+    <h2>非財務建議</h2>
+    <p>
+      Maturity 是一款記錄和計算工具，不提供財務、投資或稅務建議，也不推薦產品或金融機構。
+      匯出數字取決於使用者提供的記錄；仍應以銀行帳單和報價為準。
+      任何重大事項請與你的金融機構或持牌顧問確認。
+    </p>
+
+  </div>
+</section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>&copy; 2026 Maturity</span>
+    <span class="spacer"></span>
+    <a href="./">首頁</a>
+    <a href="docs.html">匯出指南</a>
+    <a href="../privacy.html" hreflang="en">隱私權政策（英文）</a>
+    <a href="support.html">支援</a>
+  </div>
+</footer>
+
+</body>
+</html>

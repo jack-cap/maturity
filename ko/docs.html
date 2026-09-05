@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>내보내기 안내 — Maturity</title>
+<meta name="description" content="Maturity에서 로컬 JSON 및 CSV 내보내기를 만들고 검토하여 안전하게 공유하는 방법입니다.">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="../styles.css">
+<link rel="canonical" href="https://jack-cap.github.io/maturity/ko/docs.html">
+<link rel="alternate" hreflang="en" href="https://jack-cap.github.io/maturity/docs.html">
+<link rel="alternate" hreflang="de" href="https://jack-cap.github.io/maturity/de/docs.html">
+<link rel="alternate" hreflang="es" href="https://jack-cap.github.io/maturity/es/docs.html">
+<link rel="alternate" hreflang="fr" href="https://jack-cap.github.io/maturity/fr/docs.html">
+<link rel="alternate" hreflang="it" href="https://jack-cap.github.io/maturity/it/docs.html">
+<link rel="alternate" hreflang="ja" href="https://jack-cap.github.io/maturity/ja/docs.html">
+<link rel="alternate" hreflang="ko" href="https://jack-cap.github.io/maturity/ko/docs.html">
+<link rel="alternate" hreflang="pt-PT" href="https://jack-cap.github.io/maturity/pt-PT/docs.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://jack-cap.github.io/maturity/zh-Hans/docs.html">
+<link rel="alternate" hreflang="zh-Hant" href="https://jack-cap.github.io/maturity/zh-Hant/docs.html">
+<link rel="alternate" hreflang="zh-HK" href="https://jack-cap.github.io/maturity/zh-HK/docs.html">
+<link rel="alternate" hreflang="x-default" href="https://jack-cap.github.io/maturity/docs.html">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="./">
+      <span class="glyph" aria-hidden="true">M</span>
+      Maturity
+    </a>
+    <nav class="site" aria-label="사이트">
+      <a href="./">홈</a>
+      <a href="docs.html">내보내기 안내</a>
+      <a href="../privacy.html" hreflang="en">개인정보 처리방침(영어)</a>
+      <a href="support.html">지원</a>
+      <details class="language-menu">
+        <summary>한국어</summary>
+        <ul class="language-options">
+          <li><a href="../docs.html" hreflang="en" lang="en">English</a></li>
+          <li><a href="../de/docs.html" hreflang="de" lang="de">Deutsch</a></li>
+          <li><a href="../es/docs.html" hreflang="es" lang="es">Español</a></li>
+          <li><a href="../fr/docs.html" hreflang="fr" lang="fr">Français</a></li>
+          <li><a href="../it/docs.html" hreflang="it" lang="it">Italiano</a></li>
+          <li><a href="../ja/docs.html" hreflang="ja" lang="ja">日本語</a></li>
+          <li><a href="docs.html" hreflang="ko" lang="ko" aria-current="page">한국어</a></li>
+          <li><a href="../pt-PT/docs.html" hreflang="pt-PT" lang="pt-PT">Português (Portugal)</a></li>
+          <li><a href="../zh-Hans/docs.html" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li>
+          <li><a href="../zh-Hant/docs.html" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li>
+          <li><a href="../zh-HK/docs.html" hreflang="zh-HK" lang="zh-HK">繁體中文（香港）</a></li>
+        </ul>
+      </details>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section>
+  <div class="wrap prose">
+
+    <h1 style="font-size:clamp(1.7rem,4vw,2.3rem); letter-spacing:-0.025em; margin:0 0 8px;">
+      Maturity 데이터 내보내기
+    </h1>
+    <p class="updated">Schema v1 &middot; 로컬 JSON 및 CSV 내보내기</p>
+
+    <div class="callout">
+      <p>
+        <strong>사용자가 계속 통제합니다.</strong> Maturity는 사용자가 요청할 때만 내보내기 파일을
+        만듭니다. 앱은 완성된 파일을 시스템 저장 패널 또는 공유 시트로 전달할 뿐, 파일을 업로드하거나
+        수신자를 선택하거나 개발자에게 보내지 않습니다.
+      </p>
+    </div>
+
+    <h2>1. 내보내기 만들기</h2>
+    <p>
+      Maturity에서 <strong>설정 &rarr; 데이터 &rarr; 포트폴리오 내보내기…</strong>를 여세요. 형식과
+      개인정보 보호 모드를 선택하고 앱에 표시되는 설명을 검토한 다음 <strong>내보내기</strong>를 누르세요.
+    </p>
+    <p>
+      Mac에서는 시스템 저장 패널에서 저장 위치를 선택합니다. iPhone과 iPad에서는 시스템 공유 시트에서
+      저장 위치 또는 수신자를 선택합니다. 다른 앱, 서비스 또는 사람을 선택한 뒤의 과정은 Maturity가
+      통제하지 않습니다.
+    </p>
+
+    <h2>2. 개인정보 보호 모드 선택하기</h2>
+    <ul>
+      <li><strong>가림 처리됨</strong>이 기본값입니다. 금융기관 및 계좌 이름은 내보내기별 별칭으로 바뀌고 사용자가 입력한 자유 형식 텍스트는 제외됩니다.</li>
+      <li><strong>재무 분석</strong>은 금융기관 이름을 별칭으로 바꾸고 참조, 참고 사항과 메모를 제외하지만 계좌 이름은 유지합니다.</li>
+      <li><strong>완료</strong>는 금융기관 및 계좌 이름, 참조, 참고 사항과 거래 메모를 포함합니다.</li>
+    </ul>
+    <p>
+      재무 분석 및 가림 처리됨 내보내기는 <strong>가명 처리된 것이며 익명화된 것이 아닙니다</strong>.
+      모든 모드에는 포트폴리오를 정확하게 나타내는 데 필요한 금액, 금리, 날짜, 통화, 상태와 관계 식별자가
+      유지됩니다. 이러한 필드 때문에 내보내기를 다른 정보와 연결할 수 있습니다. 공유하기
+      전에 실제 결과물을 검토하고, 읽을 수 있는 레이블이 꼭 필요하지 않다면 가림 처리됨를 사용하세요.
+    </p>
+
+    <h2>3. JSON 스냅샷</h2>
+    <p>
+      JSON 옵션은 버전이 지정된 기계 판독 가능 스냅샷을 만듭니다. 포트폴리오 기록과 함께 미리 계산된
+      요약, 현금 흐름, 만기 기간, 유동성 행, 주의가 필요한 항목과 내보내기 출처 정보가 포함됩니다.
+      값은 통화별로 계속 구분되며, 내보내기가 서로 다른 통화를 합친 총액을 임의로 만들지 않습니다.
+    </p>
+    <p>
+      파일의 스키마 정보를 통해 호환 소프트웨어가 형식을 식별할 수 있습니다. 가림 처리됨 모드를
+      선택했더라도 전체 JSON 객체를 민감한 금융 정보로 취급하세요.
+    </p>
+
+    <h2>4. CSV 데이터 패키지</h2>
+    <p>
+      CSV 옵션은 <code>manifest.json</code> 파일과 서로 연결할 수 있는 별도의 CSV 표가 들어 있는
+      <code>.maturitycsv</code> 문서 패키지를 만듭니다. 포트폴리오를 의미가 불분명한 하나의 스프레드시트로
+      평면화하지 않고 관련 기록을 별도 표로 구분해 유지합니다.
+    </p>
+    <p>
+      Mac에서는 Finder에서 <strong>패키지 내용 보기</strong>를 선택해 패키지를 살펴볼 수 있습니다.
+      스프레드시트 앱은 날짜, 식별자, 금리 또는 큰 숫자를 자체 방식으로 표시할 수 있으므로 중요한 내용은
+      Maturity 및 금융기관의 기록과 비교하세요.
+    </p>
+
+    <h2>5. 내보내기 안전하게 공유하기</h2>
+    <p>
+      Maturity는 내보내기 파일을 자동으로 전송하지 않습니다. 클라우드 저장 공간, AI 도우미, 분석
+      소프트웨어, 재무 자문가 또는 다른 사람에게 파일을 전달하면 해당 수신자가 결과물을 받으며, 자체
+      약관에 따라 이를 전송, 처리, 보관 또는 기록할 수 있습니다. 사용자가 직접 시작한 이러한 공유로
+      Maturity 개발자가 내보내기에 접근할 수 있게 되는 것은 아닙니다.
+    </p>
+    <ul>
+      <li>수신자에게 읽을 수 있는 이름이나 참고 사항이 꼭 필요하지 않다면 가림 처리됨 모드를 사용하세요.</li>
+      <li>공유하기 전에 완성된 결과물을 열어 검토하세요.</li>
+      <li>신뢰하는 수신자와 서비스에만 보내세요.</li>
+      <li>내보낸 사본은 저장 대상에서 제공하는 기능을 사용해 보관하고 삭제하세요.</li>
+      <li>공개 GitHub 이슈나 그 밖의 공개 지원 채널에 내보내기 파일을 게시하지 마세요.</li>
+    </ul>
+    <p>
+      유지되는 필드, 로컬 내보내기 처리와 제3자 전송 대상에 관한 전체 설명은
+      <a href="../privacy.html" hreflang="en">개인정보 처리방침(영어)</a>을 참조하세요.
+    </p>
+
+    <h2>6. 내보내기가 하지 않는 일</h2>
+    <ul>
+      <li>은행에 연결하거나, 금융기관을 통해 기록을 검증하거나, 돈을 이동하지 않습니다.</li>
+      <li>스스로 업로드되거나 Maturity의 실제 SwiftData 저장소 또는 비공개 iCloud 컨테이너를 노출하지 않습니다.</li>
+      <li>재무 분석 또는 가림 처리됨 데이터를 익명으로 만들지 않습니다.</li>
+      <li>계산된 수치를 은행 명세서나 제시 금액보다 더 권위 있는 정보로 만들지 않습니다.</li>
+    </ul>
+
+    <h2>금융 자문이 아닙니다</h2>
+    <p>
+      Maturity는 기록 관리 및 계산 도구입니다. 금융, 투자 또는 세무 자문을 제공하지 않으며 상품이나
+      금융기관을 추천하지 않습니다. 내보낸 수치는 사용자가 제공한 기록을 바탕으로 하며, 은행 명세서와
+      제시 금액이 기준입니다. 중요한 사항은 해당 금융기관 또는 면허를 보유한 자문가와 확인하세요.
+    </p>
+
+  </div>
+</section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>&copy; 2026 Maturity</span>
+    <span class="spacer"></span>
+    <a href="./">홈</a>
+    <a href="docs.html">내보내기 안내</a>
+    <a href="../privacy.html" hreflang="en">개인정보 처리방침(영어)</a>
+    <a href="support.html">지원</a>
+  </div>
+</footer>
+
+</body>
+</html>

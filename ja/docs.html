@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>エクスポートガイド — Maturity</title>
+<meta name="description" content="MaturityからローカルのJSONおよびCSVエクスポートを作成、確認し、安全に共有する方法。">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="../styles.css">
+<link rel="canonical" href="https://jack-cap.github.io/maturity/ja/docs.html">
+<link rel="alternate" hreflang="en" href="https://jack-cap.github.io/maturity/docs.html">
+<link rel="alternate" hreflang="de" href="https://jack-cap.github.io/maturity/de/docs.html">
+<link rel="alternate" hreflang="es" href="https://jack-cap.github.io/maturity/es/docs.html">
+<link rel="alternate" hreflang="fr" href="https://jack-cap.github.io/maturity/fr/docs.html">
+<link rel="alternate" hreflang="it" href="https://jack-cap.github.io/maturity/it/docs.html">
+<link rel="alternate" hreflang="ja" href="https://jack-cap.github.io/maturity/ja/docs.html">
+<link rel="alternate" hreflang="ko" href="https://jack-cap.github.io/maturity/ko/docs.html">
+<link rel="alternate" hreflang="pt-PT" href="https://jack-cap.github.io/maturity/pt-PT/docs.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://jack-cap.github.io/maturity/zh-Hans/docs.html">
+<link rel="alternate" hreflang="zh-Hant" href="https://jack-cap.github.io/maturity/zh-Hant/docs.html">
+<link rel="alternate" hreflang="zh-HK" href="https://jack-cap.github.io/maturity/zh-HK/docs.html">
+<link rel="alternate" hreflang="x-default" href="https://jack-cap.github.io/maturity/docs.html">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="./">
+      <span class="glyph" aria-hidden="true">M</span>
+      Maturity
+    </a>
+    <nav class="site" aria-label="サイト">
+      <a href="./">ホーム</a>
+      <a href="docs.html">エクスポートガイド</a>
+      <a href="../privacy.html" hreflang="en">プライバシー（英語）</a>
+      <a href="support.html">サポート</a>
+      <details class="language-menu">
+        <summary>日本語</summary>
+        <ul class="language-options">
+          <li><a href="../docs.html" hreflang="en">English</a></li>
+          <li><a href="../de/docs.html" hreflang="de">Deutsch</a></li>
+          <li><a href="../es/docs.html" hreflang="es">Español</a></li>
+          <li><a href="../fr/docs.html" hreflang="fr">Français</a></li>
+          <li><a href="../it/docs.html" hreflang="it">Italiano</a></li>
+          <li><a href="docs.html" hreflang="ja" aria-current="page">日本語</a></li>
+          <li><a href="../ko/docs.html" hreflang="ko">한국어</a></li>
+          <li><a href="../pt-PT/docs.html" hreflang="pt-PT">Português (Portugal)</a></li>
+          <li><a href="../zh-Hans/docs.html" hreflang="zh-Hans">简体中文</a></li>
+          <li><a href="../zh-Hant/docs.html" hreflang="zh-Hant">繁體中文</a></li>
+          <li><a href="../zh-HK/docs.html" hreflang="zh-HK">繁體中文（香港）</a></li>
+        </ul>
+      </details>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section>
+  <div class="wrap prose">
+
+    <h1 style="font-size:clamp(1.7rem,4vw,2.3rem); letter-spacing:-0.025em; margin:0 0 8px;">
+      Maturityのデータをエクスポート
+    </h1>
+    <p class="updated">Schema v1 &middot; ローカルJSONおよびCSVエクスポート</p>
+
+    <div class="callout">
+      <p>
+        <strong>管理するのはご自身です。</strong>Maturityがエクスポートを作成するのは、利用者が明示的に操作したときだけです。
+        アプリは完成したファイルをシステムの保存パネルまたは共有シートに渡しますが、ファイルをアップロードしたり、
+        送信先を選んだり、開発者へ送信したりすることはありません。
+      </p>
+    </div>
+
+    <h2>1. エクスポートを作成する</h2>
+    <p>
+      Maturityで<strong>設定 &rarr; データ &rarr; ポートフォリオをエクスポート…</strong>を開きます。
+      形式とプライバシーモードを選び、アプリに表示される説明を確認してから<strong>エクスポート</strong>を押します。
+    </p>
+    <p>
+      Macでは、システムの保存パネルで保存先を選びます。iPhoneとiPadでは、システムの共有シートから保存先または受取人を選びます。
+      別のアプリ、サービス、または人を選択した後に何が起きるかをMaturityが管理することはありません。
+    </p>
+
+    <h2>2. プライバシーモードを選ぶ</h2>
+    <ul>
+      <li><strong>匿名化</strong>がデフォルトです。金融機関名と口座名はエクスポートごとに固有の別名に置き換えられ、利用者が入力した自由記述テキストは除外されます。</li>
+      <li><strong>財務分析</strong>では、金融機関名が別名に置き換えられ、参照情報、注記、メモが除外されます。口座名は残ります。</li>
+      <li><strong>完了</strong>では、金融機関名、口座名、参照情報、注記、取引メモが含まれます。</li>
+    </ul>
+    <p>
+      財務分析と匿名化のエクスポートは、<strong>仮名化されたものであり、匿名ではありません</strong>。
+      どのモードでも、ポートフォリオを正確に表すために必要な金額、金利、日付、通貨、ステータス、関係識別子は保持されます。
+      これらの項目から、エクスポートが他の情報と結び付けられる可能性があります。共有する前に実際の成果物を確認し、
+      読み取れるラベルが必要な場合を除いて匿名化を選んでください。
+    </p>
+
+    <h2>3. JSONスナップショット</h2>
+    <p>
+      JSONオプションは、バージョン管理された機械可読のスナップショットを作成します。
+      ポートフォリオの記録に加え、事前計算済みのサマリー、キャッシュフロー、満期期間、流動性の行、要確認項目、
+      エクスポートの来歴が含まれます。値は通貨ごとに分けたままで、異なる通貨をまとめた合計をエクスポートが作り出すことはありません。
+    </p>
+    <p>
+      ファイル内のスキーマ情報により、対応ソフトウェアが形式を識別できます。
+      匿名化モードを選んだ場合でも、JSONオブジェクト全体を機密性のある金融情報として扱ってください。
+    </p>
+
+    <h2>4. CSVデータパッケージ</h2>
+    <p>
+      CSVオプションは、<code>manifest.json</code>ファイルと、相互に結合できる複数のCSV表を含む
+      <code>.maturitycsv</code>ドキュメントパッケージを作成します。
+      関連する記録を曖昧な一つのスプレッドシートに平坦化せず、別々の表として保持します。
+    </p>
+    <p>
+      Macでは、Finderの<strong>パッケージの内容を表示</strong>からパッケージを確認できます。
+      スプレッドシートアプリケーションは、日付、識別子、金利、大きな数値を独自の形式で表示する場合があります。
+      重要な内容はMaturityおよび金融機関の記録と照合してください。
+    </p>
+
+    <h2>5. エクスポートを安全に共有する</h2>
+    <p>
+      Maturityがエクスポートを自動送信することはありません。クラウドストレージ、AIアシスタント、分析ソフトウェア、
+      ファイナンシャルアドバイザー、または他の人に渡した場合、その受取先が成果物を受け取り、独自の規約に基づいて送信、処理、
+      保持、記録する可能性があります。このように利用者自身が共有しても、Maturityの開発者がエクスポートへアクセスできるようにはなりません。
+    </p>
+    <ul>
+      <li>受取先が読み取れる名称や注記を本当に必要とする場合を除き、匿名化モードを使用してください。</li>
+      <li>共有する前に、完成した成果物を開いて確認してください。</li>
+      <li>信頼できる受取人とサービスにだけ送信してください。</li>
+      <li>保存先が提供する管理機能を使って、エクスポートしたコピーを保存・削除してください。</li>
+      <li>公開のGitHub Issueや、その他の公開サポート窓口にはエクスポートを投稿しないでください。</li>
+    </ul>
+    <p>
+      保持される項目、ローカルでのエクスポート処理、第三者の送信先についての完全な説明は、
+      <a href="../privacy.html" hreflang="en">プライバシーポリシー（英語）</a>をご覧ください。
+    </p>
+
+    <h2>6. エクスポートが行わないこと</h2>
+    <ul>
+      <li>銀行への接続、金融機関の記録との照合、資金の移動は行いません。</li>
+      <li>自動でアップロードされることはなく、Maturityが現在使用しているSwiftDataストアやプライベートなiCloudコンテナを公開することもありません。</li>
+      <li>財務分析または匿名化のデータを匿名にするものではありません。</li>
+      <li>計算値を、銀行の明細や提示額より正式な値にするものではありません。</li>
+    </ul>
+
+    <h2>金融上の助言ではありません</h2>
+    <p>
+      Maturityは記録および計算ツールです。財務、投資、または税務に関する助言を提供せず、
+      商品や金融機関を推奨することもありません。エクスポートされた数値は利用者が入力した記録に基づき、
+      銀行の明細と提示額が引き続き正式な情報です。重要な事項については、金融機関または公認アドバイザーにご確認ください。
+    </p>
+
+  </div>
+</section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>&copy; 2026 Maturity</span>
+    <span class="spacer"></span>
+    <a href="./">ホーム</a>
+    <a href="docs.html">エクスポートガイド</a>
+    <a href="../privacy.html" hreflang="en">プライバシー（英語）</a>
+    <a href="support.html">サポート</a>
+  </div>
+</footer>
+
+</body>
+</html>

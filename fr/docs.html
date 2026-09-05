@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guide d’exportation — Maturity</title>
+<meta name="description" content="Comment créer, vérifier et partager en toute sécurité des exportations JSON et CSV locales depuis Maturity.">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="../styles.css">
+<link rel="canonical" href="https://jack-cap.github.io/maturity/fr/docs.html">
+<link rel="alternate" hreflang="en" href="https://jack-cap.github.io/maturity/docs.html">
+<link rel="alternate" hreflang="de" href="https://jack-cap.github.io/maturity/de/docs.html">
+<link rel="alternate" hreflang="es" href="https://jack-cap.github.io/maturity/es/docs.html">
+<link rel="alternate" hreflang="fr" href="https://jack-cap.github.io/maturity/fr/docs.html">
+<link rel="alternate" hreflang="it" href="https://jack-cap.github.io/maturity/it/docs.html">
+<link rel="alternate" hreflang="ja" href="https://jack-cap.github.io/maturity/ja/docs.html">
+<link rel="alternate" hreflang="ko" href="https://jack-cap.github.io/maturity/ko/docs.html">
+<link rel="alternate" hreflang="pt-PT" href="https://jack-cap.github.io/maturity/pt-PT/docs.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://jack-cap.github.io/maturity/zh-Hans/docs.html">
+<link rel="alternate" hreflang="zh-Hant" href="https://jack-cap.github.io/maturity/zh-Hant/docs.html">
+<link rel="alternate" hreflang="zh-HK" href="https://jack-cap.github.io/maturity/zh-HK/docs.html">
+<link rel="alternate" hreflang="x-default" href="https://jack-cap.github.io/maturity/docs.html">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="./">
+      <span class="glyph" aria-hidden="true">M</span>
+      Maturity
+    </a>
+    <nav class="site" aria-label="Navigation du site">
+      <a href="./">Accueil</a>
+      <a href="docs.html">Guide d’exportation</a>
+      <a href="../privacy.html" hreflang="en">Confidentialité (en anglais)</a>
+      <a href="support.html">Assistance</a>
+      <details class="language-menu">
+        <summary>Français</summary>
+        <div class="language-options">
+          <a href="../docs.html">English</a>
+          <a href="../de/docs.html">Deutsch</a>
+          <a href="../es/docs.html">Español</a>
+          <a href="docs.html" aria-current="page">Français</a>
+          <a href="../it/docs.html">Italiano</a>
+          <a href="../ja/docs.html">日本語</a>
+          <a href="../ko/docs.html">한국어</a>
+          <a href="../pt-PT/docs.html">Português (Portugal)</a>
+          <a href="../zh-Hans/docs.html">简体中文</a>
+          <a href="../zh-Hant/docs.html">繁體中文</a>
+          <a href="../zh-HK/docs.html">繁體中文（香港）</a>
+        </div>
+      </details>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section>
+  <div class="wrap prose">
+
+    <h1 style="font-size:clamp(1.7rem,4vw,2.3rem); letter-spacing:-0.025em; margin:0 0 8px;">
+      Exporter vos données Maturity
+    </h1>
+    <p class="updated">Schéma v1 &middot; Exportations JSON et CSV locales</p>
+
+    <div class="callout">
+      <p>
+        <strong>Vous gardez le contrôle.</strong> Maturity ne crée une exportation qu’à votre
+        demande. L’app remet le fichier terminé au panneau d’enregistrement ou à la feuille de
+        partage du système ; elle ne téléverse pas le fichier, ne choisit aucun destinataire et
+        ne l’envoie pas au développeur.
+      </p>
+    </div>
+
+    <h2>1. Créer une exportation</h2>
+    <p>
+      Dans Maturity, ouvrez <strong>Réglages &rarr; Données &rarr; Exporter le portefeuille…</strong>.
+      Choisissez un format et un mode de confidentialité, consultez l’explication affichée dans
+      l’app, puis appuyez sur <strong>Exporter</strong>.
+    </p>
+    <p>
+      Sur Mac, choisissez une destination dans le panneau d’enregistrement du système. Sur iPhone
+      et iPad, choisissez une destination ou un destinataire dans la feuille de partage du système.
+      Maturity ne contrôle pas ce qui se passe après votre sélection d’une autre app, d’un service ou d’une personne.
+    </p>
+
+    <h2>2. Choisir un mode de confidentialité</h2>
+    <ul>
+      <li><strong>Masqué</strong> est le mode par défaut. Les noms d’établissements et de comptes sont remplacés par des alias propres à l’exportation, et le texte libre saisi par l’utilisateur est exclu.</li>
+      <li><strong>Analyse financière</strong> remplace les noms d’établissements par des alias et exclut les références, notes et mémos ; les noms de comptes sont conservés.</li>
+      <li><strong>Terminé</strong> inclut les noms d’établissements et de comptes, les références, les notes et les mémos de transaction.</li>
+    </ul>
+    <p>
+      Les exportations Analyse financière et Masqué sont <strong>pseudonymisées, et non anonymes</strong>.
+      Tous les modes conservent les montants, taux, dates, devises, statuts et identifiants de relation
+      nécessaires pour représenter fidèlement le portefeuille. Ces champs peuvent permettre de relier
+      une exportation à d’autres informations. Vérifiez le fichier obtenu avant de le partager et
+      privilégiez le mode Masqué, sauf si des libellés lisibles sont nécessaires.
+    </p>
+
+    <h2>3. Instantané JSON</h2>
+    <p>
+      L’option JSON crée un instantané versionné et lisible par une machine. Il contient les
+      enregistrements du portefeuille ainsi que des synthèses, flux de trésorerie, périodes d’échéance,
+      lignes de liquidité, éléments nécessitant votre attention et informations de provenance de
+      l’exportation précalculés. Les valeurs restent séparées par devise ; l’exportation n’invente
+      aucun total combiné pour des devises différentes.
+    </p>
+    <p>
+      Les informations de schéma du fichier permettent aux logiciels compatibles d’identifier le
+      format. Traitez l’objet JSON complet comme une information financière sensible, même lorsque
+      le mode Masqué est sélectionné.
+    </p>
+
+    <h2>4. Paquet de données CSV</h2>
+    <p>
+      L’option CSV crée un paquet de document <code>.maturitycsv</code> contenant un fichier
+      <code>manifest.json</code> et des tableaux CSV distincts pouvant être reliés entre eux. Les
+      tableaux conservent les enregistrements associés dans des ensembles distincts plutôt que
+      d’aplatir le portefeuille dans une seule feuille de calcul ambiguë.
+    </p>
+    <p>
+      Sur Mac, vous pouvez inspecter le paquet dans le Finder avec <strong>Afficher le contenu du
+      paquet</strong>. Les tableurs peuvent appliquer leur propre mise en forme aux dates,
+      identifiants, taux ou grands nombres ; comparez toute information importante avec Maturity
+      et les relevés de votre établissement.
+    </p>
+
+    <h2>5. Partager les exportations en toute sécurité</h2>
+    <p>
+      Maturity ne transmet jamais automatiquement une exportation. Si vous la confiez à un espace
+      de stockage dans le cloud, à un assistant d’IA, à un logiciel d’analyse, à un conseiller
+      financier ou à une autre personne, ce destinataire reçoit le fichier et peut le transmettre,
+      le traiter, le conserver ou le journaliser selon ses propres conditions. Ce partage décidé
+      par l’utilisateur ne donne pas accès à l’exportation au développeur de Maturity.
+    </p>
+    <ul>
+      <li>Utilisez le mode Masqué, sauf si le destinataire a réellement besoin de noms ou de notes lisibles.</li>
+      <li>Ouvrez et inspectez le fichier terminé avant de le partager.</li>
+      <li>Envoyez-le uniquement à des destinataires et services auxquels vous faites confiance.</li>
+      <li>Stockez et supprimez les copies exportées à l’aide des commandes proposées par leur destination.</li>
+      <li>Ne publiez pas une exportation dans un ticket GitHub public ni dans un autre canal d’assistance public.</li>
+    </ul>
+    <p>
+      Consultez la <a href="../privacy.html" hreflang="en">politique de confidentialité (en anglais)</a>
+      pour la description complète des champs conservés, du traitement local des exportations et des
+      destinations tierces.
+    </p>
+
+    <h2>6. Ce qu’une exportation ne fait pas</h2>
+    <ul>
+      <li>Elle ne se connecte pas à une banque, ne valide pas les enregistrements auprès d’un établissement financier et ne déplace aucun argent.</li>
+      <li>Elle ne se téléverse pas elle-même et n’expose ni la base SwiftData active de Maturity ni son conteneur iCloud privé.</li>
+      <li>Elle ne rend pas anonymes les données Analyse financière ou Masqué.</li>
+      <li>Elle ne rend pas les chiffres calculés plus fiables que les relevés ou devis bancaires.</li>
+    </ul>
+
+    <h2>Pas un conseil financier</h2>
+    <p>
+      Maturity est un outil de tenue de registre et de calcul. Il ne fournit pas de conseils
+      financiers, d’investissement ou fiscaux et ne recommande aucun produit ni établissement.
+      Les chiffres exportés dépendent des enregistrements fournis par l’utilisateur ; les relevés
+      et devis bancaires font foi. Vérifiez tout élément important auprès de votre établissement
+      ou d’un conseiller agréé.
+    </p>
+
+  </div>
+</section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>&copy; 2026 Maturity</span>
+    <span class="spacer"></span>
+    <a href="./">Accueil</a>
+    <a href="docs.html">Guide d’exportation</a>
+    <a href="../privacy.html" hreflang="en">Confidentialité (en anglais)</a>
+    <a href="support.html">Assistance</a>
+  </div>
+</footer>
+
+</body>
+</html>
